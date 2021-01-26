@@ -6,9 +6,12 @@
     {% for article in articles %}
     <li class="list-group-item">
         <h1><a href="articles/{{article.id}}" class="d-block mb-3">{{article.title}}</a></h1>
-        {% set news = article.body[0:600] %}
-        {{ news | safe }} ...
-        <a href="/articles/{{article.id}}">więcej</a>
+
+        {% set news = article.body[0:1000] %}
+        {{ news | safe }}
+        {% if article.body|length > 1000 %}
+        <a href="/articles/{{article.id}}">...<strong> więcej</strong></a>
+        {% endif %}
 
     </li>
     {% endfor %}
