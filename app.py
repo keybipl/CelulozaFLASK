@@ -26,7 +26,9 @@ mysql = MySQL(app)
 def news():
     return render_template('home.html')
 
+
 # Artykuły
+ROWS_PER_PAGE = 3
 
 
 @app.route("/articles")
