@@ -37,7 +37,7 @@ def home():
     cur = mysql.connection.cursor()
 
     # get articles
-    result = cur.execute("SELECT * FROM articles")
+    result = cur.execute("SELECT * FROM articles ORDER BY id DESC")
 
     articles = cur.fetchall()
 
