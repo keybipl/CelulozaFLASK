@@ -1,54 +1,22 @@
-from flask import Flask, render_template, redirect, flash, url_for, session, request, logging, g
+from flask import Flask, render_template, redirect, flash, url_for, session, request, logging
 from data import news
+from flask_mysqldb import MySQL
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
-import sqlite3
 
 app = Flask(__name__)
 
+
+# Config MySQL
+app.config['MYSQL_HOST'] = 'serwer1926689.home.pl'
+app.config['MYSQL_USER'] = '31624366_celuloza'
+app.config['MYSQL_PASSWORD'] = 'Celuloza2020'
+app.config['MYSQL_DB'] = '31624366_celuloza'
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 app.config['SECRET_KEY'] = 'secret123'
-
-# Config sqlite
-
-DATABASE = 'news.db'
-
-
-def get_db():
-    db = getattr(g, '_database', None)
-    if db is None:
-        db = g._database = sqlite3.connect(DATABASE)
-    return db
-
-
-@app.teardown_appcontext
-def close_connection(exception):
-    db = getattr(g, '_database', None)
-    if db is not None:
-        db.close()
-
-# def connect_db():
-#     sql = sqlite3.connect('news.db')
-#     sql.row_factory = sqlite3.Row
-#     return sql
-
-
-# def get_db():
-#     if not hasattr(g, 'sqlite3'):
-#         g.sqlite_db = connect_db()
-#     return g.sqlite_db
-
-
-def query_db(query, args=(), one=False):
-    cur = get_db().execute(query, args)
-    rv = cur.fetchall()
-    cur.close()
-    return (rv[0] if rv else None) if one else rv
-
-
-def make_dicts(cursor, row):
-    return dict((cursor.description[idx][0], value)
-                for idx, value in enumerate(row))
+# init MYSQL
+mysql = MySQL(app)
 
 
 # articles = news()
@@ -60,10 +28,12 @@ def news():
 
 
 # Artykuły
+
+
 @app.route("/articles")
 def home():
     # Create cursor
-    cur = get_db()
+    cur = mysql.connection.cursor()
 
     # get articles
     result = cur.execute("SELECT * FROM articles ORDER BY id DESC")
@@ -168,16 +138,13 @@ def register():
         password = sha256_crypt.encrypt(str(form.password.data))
 
         # create cursor
-        cur = get_db()
+        cur = mysql.connection.cursor()
 
-        cur.execute(
-            "INSERT INTO users (name, email, username, password) VALUES (?,?,?,?)", (name, email, username, password))
-
-        # cur.execute("INSERT INTO users(name, email, username, password) VALUES(%s, %s, %s, %s)",
-        #             (name, email, username, password))
+        cur.execute("INSERT INTO users(name, email, username, password) VALUES(%s, %s, %s, %s)",
+                    (name, email, username, password))
 
         # commit to DB
-        cur.commit()
+        mysql.connection.commit()
 
         # close connection
         cur.close()
@@ -198,20 +165,16 @@ def login():
         password_candidate = request.form['password']
 
         # Create cursor
-        cur = get_db()
+        cur = mysql.connection.cursor()
 
         # Get user by username
         result = cur.execute(
-            "SELECT * FROM users WHERE username = ?", [username])
+            "SELECT * FROM users WHERE username = %s", [username])
 
-        if result is None:
-            error = 'Użytkownik nie znaleziony'
-            return render_template('login.html', error=error)
-        else:
+        if result > 0:
             # Get stored hash
-            data = result
-            password = data.fetchall()[0][4]
-            # password = data['password']
+            data = cur.fetchone()
+            password = data['password']
 
             # compare passwords
             if sha256_crypt.verify(password_candidate, password):
@@ -227,6 +190,9 @@ def login():
 
             # Close connection
             cur.close()
+        else:
+            error = 'Użytkownik nie znaleziony'
+            return render_template('login.html', error=error)
 
     return render_template('login.html')
 

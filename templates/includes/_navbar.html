@@ -1,4 +1,64 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<div class="navigation">
+  <nav class="navbar position-fixed w-100 navbar-expand-lg navbar-dark bg-primary text-uppercase">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='images/logo.png') }}" alt=""
+          width="80" height="80">TS Celuloza
+        <span class="d-inline d-none d-xl-inline">Kostrzyn</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/articles">Aktualności</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="teams" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Klub
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="teams">
+              <li><a class="dropdown-item" href="/history">Historia</a></li>
+              <li><a class="dropdown-item" href="/board">Zarząd</a></li>
+              <li><a class="dropdown-item" href="/team">Kadra</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="club" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Rozgrywki
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="club">
+              <li><a class="dropdown-item" href="/schedule">terminarz</a></li>
+              <li><a class="dropdown-item" href="/table">tabela</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="club" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Akademia
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="club">
+              <li><a class="dropdown-item" href="/juniors">Junior Starszy</a></li>
+              <li><a class="dropdown-item" href="/juniorm">Junior Młodszy</a></li>
+              <li><a class="dropdown-item" href="/tramp">Trampkarz</a></li>
+              <li><a class="dropdown-item" href="/uks">UKS Celuloza</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/sponsorzy.html">Sponsorzy</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
     <a class="navbar-brand" href="#">TS Celuloza</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -103,4 +163,4 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
-</nav>
+</nav> -->

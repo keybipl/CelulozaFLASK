@@ -1,0 +1,35 @@
+header {
+    height: 106px;
+}
+
+.container .navbar-brand img {
+    margin-right: 20px;
+}
+
+.navbar {
+    z-index: 1030;
+}
+
+.container .navbar-brand {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#navbarDropdown {
+    text-transform: uppercase;
+    font-size: 21px;
+}
+
+.nav-item {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.nav-item:last-child {
+    margin-right: 0;
+}
+
+.dropdown-item {
+    text-transform: uppercase;
+}
