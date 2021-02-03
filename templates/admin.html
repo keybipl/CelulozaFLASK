@@ -6,7 +6,9 @@
     <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
     {% if session.logged_in == NULL %}
     <a href="/register" class="btn btn-primary btn-lg">Rejestracja</a>
-    <a href="login" class="btn btn-success btn-lg">Logowanie</a>
+    <a href="/login" class="btn btn-success btn-lg">Logowanie</a>
+    {% else %}
+    <a href="/dashboard" class="btn btn-success btn-lg">Panel administrayjny</a>
     {% endif %}
 </div>
 {% endblock %}

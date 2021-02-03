@@ -2,24 +2,18 @@
 
 {% block body %}
 
-<nav aria-label="Page navigation example">
-    <ul class="pagination">
-        <li id="previous-page"><a class="page-link" href="javascript:void(0)" aria-label=Previous><span
-                    aria-hidden=true>&laquo;</span></a></li>
-    </ul>
-</nav>
-
 <h1 class="mb-3">Aktualności</h1>
 <ul id="page" class="list-group">
     {% for article in articles %}
     <li class="list-group-item">
-        <h1 class="mt-2"><a href="articles/{{article[0]}}" class="d-block mb-0">{{article[1]}}</a></h1>
+        <h2 class="mt-2"><a href="articles/{{article[0]}}" class="d-block mb-0 text-decoration-none">{{article[1]}}</a>
+        </h2>
         <small class="mb-3">Dodane dnia <b>{{article[4][8:10]}}.{{article[4][5:7]}}.{{article[4][0:4]}}</b> o godzinie
             {{article[4][11:16]}}</small>
 
 
         {% set news = article[3][0:1000] %}
-        <p>{{ news | safe }}</p>
+        <div class="fs-5 mt-3">{{ news | safe }}</div>
         {% if article[3]|length > 1000 %}
         <a href="/articles/{{article[0]}}">...<strong> więcej</strong></a>
         {% endif %}
@@ -27,4 +21,11 @@
     </li>
     {% endfor %}
 </ul>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination mt-4">
+        <li id="previous-page"><a class="page-link" href="javascript:void(0)" aria-label=Previous><span
+                    aria-hidden=true>&laquo;</span></a></li>
+    </ul>
+</nav>
 {% endblock %}

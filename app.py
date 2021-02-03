@@ -27,17 +27,6 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
-# def connect_db():
-#     sql = sqlite3.connect('news.db')
-#     sql.row_factory = sqlite3.Row
-#     return sql
-
-
-# def get_db():
-#     if not hasattr(g, 'sqlite3'):
-#         g.sqlite_db = connect_db()
-#     return g.sqlite_db
-
 
 def query_db(query, args=(), one=False):
     cur = get_db().execute(query, args)
@@ -56,7 +45,9 @@ def make_dicts(cursor, row):
 
 @app.route("/")
 def news():
-    return render_template('home.html')
+    slider = True
+    return render_template('home.html', slider=slider)
+
 
 @app.route("/admin")
 def admin():
