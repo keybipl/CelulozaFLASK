@@ -1,9 +1,9 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-<h1>{{article.title}}</h1>
-<small>Dodane przez {{article.author }} dnia {{article.create_date}}</small>
+<h1>{{article[1]}}</h1>
+<small>Dodane przez {{article[2]}} dnia {{article[4]}}</small>
 <hr>
-<div>{{article.body | safe}}</div>
+<div>{{article[3] | safe}}</div>
 
 {% endblock %}

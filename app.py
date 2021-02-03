@@ -58,6 +58,10 @@ def make_dicts(cursor, row):
 def news():
     return render_template('home.html')
 
+@app.route("/admin")
+def admin():
+    return render_template('admin.html')
+
 
 # Artykuły
 @app.route("/articles")
@@ -68,13 +72,14 @@ def home():
     # get articles
     result = cur.execute("SELECT * FROM articles ORDER BY id DESC")
 
-    articles = cur.fetchall()
+    articles = result.fetchall()
 
-    if result > 0:
-        return render_template('news.html', articles=articles)
-    else:
+    if result is None:
         msg = "nie znaleziono artykułów"
         return render_template('news.html', msg=msg)
+
+    else:
+        return render_template('news.html', articles=articles)
 
     # close connection
     cur.close()
@@ -85,12 +90,12 @@ def home():
 @app.route("/articles/<string:id>/")
 def article(id):
     # Create cursor
-    cur = mysql.connection.cursor()
+    cur = get_db()
 
     # get article
-    result = cur.execute("SELECT * FROM articles WHERE id = %s", [id])
+    result = cur.execute("SELECT * FROM articles WHERE id = ?", [id])
 
-    article = cur.fetchone()
+    article = result.fetchone()
 
     # close connection
     cur.close()
@@ -258,18 +263,19 @@ def logout():
 @is_logged_in
 def dashboard():
     # Create cursor
-    cur = mysql.connection.cursor()
+    cur = get_db()
 
     # get articles
     result = cur.execute("SELECT * FROM articles")
 
-    articles = cur.fetchall()
+    articles = result.fetchall()
+    print(articles)
 
-    if result > 0:
-        return render_template('dashboard.html', articles=articles)
-    else:
+    if result is None:
         msg = "nie znaleziono artykułów"
         return render_template('dashboard.html', msg=msg)
+    else:
+        return render_template('dashboard.html', articles=articles)
 
     # close connection
     cur.close()
@@ -292,14 +298,14 @@ def add_article():
         body = form.body.data
 
         # kursor
-        cur = mysql.connection.cursor()
+        cur = get_db()
 
         # execute
-        cur.execute("INSERT INTO articles(title, body, author) VALUES(%s, %s, %s)",
+        cur.execute("INSERT INTO articles (title, body, author) VALUES (?, ?, ?)",
                     (title, body, session['username']))
 
         # commit
-        mysql.connection.commit()
+        cur.commit()
 
         # close
         cur.close()
@@ -318,34 +324,34 @@ def add_article():
 @is_logged_in
 def edit_article(id):
     # Create cursor
-    cur = mysql.connection.cursor()
+    cur = get_db()
 
     # Get article by id
-    result = cur.execute("SELECT * FROM articles WHERE id = %s", [id])
+    result = cur.execute("SELECT * FROM articles WHERE id = ?", [id])
 
-    article = cur.fetchone()
-    cur.close()
+    article = result.fetchone()
+    # cur.close()
 
     # Get form
     form = ArticleForm(request.form)
 
     # Populate article form fields
-    form.title.data = article['title']
-    form.body.data = article['body']
+    form.title.data = article[1]
+    form.body.data = article[3]
 
     if request.method == 'POST' and form.validate():
         title = request.form['title']
         body = request.form['body']
 
         # kursor
-        cur = mysql.connection.cursor()
+        cur = get_db()
 
         # execute
         cur.execute(
-            "UPDATE articles SET title=%s, body=%s WHERE id = %s", (title, body, id))
+            "UPDATE articles SET title=?, body=? WHERE id = ?", (title, body, id))
 
         # commit
-        mysql.connection.commit()
+        cur.commit()
 
         # close
         cur.close()
@@ -362,13 +368,13 @@ def edit_article(id):
 @is_logged_in
 def delete_article(id):
     # Create cursor
-    cur = mysql.connection.cursor()
+    cur = get_db()
 
     # Execute
-    cur.execute("DELETE FROM articles WHERE id = %s", [id])
+    cur.execute("DELETE FROM articles WHERE id = ?", [id])
 
     # commit
-    mysql.connection.commit()
+    cur.commit()
 
     # close
     cur.close()
