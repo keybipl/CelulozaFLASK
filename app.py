@@ -257,7 +257,7 @@ def dashboard():
     cur = get_db()
 
     # get articles
-    result = cur.execute("SELECT * FROM articles")
+    result = cur.execute("SELECT * FROM articles ORDER BY id DESC")
 
     articles = result.fetchall()
     print(articles)

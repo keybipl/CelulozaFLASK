@@ -14,16 +14,16 @@
         <th>ID</th>
         <th>Tytuł</th>
         <th>Autor</th>
-        <th>Data</th>
+        <th class="noDisplay">Data</th>
         <th></th>
         <th></th>
     </tr>
     {% for article in articles %}
     <tr>
         <td>{{article[0]}}</td>
-        <td>{{article[1]}}</td>
+        <td> <a href="/articles/{{article[0]}}" class="text-decoration-none">{{article[1]}}</a></td>
         <td>{{article[2]}}</td>
-        <td>{{article[4]}}</td>
+        <td class="noDisplay">{{article[4]}}</td>
         <td class="text-center"><a class="btn btn-outline-dark float-right"
                 href="edit_article/{{article[0]}}">Edytuj</a>
         </td>
