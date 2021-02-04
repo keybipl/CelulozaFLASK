@@ -2,13 +2,29 @@
 
 {% block body %}
 
-<div class="jumbotron text-center">
-    <h1 class="display-4">TS Celuloza Kostrzyn nad Odrą</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-    {% if session.logged_in == NULL %}
-    <a href="/register" class="btn btn-primary btn-lg">Rejestracja</a>
-    <a href="login" class="btn btn-success btn-lg">Logowanie</a>
-    {% endif %}
-</div>
+<h1 class="mb-2">Aktualności</h1>
+<nav aria-label="Page navigation example">
+    <ul class="pagination mt-2">
+        <li id="previous-page"><a class="page-link" href="javascript:void(0)" aria-label=Previous><span
+                    aria-hidden=true>&laquo;</span></a></li>
+    </ul>
+</nav>
+<ul id="page" class="list-group">
+    {% for article in articles %}
+    <li class="list-group-item">
+        <h2 class="mt-2"><a href="articles/{{article[0]}}" class="d-block mb-0 text-decoration-none">{{article[1]}}</a>
+        </h2>
+        <small class="mb-3">Dodane dnia <b>{{article[4][8:10]}}.{{article[4][5:7]}}.{{article[4][0:4]}}</b> o godzinie
+            {{article[4][11:16]}}</small>
 
+
+        {% set news = article[3][0:1000] %}
+        <div class="d-inline fs-5 mt-3">{{ news | safe }}
+            {% if article[3]|length > 1000 %}
+            <a href="/articles/{{article[0]}}">...<strong> więcej</strong></a>
+            {% endif %}
+        </div>
+    </li>
+    {% endfor %}
+</ul>
 {% endblock %}

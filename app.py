@@ -4,6 +4,7 @@ from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
 import sqlite3
+from minut import lista
 
 app = Flask(__name__)
 
@@ -12,6 +13,8 @@ app.config['SECRET_KEY'] = 'secret123'
 # Config sqlite
 
 DATABASE = 'news.db'
+
+clubs = lista()
 
 
 def get_db():
@@ -45,8 +48,25 @@ def make_dicts(cursor, row):
 
 @app.route("/")
 def news():
-    slider = True
-    return render_template('home.html', slider=slider)
+    # Create cursor
+    cur = get_db()
+
+    # get articles
+    result = cur.execute("SELECT * FROM articles ORDER BY id DESC")
+
+    articles = result.fetchall()
+
+    if result is None:
+        slider = True
+        msg = "nie znaleziono artykułów"
+        return render_template('home.html', msg=msg, slider=slider)
+
+    else:
+        slider = True
+        return render_template('home.html', articles=articles, slider=slider)
+
+    # close connection
+    cur.close()
 
 
 @app.route("/admin")
@@ -110,7 +130,7 @@ def team():
 
 @app.route("/schedule")
 def schedule():
-    return render_template('terminarz.html')
+    return render_template('terminarz.html', clubs=clubs)
 
 
 @app.route("/table")
@@ -200,13 +220,12 @@ def login():
         result = cur.execute(
             "SELECT * FROM users WHERE username = ?", [username])
 
-        if result is None:
-            error = 'Użytkownik nie znaleziony'
-            return render_template('login.html', error=error)
-        else:
+        result = result.fetchall()
+
+        if result:
             # Get stored hash
             data = result
-            password = data.fetchall()[0][4]
+            password = data[0][4]
             # password = data['password']
 
             # compare passwords
@@ -223,6 +242,10 @@ def login():
 
             # Close connection
             cur.close()
+
+        else:
+            error = 'Użytkownik nie znaleziony'
+            return render_template('login.html', error=error)
 
     return render_template('login.html')
 
