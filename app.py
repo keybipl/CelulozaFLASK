@@ -4,7 +4,7 @@ from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
 import sqlite3
-from minut import lista
+from minut import zestaw_par
 
 app = Flask(__name__)
 
@@ -14,7 +14,8 @@ app.config['SECRET_KEY'] = 'secret123'
 
 DATABASE = 'news.db'
 
-clubs = lista()
+clubs = zestaw_par()
+clubs()
 
 
 def get_db():

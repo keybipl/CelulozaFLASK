@@ -1,12 +1,28 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-<div class="jumbotron text-center">
-    <h1 class="display-4">Terminarz</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.
-    </p>
-</div>
 
+{% for k in range(34) %}
+<h3>Kolejka nr {{k+1}}</h3>
 
-
+<!-- {% for i in range(16) %}
+{% set count = i %}
+{% if count is divisibleby 2 %}
+{{clubs[k][i]}}
+{% else %}
+{{clubs[k][i]}}
+{% endif %}
+{% endfor %} -->
+<table class="table">
+    <tr>{% for i in range(16) %}{% set count = i %}
+        {% if count is divisibleby 2 %}
+        <td class="col">{{clubs[k][i]}}</td>
+        {% else %}
+        <td class="col">{{clubs[k][i]}}</td>
+        <td class="col"></td>
+        <td class="col"></td>
+    </tr>{% endif %}
+    {% endfor %}
+</table>
+{% endfor %}
 {% endblock %}

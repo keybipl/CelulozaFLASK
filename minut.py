@@ -4,8 +4,7 @@ import sqlite3
 from sys import argv
 
 
-def lista():
-
+def zestaw_par():
     URL = 'http://www.90minut.pl/liga/1/liga11211.html'
 
     page = get(URL)
@@ -16,17 +15,12 @@ def lista():
         t = clubs.get_text().strip()
         lista.append(t)
 
-    return lista
+    a = 0
+    b = 16
+    zestaw_par = []
+    for i in range(34):
+        zestaw_par.append(lista[a:b])
+        a += 16
+        b += 16
 
-
-# pary = []
-
-# a = 0
-# b = 1
-# for i in range(34):
-#     print(f'Kolejka nr {i+1}')
-#     for x in range(8):
-#         print(f'{lista[a]} - {lista[b]}')
-#         # print(lista[a] + lista[b])
-#         a += 2
-#         b += 2
+    return zestaw_par
