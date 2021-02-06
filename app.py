@@ -5,6 +5,9 @@ from passlib.hash import sha256_crypt
 from functools import wraps
 import sqlite3
 from minut import zestaw_par
+from minut import term
+from minut import wyniki
+from minut import date
 
 app = Flask(__name__)
 
@@ -15,7 +18,9 @@ app.config['SECRET_KEY'] = 'secret123'
 DATABASE = 'news.db'
 
 clubs = zestaw_par()
-clubs()
+terms = term()
+wynik = wyniki()
+kolejka = date()
 
 
 def get_db():
@@ -131,7 +136,7 @@ def team():
 
 @app.route("/schedule")
 def schedule():
-    return render_template('terminarz.html', clubs=clubs)
+    return render_template('terminarz.html', clubs=clubs, terms=terms, wynik=wynik, kolejka=kolejka)
 
 
 @app.route("/table")

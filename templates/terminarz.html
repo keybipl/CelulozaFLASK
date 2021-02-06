@@ -3,26 +3,26 @@
 {% block body %}
 
 {% for k in range(34) %}
-<h3>Kolejka nr {{k+1}}</h3>
+<h3>{{kolejka[k]}}</h3>
 
-<!-- {% for i in range(16) %}
-{% set count = i %}
-{% if count is divisibleby 2 %}
-{{clubs[k][i]}}
-{% else %}
-{{clubs[k][i]}}
-{% endif %}
-{% endfor %} -->
-<table class="table">
-    <tr>{% for i in range(16) %}{% set count = i %}
+<table class="table w-100">
+    <tr>{% for i in range(16) %}
+        {% set count = i %}
         {% if count is divisibleby 2 %}
-        <td class="col">{{clubs[k][i]}}</td>
-        {% else %}
-        <td class="col">{{clubs[k][i]}}</td>
-        <td class="col"></td>
-        <td class="col"></td>
-    </tr>{% endif %}
+        <td class="col host fs-5">{{clubs[k][i]}}</td>
+        <td class="col guest fs-5">{{clubs[k][i+1]}}</td>
+        {% set x = i/2 |int %}
+        <td class="col result fs-5"><strong>{% set res = (x | string) [:-2] %} {% set d = res | int %}
+                {{wynik[k][d]}}</strong></td>
+        <td class="col term">{% set test2 = (x | string) [:-2] %} {% set d = test2 | int %} {{terms[k][d]}}</td>
+        {% endif %}
+    </tr>
     {% endfor %}
 </table>
+<p class="mb-4"></p>
 {% endfor %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/celuloza.js') }}"></script>
 {% endblock %}

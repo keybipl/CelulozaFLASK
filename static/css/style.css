@@ -110,3 +110,16 @@ header {
         display: none;
     }
 }
+
+.host,
+.guest {
+    width: 35%;
+}
+
+.result {
+    width: 12%;
+}
+
+.term {
+    width: 18%;
+}
