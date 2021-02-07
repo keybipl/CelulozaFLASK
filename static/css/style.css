@@ -113,13 +113,17 @@ header {
 
 .host,
 .guest {
-    width: 35%;
+    width: 30%;
 }
 
 .result {
-    width: 12%;
+    width: 10%;
 }
 
 .term {
-    width: 18%;
+    width: 20%;
+}
+
+.center {
+    margin: 0 auto;
 }

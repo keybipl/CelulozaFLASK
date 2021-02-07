@@ -79,3 +79,75 @@ def date():
             dates.append(d)
 
     return dates
+
+def pause():
+    URL = 'http://www.90minut.pl/liga/1/liga11211.html'
+    page = get(URL)
+    bs = BeautifulSoup(page.content, 'html.parser')
+
+    pause = []  # multiple wyniki
+    for wynik in bs.find_all('td', colspan='4'):
+        p = wynik.get_text().strip()
+        if p[0:6] == 'Pauza:':
+            pause.append(p)
+
+    return pause
+
+def club():
+    URL = 'http://www.90minut.pl/liga/1/liga11211.html'
+    page = get(URL)
+    bs = BeautifulSoup(page.content, 'html.parser')
+
+    clubs = []  # multiple wyniki
+    for wynik in bs.find_all('td', align='left'):
+        for c in wynik.find_all('a', class_='main'):
+            d = c.get_text().strip()
+            clubs.append(d)
+
+    print(len(clubs))
+
+    return clubs
+
+def games():
+    URL = 'http://www.90minut.pl/liga/1/liga11211.html'
+    page = get(URL)
+    bs = BeautifulSoup(page.content, 'html.parser')
+
+    game = []  # multiple wyniki
+    for wynik in bs.find_all('td', align='left'):
+        for c in wynik.find_all('a', class_='main'):
+            p = c.find_next('td').get_text().strip()
+            game.append(p)
+    
+    return game
+
+
+def points():
+    URL = 'http://www.90minut.pl/liga/1/liga11211.html'
+    page = get(URL)
+    bs = BeautifulSoup(page.content, 'html.parser')
+
+    point = []  # multiple wyniki
+    for wynik in bs.find_all('td', align='left'):
+        for c in wynik.find_all('a', class_='main'):
+            p = c.find_next('td').find_next('td').get_text().strip()
+            point.append(p)
+    
+    return point
+
+def goals():
+    URL = 'http://www.90minut.pl/liga/1/liga11211.html'
+    page = get(URL)
+    bs = BeautifulSoup(page.content, 'html.parser')
+
+    goal = []  # multiple wyniki
+    for wynik in bs.find_all('td', align='left'):
+        for c in wynik.find_all('a', class_='main'):
+            p = c.find_next('td').find_next('td').find_next('td').find_next('td').find_next('td').find_next('td').get_text().strip()
+            goal.append(p)
+
+    print(goal)
+    
+    return goal
+
+goals()

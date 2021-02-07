@@ -4,10 +4,7 @@ from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
 import sqlite3
-from minut import zestaw_par
-from minut import term
-from minut import wyniki
-from minut import date
+from minut import zestaw_par, term, wyniki, date, pause, club, games, points, goals
 
 app = Flask(__name__)
 
@@ -21,6 +18,11 @@ clubs = zestaw_par()
 terms = term()
 wynik = wyniki()
 kolejka = date()
+pauza = pause()
+klub = club()
+mecze = games()
+punkty = points()
+bramki = goals()
 
 
 def get_db():
@@ -136,12 +138,12 @@ def team():
 
 @app.route("/schedule")
 def schedule():
-    return render_template('terminarz.html', clubs=clubs, terms=terms, wynik=wynik, kolejka=kolejka)
+    return render_template('terminarz.html', clubs=clubs, terms=terms, wynik=wynik, kolejka=kolejka, pauza=pauza)
 
 
 @app.route("/table")
 def table():
-    return render_template('tabela.html')
+    return render_template('tabela.html', klub=klub, mecze=mecze, punkty=punkty, bramki=bramki)
 
 
 @app.route("/juniors")
