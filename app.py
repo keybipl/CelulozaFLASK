@@ -130,6 +130,10 @@ def history():
 def board():
     return render_template('zarzad.html')
 
+@app.route("/coaches")
+def coaches():
+    return render_template('trenerzy.html')
+
 
 @app.route("/team")
 def team():
@@ -164,6 +168,11 @@ def tramp():
 @app.route("/uks")
 def uks():
     return render_template('uks.html')
+
+@app.route("/sponsors")
+def sponsors():
+    sponsors = True
+    return render_template('sponsorzy.html', sponsors=sponsors)
 
 # Formularz rejestracji
 

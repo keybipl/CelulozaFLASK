@@ -7,10 +7,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
 
     {% if slider %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/slider.css')}}">
+    {% endif %}
+
+    {% if sponsors %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sponsors.css')}}">
     {% endif %}
 
 
@@ -65,6 +71,178 @@
         </div>
         {% endif %}
     </header>
+
+    <!-- SPONSORZY -->
+
+    {% if sponsors %}
+    <div class="sponsors">
+        <div class="wallwrap">
+            <header><img src="img/head.png" alt=""></header>
+            <div class="wrap">
+                <div class="big"><a href="http://kssse.pl" target="_blank"><img src="img/psi.png" alt=""></a></div>
+                <div class="big"><a href="http://www.kostrzyn.pl" target=_blank><img src="img/kostrzyn.png"
+                            alt="Kostrzyn nad Odrą"></a>
+                </div>
+                <div class="medium"><a href="https://bestbuty.pl/" target="_blank"><img src="img/best.png"
+                            alt="Best buty">
+                    </a></div>
+                <div class="medium"><a href="https://ok-styl.pl/" target="_blank"><img src="img/ok-styl.png"
+                            alt="Ok-styl">
+                    </a> </div>
+                <div class="medium"><a href="https://alfabud.pl/" target="_blank"><img src="img/alfabud.png"
+                            alt="Alfabud">
+                    </a> </div>
+                <div class="small"><a href="https://www.filius.pl/" target="_blank"> <img src="img/filius.png"
+                            alt="Filius"></a> </div>
+                <div class="small"><a href="http://viscohome.pl/" target="_blank"> <img src="img/visco.png"
+                            alt="Visco"></a>
+                </div>
+                <div class="small"><a href="https://www.facebook.com/kostrzyn.wf/" target="_blank"><img src="img/wf.png"
+                            alt="WF"> </a> </div>
+                <div class="small"><a href="https://www.bacpolska.pl/kontakt/kostrzyn-nad-odra/" target="_blank"> <img
+                            src="img/bac.png" alt="BAC"></a> </div>
+            </div>
+
+            <div class="wrap">
+                <div class="big"><a href="https://www.mosir-kostrzyn.pl/" target="_blank"> <img src="img/mosir.png"
+                            alt="MOSiR"></a>
+                </div>
+                <div class="big"><a href="http://www.swidertrans.pl/" target="_blank"> <img src="img/swider.png"
+                            alt="Świder Trans"> </a></div>
+
+                <div class="medium"><a href="https://www.bacpolska.pl/kontakt/kostrzyn-nad-odra/" target="_blank"> <img
+                            src="img/bac.png" alt="BAC"></a> </div>
+                <div class="medium"><a href="https://www.bricomarche.pl/sklep/bricomarche-kostrzyn-nad-odra"
+                        target="_blank"><img src="img/brico.png" alt="Bricomarche" target="_blank"> </a> </div>
+                <div class="medium"><a href="https://www.filius.pl/" target="_blank"> <img src="img/filius.png"
+                            alt="Filius"></a> </div>
+                <div class="small"><a href="https://fioletowo.pl/" target="_blank"><img src="img/fioletowo.png"
+                            alt="Fioletowo"> </a> </div>
+                <div class="small"><a href="https://expertit-sc.pl/home/" target="_blank"><img src="img/expertit.png"
+                            alt="Expert IT"> </a> </div>
+                <div class="small"><a href="http://www.mc-pulver.pl/" target="_blank"> <img src="img/metallbau.png"
+                            alt="Metallbau"></a>
+                </div>
+                <div class="small"><a href="https://ok-styl.pl/" target="_blank"><img src="img/ok-styl.png"
+                            alt="Ok-styl">
+                    </a> </div>
+            </div>
+
+            <div class="wrap">
+                <div class="big"><a
+                        href="https://pl-pl.facebook.com/pages/category/Local-Business/Bluma-Logistik-1668510550033498/"
+                        target=_blank><img src="img/bluma.png" alt="Bluma Logistik"></a>
+                </div>
+                <div class="big"><a href="http://www.mc-pulver.pl/" target="_blank"> <img src="img/metallbau.png"
+                            alt="Metallbau"></a>
+                </div>
+                <div class="medium"><a href="https://perfekt-pralnia.pl/kontakt/" target="_blank"><img
+                            src="img/pralnia.png" alt="Pralnia Perfekt"> </a> </div>
+                <div class="medium"><a href="https://www.facebook.com/Hurtownia-Elektryczna-Elektron-118268292902230/"
+                        target="_blank"><img src="img/elektron.png" alt="Hurtownia elektryczna Elektron"> </a> </div>
+                <div class="medium"><a href="https://www.facebook.com/PASJA-112261530388209"><img src="img/pasja.png"
+                            alt="Salon fryzjerski Pasja"> </a> </div>
+                <div class="small"><a href="https://alfabud.pl/" target="_blank"><img src="img/alfabud.png"
+                            alt="Alfabud">
+                    </a> </div>
+                <div class="small"><a href="https://www.bacpolska.pl/kontakt/kostrzyn-nad-odra/" target="_blank"> <img
+                            src="img/bac.png" alt="BAC"></a> </div>
+                <div class="small"><a href="https://bestbuty.pl/" target="_blank"><img src="img/best.png"
+                            alt="Best buty">
+                    </a></div>
+                <div class="small"><a href="https://www.ikaa.pl/" target="_blank"> <img src="img/ikaa.png" alt="Ikaa">
+                    </a>
+                </div>
+            </div>
+
+            <div class="wrap">
+                <div class="big"><a href="https://www.ikaa.pl/" target="_blank"> <img src="img/ikaa.png" alt="Ikaa">
+                    </a>
+                </div>
+                <div class="big"><a href="http://hanketissue.pl/" target=_blank><img src="img/hanke.png"
+                            alt="Hanke Tissue"></a>
+                </div>
+                <div class="medium"><a href="https://expertit-sc.pl/home/" target="_blank"><img src="img/expertit.png"
+                            alt="Expert IT"> </a> </div>
+                <div class="medium"><a href="https://www.facebook.com/multibor.anna.borowska" target="_blank"><img
+                            src="img/multibor.png" alt="Multibor"> </a> </div>
+                <div class="medium"><a href="#"><img src="img/gtm.png" alt="GTM"> </a> </div>
+                <div class="small"><a href="https://www.facebook.com/PASJA-112261530388209"><img src="img/pasja.png"
+                            alt="Salon fryzjerski Pasja"> </a> </div>
+                <div class="small"><a href="https://www.bacpolska.pl/kontakt/kostrzyn-nad-odra/" target="_blank"> <img
+                            src="img/bac.png" alt="BAC"></a> </div>
+                <div class="small"><a href="http://kssse.pl" target="_blank"><img src="img/psi.png" alt=""></a></div>
+                <div class="small"><a href="https://perfekt-pralnia.pl/kontakt/" target="_blank"><img
+                            src="img/pralnia.png" alt="Pralnia Perfekt"> </a> </div>
+            </div>
+
+            <div class="wrap">
+                <div class="big"><a href="https://www.janmet-panele.pl/" target="_blank"> <img src="img/janmet.png"
+                            alt="Janmet"></a>
+                </div>
+                <div class="big"><a href="http://kssse.pl" target="_blank"> <img src="img/psi.png"
+                            alt="Polska Strefa Inwestycji"> </a></div>
+                <div class="medium"><a href="#"><img src="img/pavlus.png" alt="Pavlus"> </a> </div>
+                <div class="medium"><a href="https://www.facebook.com/kostrzyn.wf/" target="_blank"><img
+                            src="img/wf.png" alt="WF"> </a> </div>
+                <div class="medium"><a href="#"><img src="img/mojeraty.png" alt="Moje raty"> </a> </div>
+                <div class="small"><a href="https://ok-styl.pl/" target="_blank"><img src="img/ok-styl.png"
+                            alt="Ok-styl">
+                    </a> </div>
+                <div class="small"><a href="http://viscohome.pl/" target="_blank"> <img src="img/visco.png"
+                            alt="Visco"></a>
+                </div>
+                <div class="small"><a href="https://www.mosir-kostrzyn.pl/" target="_blank"> <img src="img/mosir.png"
+                            alt="MOSiR"></a>
+                </div>
+                <div class="small"><a href="https://www.bricomarche.pl/sklep/bricomarche-kostrzyn-nad-odra"
+                        target="_blank"><img src="img/brico.png" alt="Bricomarche" target="_blank"> </a> </div>
+            </div>
+
+            <div class="wrap">
+                <div class="big"><a href="#" target=_blank><img src="img/acd.png" alt="ACD Cars"></a>
+                </div>
+                <div class="big"><a href="http://viscohome.pl/" target="_blank"> <img src="img/visco.png"
+                            alt="Visco"></a>
+                </div>
+                <div class="medium"><a href="https://fioletowo.pl/" target="_blank"><img src="img/fioletowo.png"
+                            alt="Fioletowo"> </a> </div>
+                <div class="medium"><a href="https://gbsbank.pl/" target="_blank"><img src="img/gbs.png" alt="GBS"> </a>
+                </div>
+                <div class="medium"><a href="#"><img src="img/biurorachunkowe.png" alt="Biuro rachunkowe"> </a> </div>
+                <div class="small"><a href="https://www.janmet-panele.pl/" target="_blank"> <img src="img/janmet.png"
+                            alt="Janmet"></a>
+                </div>
+                <div class="small"><a href="https://www.filius.pl/" target="_blank"> <img src="img/filius.png"
+                            alt="Filius"></a> </div>
+                <div class="small"><a href="https://www.facebook.com/multibor.anna.borowska" target="_blank"><img
+                            src="img/multibor.png" alt="Multibor"> </a> </div>
+                <div class="small"><a href="https://expertit-sc.pl/home/" target="_blank"><img src="img/expertit.png"
+                            alt="Expert IT"> </a> </div>
+            </div>
+            <footer>
+                <div class="footer">
+                    <div class="player1"><img src="img/gracz.png" alt="gracz1"></div>
+
+                    <div class="www">
+                        <p><strong> <a href="mailto:klub@tsceluloza.pl">klub@tsceluloza.pl</a></strong></p>
+                        <p class="coop">zapraszamy do współpracy!</p>
+                    </div>
+                    <div class="player2"><img src="img/gracz.png" alt="gracz1"> </div>
+                    <div class="ball"><img src="img/pilka.png" alt="piłka"> </div>
+                </div>
+            </footer>
+            <div class="created">
+                <p>created by:<a href="https://babij.eu" target="_blank">babij.eu</a> </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+    <!-- KONIEC SPONSORZY -->
 
 
     <main>

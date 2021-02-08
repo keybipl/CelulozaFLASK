@@ -104,8 +104,6 @@ def club():
             d = c.get_text().strip()
             clubs.append(d)
 
-    print(len(clubs))
-
     return clubs
 
 def games():
@@ -145,9 +143,5 @@ def goals():
         for c in wynik.find_all('a', class_='main'):
             p = c.find_next('td').find_next('td').find_next('td').find_next('td').find_next('td').find_next('td').get_text().strip()
             goal.append(p)
-
-    print(goal)
     
     return goal
-
-goals()
