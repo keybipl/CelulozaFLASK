@@ -1,5 +1,5 @@
 .sponsors {
-    background-image: url(img/tlo.jpg);
+    background-image: url(../images/tlo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -9,30 +9,30 @@
 }
 
 @media (min-width: 1024px) {
-    body {
-        height: 100vh;
+    .sponsors {
+        height: calc(100vh - 156px);
     }
 }
 
 
-header {
+.sponsors header {
     width: 100%;
     text-align: center;
 }
 
 
-header img {
+.sponsors header img {
     width: 90%;
 }
 
 @media (min-width: 1024px) {
-    header img {
+    .sponsors header img {
         width: 55%;
     }
 }
 
 @media (min-width: 1366px) {
-    header img {
+    .sponsors header img {
         width: 45%;
     }
 }

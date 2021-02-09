@@ -132,3 +132,14 @@ header {
 .center {
     margin: 0 auto;
 }
+
+.sponsorzy {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 40px;
+    margin-top: 40px;
+}
+
+.sponsorzy img {
+    width: 60%;
+
+}
