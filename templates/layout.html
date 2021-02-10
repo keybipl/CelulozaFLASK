@@ -251,20 +251,19 @@
                 </div>
                 <footer>
                     <div class="footer">
-                        <div class="player1"><img src="img/gracz.png" alt="gracz1"></div>
+                        <div class="player1"><img src="{{url_for('static', filename='images/gracz.png')}}" alt="gracz1">
+                        </div>
 
                         <div class="www">
-                            <p><strong> <a href="mailto:klub@tsceluloza.pl">klub@tsceluloza.pl</a></strong></p>
+                            <strong> <a href="mailto:klub@tsceluloza.pl">klub@tsceluloza.pl</a></strong>
                             <p class="coop">zapraszamy do współpracy!</p>
                         </div>
-                        <div class="player2"><img src="img/gracz.png" alt="gracz1"> </div>
-                        <div class="ball"><img src="img/pilka.png" alt="piłka"> </div>
+                        <div class="player2"><img src="{{url_for('static', filename='images/gracz.png')}}" alt="gracz1">
+                        </div>
+                        <div class="ball"><img src="{{url_for('static', filename='images/pilka.png')}}" alt="piłka">
+                        </div>
                     </div>
                 </footer>
-                <div class="created">
-                    <p>created by:<a href="https://babij.eu" target="_blank">babij.eu</a> </p>
-                </div>
-
             </div>
 
         </div>
@@ -386,38 +385,103 @@
                                         alt="Metallbau"></a>
                             </div>
                             <div class="sponsorzy text-center">
-                                <a href="http://www.ictgroup.net/pl/" target="_blank"><img src="img/ict.png"
-                                        alt="ICT Polska"></a>
+                                <a href="https://bestbuty.pl/" target="_blank"><img
+                                        src="{{url_for('static', filename='images/best.png')}}" alt="Best buty">
+                                </a>
                             </div>
                             <div class="sponsorzy text-center">
-                                <a href="http://hotel-bastion.pl/" target="_blank"><img src="img/bastion.png"
-                                        alt="Bastion"></a>
+                                <a href="https://ok-styl.pl/" target="_blank"><img
+                                        src="{{url_for('static', filename='images/ok-styl.png')}}" alt="Ok-styl">
+                                </a>
                             </div>
                             <div class="sponsorzy text-center">
-                                <a href="https://bestbuty.pl/" target="_blank"><img src="img/bestbuty.png"
-                                        alt="Best buty"></a>
+                                <a href="https://alfabud.pl/" target="_blank"><img
+                                        src="{{url_for('static', filename='images/alfabud.png')}}" alt="Alfabud">
+                                </a>
                             </div>
-                            <div class="sponsorzy text-center"><a href="#">
-                                    <img src="img/select.png" alt="Select"></a>
-                            </div>
-                            <div class="sponsorzy text-center">
-                                <a href="https://www.foxy.eu/pl/marka" target="_blank"><img src="img/foxy.jpg"
-                                        alt="Foxy"></a>
+                            <div class="sponsorzy text-center"><a
+                                    href="https://www.bacpolska.pl/kontakt/kostrzyn-nad-odra/" target="_blank">
+                                    <img src="{{url_for('static', filename='images/bac.png')}}" alt="BAC"></a>
                             </div>
                             <div class="sponsorzy text-center">
-                                <a href="http://www.drewform.pl/" target="_blank"><img src="img/drewform.png"
-                                        alt="Drew form"></a>
+                                <a href="https://www.bricomarche.pl/sklep/bricomarche-kostrzyn-nad-odra"
+                                    target="_blank"><img src="{{url_for('static', filename='images/brico.png')}}"
+                                        alt="Bricomarche" target="_blank"> </a>
                             </div>
                             <div class="sponsorzy text-center">
-                                <a href="https://start.avonpolska.pl/olga" target="_blank"><img src="img/avon.png"
-                                        alt="Avon"></a>
+                                <a href="https://www.filius.pl/" target="_blank"> <img
+                                        src="{{url_for('static', filename='images/filius.png')}}" alt="Filius"></a>
                             </div>
                             <div class="sponsorzy text-center">
-                                <a href="#"><img src="img/masita.png" alt="Masita"></a>
+                                <a href="https://perfekt-pralnia.pl/kontakt/" target="_blank"><img
+                                        src="{{url_for('static', filename='images/pralnia.png')}}"
+                                        alt="Pralnia Perfekt"> </a>
                             </div>
                             <div class="sponsorzy text-center">
-                                <a href="https://perfekt-pralnia.pl/kontakt/" target="_blank"><img src="img/pralnia.png"
-                                        alt="Pralnia Perfekt"></a>
+                                <a href="https://www.facebook.com/Hurtownia-Elektryczna-Elektron-118268292902230/"
+                                    target="_blank"><img src="{{url_for('static', filename='images/elektron.png')}}"
+                                        alt="Hurtownia elektryczna Elektron"> </a>
+                            </div>
+                            <div class="sponsorzy text-center">
+                                <a href="https://www.facebook.com/PASJA-112261530388209"><img
+                                        src="{{url_for('static', filename='images/pasja.png')}}"
+                                        alt="Salon fryzjerski Pasja">
+                                </a>
+                            </div>
+                            <div class="sponsorzy text-center">
+                                <a href="http://hanketissue.pl/" target=_blank><img
+                                        src="{{url_for('static', filename='images/hanke.png')}}" alt="Hanke Tissue"></a>
+                            </div>
+                            <div class="sponsorzy text-center">
+                                <a href="http://viscohome.pl/" target="_blank"> <img
+                                        src="{{url_for('static', filename='images/visco.png')}}" alt="Visco"></a>
+                            </div>
+                            <div class="sponsorzy text-center">
+                                <a href="https://www.facebook.com/kostrzyn.wf/" target="_blank"><img
+                                        src="{{url_for('static', filename='images/wf.png')}}" alt="WF"> </a>
+                            </div>
+                            <div class="sponsorzy text-center">
+                                <a href="https://fioletowo.pl/" target="_blank"><img
+                                        src="{{url_for('static', filename='images/fioletowo.png')}}" alt="Fioletowo">
+                                </a>
+                            </div>
+                            <div class="sponsorzy text-center">
+                                <a href="https://expertit-sc.pl/home/" target="_blank"><img
+                                        src="{{url_for('static', filename='images/expertit.png')}}" alt="Expert IT">
+                                </a>
+                            </div>
+                            <div class="sponsorzy text-center">
+                                <a href="https://www.ikaa.pl/" target="_blank"> <img
+                                        src="{{url_for('static', filename='images/ikaa.png')}}" alt="Ikaa">
+                                </a>
+                            </div>
+                            <div class="sponsorzy text-center">
+                                <a href="https://www.janmet-panele.pl/" target="_blank"> <img
+                                        src="{{url_for('static', filename='images/janmet.png')}}" alt="Janmet"></a>
+                            </div>
+                            <div class="sponsorzy text-center">
+                                <a href="http://multibor.pl" target="_blank"><img
+                                        src="{{url_for('static', filename='images/multibor.png')}}" alt="Multibor"> </a>
+                            </div>
+                            <div class="sponsorzy text-center">
+                                <a href="#"><img src="{{url_for('static', filename='images/gtm.png')}}" alt="GTM"> </a>
+                            </div>
+                            <div class="sponsorzy text-center">
+                                <a href="#"><img src="{{url_for('static', filename='images/pavlus.png')}}" alt="Pavlus">
+                                </a>
+                            </div>
+                            <div class="sponsorzy text-center">
+                                <a href="#"><img src="{{url_for('static', filename='images/mojeraty.png')}}"
+                                        alt="Moje raty"> </a>
+                            </div>
+                            <div class="sponsorzy text-center">
+                                <a href="https://gbsbank.pl/" target="_blank"><img
+                                        src="{{url_for('static', filename='images/gbs.png')}}" alt="GBS">
+                                </a>
+                            </div>
+                            <div class="sponsorzy text-center">
+                                <a href="#"><img src="{{url_for('static', filename='images/biurorachunkowe.png')}}"
+                                        alt="Biuro rachunkowe"> </a>
                             </div>
                         </section>
                     </div>

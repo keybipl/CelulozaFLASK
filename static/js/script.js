@@ -2,7 +2,7 @@
 
 const numberOfItems = $('#page .list-group-item').length; // Get total number of the items that should be paginated
 
-const limitPerPage = 5; // Limit of items per each page
+const limitPerPage = 10; // Limit of items per each page
 $('#page .list-group-item:gt(' + (limitPerPage - 1) + ')').hide(); // Hide all items over page limits (e.g., 5th item, 6th item, etc.)
 
 const totalPages = Math.ceil(numberOfItems / limitPerPage); // Get number of pages
