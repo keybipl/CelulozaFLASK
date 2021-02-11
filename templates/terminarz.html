@@ -4,11 +4,10 @@
 <div class="jumbotron text-center">
     <h1 class="display-4">Terminarz gier</h1>
 </div>
-
-
+{{last}}
 {% for k in range(34) %}
 
-<h3>{{kolejka[k]}}</h3>
+<h4>{{kolejka[k]}}</h4>
 
 <h6 class="mt-3">{{pauza[k]}}</h6>
 
@@ -16,12 +15,12 @@
     <tr>{% for i in range(16) %}
         {% set count = i %}
         {% if count is divisibleby 2 %}
-        <td class="col host">{{clubs[k][i]}}</td>
-        <td class="col guest">{{clubs[k][i+1]}}</td>
+        <td class="col host all">{{clubs[k][i]}}</td>
+        <td class="col guest all">{{clubs[k][i+1]}}</td>
         {% set x = i/2 |int %}
-        <td class="col result"><strong>{% set res = (x | string) [:-2] %} {% set d = res | int %}
+        <td class="col result all"><strong>{% set res = (x | string) [:-2] %} {% set d = res | int %}
                 {{wynik[k][d]}}</strong></td>
-        <td class="col term">{% set test2 = (x | string) [:-2] %} {% set d = test2 | int %} {{terms[k][d]}}</td>
+        <td class="col term all">{% set test2 = (x | string) [:-2] %} {% set d = test2 | int %} {{terms[k][d]}}</td>
         {% endif %}
     </tr>
     {% endfor %}

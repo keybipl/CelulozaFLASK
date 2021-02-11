@@ -1,4 +1,4 @@
-const column = [...document.querySelectorAll('td')];
+const column = [...document.querySelectorAll('.all')];
 
 for (let i = 0; i < column.length; i++) {
     let a = column[i].innerText

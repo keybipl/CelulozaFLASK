@@ -4,7 +4,7 @@ import sqlite3
 from sys import argv
 
 
-def zestaw_par():
+def zestaw_par():  # zestaw par dla poszczególnych kolejek
     URL = 'http://www.90minut.pl/liga/1/liga11211.html'
 
     page = get(URL)
@@ -26,12 +26,12 @@ def zestaw_par():
     return zestaw_par
 
 
-def term():
+def term():  # Terminy spotkań dla poszczególnych kolejek
     URL = 'http://www.90minut.pl/liga/1/liga11211.html'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
-    lista2 = []  # multiple terms
+    lista2 = []
     for daty in bs.find_all('td', width="190"):
         f = daty.get_text().strip()
         lista2.append(f)
@@ -67,12 +67,13 @@ def wyniki():
 
     return wyniki
 
+
 def date():
     URL = 'http://www.90minut.pl/liga/1/liga11211.html'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
-    dates = []  # multiple wyniki
+    dates = []
     for wynik in bs.find_all('td', colspan='3'):
         d = wynik.get_text().strip()
         if d != '(wo)':
@@ -80,12 +81,13 @@ def date():
 
     return dates
 
+
 def pause():
     URL = 'http://www.90minut.pl/liga/1/liga11211.html'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
-    pause = []  # multiple wyniki
+    pause = []
     for wynik in bs.find_all('td', colspan='4'):
         p = wynik.get_text().strip()
         if p[0:6] == 'Pauza:':
@@ -93,12 +95,13 @@ def pause():
 
     return pause
 
+
 def club():
     URL = 'http://www.90minut.pl/liga/1/liga11211.html'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
-    clubs = []  # multiple wyniki
+    clubs = []
     for wynik in bs.find_all('td', align='left'):
         for c in wynik.find_all('a', class_='main'):
             d = c.get_text().strip()
@@ -106,17 +109,18 @@ def club():
 
     return clubs
 
+
 def games():
     URL = 'http://www.90minut.pl/liga/1/liga11211.html'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
-    game = []  # multiple wyniki
+    game = []
     for wynik in bs.find_all('td', align='left'):
         for c in wynik.find_all('a', class_='main'):
             p = c.find_next('td').get_text().strip()
             game.append(p)
-    
+
     return game
 
 
@@ -125,23 +129,57 @@ def points():
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
-    point = []  # multiple wyniki
+    point = []
     for wynik in bs.find_all('td', align='left'):
         for c in wynik.find_all('a', class_='main'):
             p = c.find_next('td').find_next('td').get_text().strip()
             point.append(p)
-    
+
     return point
+
 
 def goals():
     URL = 'http://www.90minut.pl/liga/1/liga11211.html'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
-    goal = []  # multiple wyniki
+    goal = []
     for wynik in bs.find_all('td', align='left'):
         for c in wynik.find_all('a', class_='main'):
-            p = c.find_next('td').find_next('td').find_next('td').find_next('td').find_next('td').find_next('td').get_text().strip()
+            p = c.find_next('td').find_next('td').find_next('td').find_next(
+                'td').find_next('td').find_next('td').get_text().strip()
             goal.append(p)
-    
+
     return goal
+
+
+def celuloza():
+    URL = 'http://www.90minut.pl/liga/1/liga11211.html'
+    page = get(URL)
+    bs = BeautifulSoup(page.content, 'html.parser')
+
+    celuloza_dates = []  # terminy mecżów Celulozy
+    celuloza_pairs = []
+
+    for wynik in bs.find_all('tr', align='left'):
+        for celuloza in wynik.find_all('td', string='  Celuloza Kostrzyn nad Odrą  '):
+            for dates in celuloza.parent.find_all('td', width='190'):
+                c = dates.get_text()
+                celuloza_dates.append(c)
+            for pairs in celuloza.parent.find_all('td', width='180'):
+                p = pairs.get_text().strip()
+                celuloza_pairs.append(p)
+
+    count = 0
+    celuloza = []
+    for i in range(32):
+        # print(
+        #     f'{celuloza_pairs[count]} vs {celuloza_pairs[count+1]} dnia {celuloza_dates[i]}')
+        c = []
+        c.append(celuloza_pairs[count])
+        c.append(celuloza_pairs[count+1])
+        c.append(celuloza_dates[i])
+        celuloza.append(c)
+        count += 2
+
+    return celuloza

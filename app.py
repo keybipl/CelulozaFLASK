@@ -5,6 +5,7 @@ from passlib.hash import sha256_crypt
 from functools import wraps
 import sqlite3
 from minut import zestaw_par, term, wyniki, date, pause, club, games, points, goals
+from next import last, next
 
 app = Flask(__name__)
 
@@ -23,6 +24,7 @@ klub = club()
 mecze = games()
 punkty = points()
 bramki = goals()
+last = last()
 
 
 def get_db():
@@ -130,6 +132,7 @@ def history():
 def board():
     return render_template('zarzad.html')
 
+
 @app.route("/coaches")
 def coaches():
     return render_template('trenerzy.html')
@@ -142,7 +145,7 @@ def team():
 
 @app.route("/schedule")
 def schedule():
-    return render_template('terminarz.html', clubs=clubs, terms=terms, wynik=wynik, kolejka=kolejka, pauza=pauza)
+    return render_template('terminarz.html', clubs=clubs, terms=terms, wynik=wynik, kolejka=kolejka, pauza=pauza, last=last)
 
 
 @app.route("/table")
@@ -168,6 +171,7 @@ def tramp():
 @app.route("/uks")
 def uks():
     return render_template('uks.html')
+
 
 @app.route("/sponsors")
 def sponsors():
