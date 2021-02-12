@@ -160,6 +160,7 @@ def celuloza():
 
     celuloza_dates = []  # terminy mecżów Celulozy
     celuloza_pairs = []
+    celuloza_results = []
 
     for wynik in bs.find_all('tr', align='left'):
         for celuloza in wynik.find_all('td', string='  Celuloza Kostrzyn nad Odrą  '):
@@ -169,6 +170,9 @@ def celuloza():
             for pairs in celuloza.parent.find_all('td', width='180'):
                 p = pairs.get_text().strip()
                 celuloza_pairs.append(p)
+            for wyniki in celuloza.parent.find_all('td', width='50'):
+                w = wyniki.get_text().strip().strip()
+                celuloza_results.append(w)
 
     count = 0
     celuloza = []
@@ -179,6 +183,7 @@ def celuloza():
         c.append(celuloza_pairs[count])
         c.append(celuloza_pairs[count+1])
         c.append(celuloza_dates[i])
+        c.append(celuloza_results[i])
         celuloza.append(c)
         count += 2
 

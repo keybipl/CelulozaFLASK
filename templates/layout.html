@@ -288,7 +288,7 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-5">
-                            <img class="img-fluid w-100" src="{{url_for('static', filename='images/budowlani.png')}}"
+                            <img class="img-fluid w-75" src="{{url_for('static', filename='images/budowlani.png')}}"
                                 alt="Następny mecz">
                         </div>
 
@@ -297,7 +297,7 @@
                         </div>
 
                         <div class="col-5">
-                            <img class="img-fluid w-100" src="{{url_for('static', filename='images/logo.png')}}"
+                            <img class="img-fluid w-75" src="{{url_for('static', filename='images/logo.png')}}"
                                 alt="Następny mecz">
                         </div>
                     </div>
@@ -316,33 +316,40 @@
 
                     <div class="head text-uppercase text-center">Ostatni mecz</div>
                     <div class="row">
-                        <p class="fs-4"><b>14.11.2020</b>, g. 13:00</p>
+                        <p class="fs-4">
+                            {% set previous = last[2] | string() %} <strong>
+                                {{previous[8:10]}}.{{previous[5:7]}}.{{previous[0:4]}}</strong>, g. {{previous[11:16]}}
+                        </p>
                     </div>
                     <div class="row mb-3">
                         <div class="col-5">
-                            <img class="img-fluid w-100" src="{{url_for('static', filename='images/lubuszanin.png')}}"
+                            <img class="img-fluid w-75" src="{{url_for('static', filename='images/lubuszanin.png')}}"
                                 alt="Następny mecz">
                         </div>
 
-                        <div class="col-2 fs-1 d-flex align-items-center justify-content-center">
-                            <p>0:1</p>
+                        <div class="col-2 fs-2 d-flex align-items-center justify-content-center">
+                            <p>{{last[3]}}</p>
                         </div>
 
                         <div class="col-5">
-                            <img class="img-fluid w-100" src="{{url_for('static', filename='images/logo.png')}}"
+                            <img class="img-fluid w-75" src="{{url_for('static', filename='images/logo.png')}}"
                                 alt="Następny mecz">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-5">
-                            <p class="text-center fs-4">Lubuszanin Drezdenko</p>
+                            <p class="text-center fs-4">{% set ts = last[0] %}
+                                {% if ts == 'Celuloza Kostrzyn nad Odrą' %}
+                                {% set ts = 'TS Celuloza' %} {{ts}} {% else %} {{ts}} {% endif %}</p>
                         </div>
 
                         <div class="col-2 fs-1 d-flex align-items-center justify-content-center">
                         </div>
 
                         <div class="col-5">
-                            <p class="text-center fs-4">TS Celuloza</p>
+                            <p class="text-center fs-4">{% set ts = last[1] %}
+                                {% if ts == 'Celuloza Kostrzyn nad Odrą' %}
+                                {% set ts = 'TS Celuloza' %} {{ts}} {% endif %}</p>
                         </div>
 
                         <div class="head text-uppercase text-center">Facebook</div>
@@ -494,7 +501,7 @@
     <footer>
         <div class="copyright"><a href="/admin" class="text-decoration-none admin"> &copy; 2021 | TS Celuloza
                 Kostrzyn
-                nad Odrą</a></div>{{last}}
+                nad Odrą</a></div>
     </footer>
 
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v9.0"

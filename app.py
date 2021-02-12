@@ -25,6 +25,7 @@ mecze = games()
 punkty = points()
 bramki = goals()
 last = last()
+next = next()
 
 
 def get_db():
@@ -53,10 +54,12 @@ def make_dicts(cursor, row):
                 for idx, value in enumerate(row))
 
 
-# articles = news()
+@app.context_processor
+def inject_user():
+    return dict(last=last, next=next)
 
 
-@app.route("/")
+@app.route("/")  # articles = news()
 def news():
     # Create cursor
     cur = get_db()
@@ -420,4 +423,4 @@ def delete_article(id):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run()  # host='0.0.0.0'

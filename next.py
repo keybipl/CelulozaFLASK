@@ -61,7 +61,7 @@ def last():
             date = datetime.datetime(year, month, day, hourh, minutes)
             date_now = datetime.datetime.now()
             if date < date_now:
-                last = [dane[i][0], dane[i][1], date]
+                last = [dane[i][0], dane[i][1], date, dane[i][3]]
                 lista.append(last)
 
     last = lista[-1]
@@ -92,7 +92,7 @@ def next():
             date = datetime.datetime(year, month, day, hourh, minutes)
             date_now = datetime.datetime.now()
             if date > date_now:
-                next = [dane[i][0], dane[i][1], date]
+                next = [dane[i][0], dane[i][1], date, dane[i][3]]
                 lista.append(next)
         else:
             next = dane[i]
