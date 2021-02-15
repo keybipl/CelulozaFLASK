@@ -21,8 +21,6 @@ const clubs = {
 const change = [...document.querySelectorAll('.change')];
 const club = [...document.querySelectorAll('.club')]
 
-console.log(change)
-
 for (let i = 0; i < change.length; i++) {
     if (club[i].innerText == 'Budowlani Murzynowo') {
         change[i].src = `/static/images/${clubs.budowlani}`;
