@@ -1,7 +1,5 @@
 from bs4 import BeautifulSoup
 from requests import get
-import sqlite3
-from sys import argv
 
 
 def zestaw_par():  # zestaw par dla poszczególnych kolejek

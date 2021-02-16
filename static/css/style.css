@@ -143,3 +143,26 @@ header {
     width: 60%;
 
 }
+
+.baner {
+    display: block;
+    font-size: 40px;
+    line-height: 40px;
+    /* font-weight: bold; */
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+@media (max-width: 769px) {
+    .baner {
+        font-size: 30px;
+        line-height: 30px;
+    }
+}
+
+@media (max-width: 361px) {
+    .baner {
+        font-size: 20px;
+        line-height: 20px;
+    }
+}
