@@ -278,10 +278,10 @@
         {% if not sponsors %}
 
         <div class="container">
-            <!-- <div class="bg-danger mt-3">
+            <div class="bg-danger mt-3">
                 <a class="baner text-white text-uppercase text-center p-3" href="schedulejs">Liga makroregionalna
                     U19</a>
-            </div> -->
+            </div>
             <div class="row">
                 <div class="col-xl-8 p-3 mt-3">
                     <!-- <p class="text-center mb-1 timer">Budowlani Murzynowo - TS Celuloza</p>
@@ -302,14 +302,14 @@
                     <div class="head text-uppercase text-center">Następny mecz</div>
                     <div class="row">
 
-                        <p class="timer text-center text-primary">
+                        <p class="timer text-center fs-3 text-primary">
                             <span class="d"></span>
                             <span class="h"></span>
                             <span class="m"></span>
                             <span class="s"></span>
                         </p>
 
-                        <p class="date-next"><b>14.03.2021</b>, g. 11:00</p>
+                        <p class="fs-4 date-next"><b>14.03.2021</b>, g. 11:00</p>
                     </div>
                     <div class="row mb-3">
                         <div class="col-5">
@@ -317,7 +317,7 @@
                                 src="{{url_for('static', filename='images/budowlani.png')}}" alt="Następny mecz">
                         </div>
 
-                        <div class="col-2 d-flex align-items-center justify-content-center">
+                        <div class="col-2 fs-1 d-flex align-items-center justify-content-center">
                             <p>:</p>
                         </div>
 
@@ -328,20 +328,20 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-5">
-                            <p class="text-center club">Budowlani Murzynowo</p>
+                            <p class="text-center fs-4 club">Budowlani Murzynowo</p>
                         </div>
 
-                        <div class="col-2 d-flex align-items-center justify-content-center">
+                        <div class="col-2 fs-1 d-flex align-items-center justify-content-center">
                         </div>
 
                         <div class="col-5">
-                            <p class="text-center club">TS Celuloza</p>
+                            <p class="text-center fs-4 club">TS Celuloza</p>
                         </div>
                     </div>
 
                     <div class="head text-uppercase text-center">Ostatni mecz</div>
                     <div class="row">
-                        <p class="">
+                        <p class="fs-4">
                             {% set previous = last[2] | string() %} <strong>
                                 {{previous[8:10]}}.{{previous[5:7]}}.{{previous[0:4]}}</strong>, g. {{previous[11:16]}}
                         </p>
@@ -352,7 +352,7 @@
                                 src="{{url_for('static', filename='images/lubuszanin.png')}}" alt="Następny mecz">
                         </div>
 
-                        <div class="col-2 d-flex align-items-center justify-content-center">
+                        <div class="col-2 fs-2 d-flex align-items-center justify-content-center">
                             <p>{{last[3]}}</p>
                         </div>
 
@@ -363,16 +363,16 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-5">
-                            <p class="text-center club">{% set ts = last[0] %}
+                            <p class="text-center fs-4 club">{% set ts = last[0] %}
                                 {% if ts == 'Celuloza Kostrzyn nad Odrą' %}
                                 {% set ts = 'TS Celuloza' %} {{ts}} {% else %} {{ts}} {% endif %}</p>
                         </div>
 
-                        <div class="col-2 d-flex align-items-center justify-content-center">
+                        <div class="col-2 fs-1 d-flex align-items-center justify-content-center">
                         </div>
 
                         <div class="col-5">
-                            <p class="text-center club">{% set ts = last[1] %}
+                            <p class="text-center fs-4 club">{% set ts = last[1] %}
                                 {% if ts == 'Celuloza Kostrzyn nad Odrą' %}
                                 {% set ts = 'TS Celuloza' %} {{ts}} {% endif %}</p>
                         </div>

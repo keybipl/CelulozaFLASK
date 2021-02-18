@@ -19,7 +19,7 @@
 
 
         {% set news = article[3][0:1000] %}
-        <div class="d-inline fs-5 mt-3">{{ news | safe }}
+        <div class="d-inline mt-3">{{ news | safe }}
             {% if article[3]|length > 1000 %}
             <a href="/articles/{{article[0]}}">...<strong> więcej</strong></a>
             {% endif %}

@@ -33,8 +33,8 @@ def game():
     count = 0
     games = []
     for i in range(56):
-        print(
-            f'{days[i]}.{months[i]}.{year[i]}, g. {hour[i]} - {teams[count]} vs {teams[count+1]}')
+        # print(
+        #     f'{days[i]}.{months[i]}.{year[i]}, g. {hour[i]} - {teams[count]} vs {teams[count+1]}')
         c = []
         c.append(days[i])
         c.append(months[i])

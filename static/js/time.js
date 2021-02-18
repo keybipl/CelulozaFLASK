@@ -1,23 +1,12 @@
 let dateNext = document.querySelector('p.date-next')
-
 dateNext.innerText = dateNext.innerText.length < 20 ? `0${dateNext.innerText}` : dateNext.innerText;
 const d = dateNext.innerText.slice(0, 2)
 const m = dateNext.innerText.slice(3, 5)
 const y = dateNext.innerText.slice(6, 10)
 const h = dateNext.innerText.slice(-5, -3)
 const mins = dateNext.innerText.substr(-2)
-
-
-console.log(d);
-console.log(m);
-console.log(y);
-console.log(h);
-
-
 const nowTime = new Date().getTime();
 const endTime = new Date(y, m - 1, d, h, mins).getTime();
-console.log(nowTime)
-console.log(endTime)
 const spanD = document.querySelector('span.d');
 const spanH = document.querySelector('span.h');
 const spanM = document.querySelector('span.m');

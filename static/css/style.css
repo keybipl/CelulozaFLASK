@@ -21,12 +21,12 @@ header {
 
 #navbarDropdown {
     text-transform: uppercase;
-    font-size: 21px;
+    /* font-size: 21px; */
 }
 
 .nav-item {
     text-transform: uppercase;
-    font-size: 20px;
+    /* font-size: 20px; */
     margin-right: 20px;
 }
 
@@ -78,7 +78,7 @@ header {
     background-color: #0D6EFD;
     line-height: 60px;
     color: white;
-    font-size: 21px;
+    /* font-size: 21px; */
     margin-bottom: 20px;
     letter-spacing: 2px;
 }
@@ -121,11 +121,14 @@ header {
     width: 30%;
 }
 
+
 .result {
-    width: 10%;
+    width: 20%;
+    text-align: center;
 }
 
-.term {
+.term,
+.term-small {
     width: 20%;
 }
 
@@ -146,7 +149,7 @@ header {
 
 .baner {
     display: block;
-    font-size: 40px;
+    /* font-size: 40px; */
     line-height: 40px;
     /* font-weight: bold; */
     letter-spacing: 2px;
@@ -155,14 +158,18 @@ header {
 
 @media (max-width: 769px) {
     .baner {
-        font-size: 30px;
+        /* font-size: 30px; */
         line-height: 30px;
     }
 }
 
 @media (max-width: 361px) {
     .baner {
-        font-size: 20px;
+        /* font-size: 20px; */
         line-height: 20px;
     }
+}
+
+.center {
+    margin: 0 auto;
 }

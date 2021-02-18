@@ -14,7 +14,7 @@ app.config['SECRET_KEY'] = 'secret123'
 
 # Config sqlite
 
-DATABASE = 'news.db'
+DATABASE = 'news2.db'
 
 clubs = zestaw_par()
 terms = term()
@@ -181,6 +181,11 @@ def tramp():
 @app.route("/uks")
 def uks():
     return render_template('uks.html')
+
+
+@app.route("/af")
+def af():
+    return render_template('af.html')
 
 
 @app.route("/sponsors")
