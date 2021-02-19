@@ -6,7 +6,7 @@ from functools import wraps
 import sqlite3
 from minut import zestaw_par, term, wyniki, date, pause, club, games, points, goals
 from next import last, next
-from lnp import game
+from lnp import game, tjm, tr
 
 app = Flask(__name__)
 
@@ -28,6 +28,8 @@ bramki = goals()
 last = last()
 next = next()
 game = game()
+jm = tjm()
+tr = tr()
 
 
 def get_db():
@@ -166,6 +168,16 @@ def juniors():
 @app.route("/schedulejs")
 def schedulejs():
     return render_template('terminarzjs.html', game=game)
+
+
+@app.route("/schedulejm")
+def schedulejm():
+    return render_template('terminarzjm.html', jm=jm)
+
+
+@app.route("/scheduletr")
+def scheduletr():
+    return render_template('terminarztr.html', tr=tr)
 
 
 @app.route("/juniorm")
