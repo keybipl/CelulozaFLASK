@@ -1,5 +1,5 @@
 <div class="navigation">
-  <nav class="navbar position-fixed w-100 navbar-expand-xl navbar-dark bg-primary text-uppercase">
+  <nav class="navbar position-fixed w-100 navbar-expand-xxl navbar-dark bg-primary text-uppercase">
     <div class="container">
       <a class="navbar-brand" href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="" width="80"
           height="80">TS Celuloza
@@ -36,7 +36,13 @@
               <li><a class="dropdown-item" href="/table">tabela seniorzy</a></li>
               <div class="dropdown-divider"></div>
               <li><a class="dropdown-item" href="/schedulejs">terminarz U-19</a></li>
-              <!-- <li><a class="dropdown-item" href="/tablejs">tabela U-19</a></li> -->
+              <!-- <li><a class="dropdown-item" href="/tablejs">tabela U-19</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="/schedulejm">terminarz junior młodszy</a></li>
+              <li><a class="dropdown-item" href="/tablejm">tabela junior młodszy</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="/scheduletr">terminarz trampkarz</a></li>
+              <li><a class="dropdown-item" href="/tabletr">tabela trampkarz</a></li> -->
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -57,7 +63,9 @@
             <a class="nav-link" href="/sponsors">Sponsorzy</a>
           </li>
           <li class="nav-item bg-danger">
-            <a class="nav-link text-white u19" href="/schedulejs">CLJ U-19</a>
+            <a class="nav-link text-white u19" href="/schedulejs">
+              Makroregion U-19
+            </a>
           </li>
         </ul>
       </div>
