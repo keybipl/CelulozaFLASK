@@ -1,8 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-<div class="jumbotron text-center">
-    <h1 class="display-4">Junior młodszy</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+<div class="container">
+    <img src="{{ url_for('static', filename='images/jm.jpg') }}" alt="Makroregion" class="img-fluid">
 </div>
 {% endblock %}
