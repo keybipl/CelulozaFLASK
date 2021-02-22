@@ -18,11 +18,11 @@
             {{article[4][11:16]}}</small>
 
 
-        {% set news = article[3][0:1000] %}
+        {% set news = article[3]%}
         <div class="d-inline mt-3">{{ news | safe }}
-            {% if article[3]|length > 1000 %}
+            <!-- {% if article[3]|length > 1000 %}
             <a href="/articles/{{article[0]}}">...<strong> więcej</strong></a>
-            {% endif %}
+            {% endif %} -->
         </div>
     </li>
     {% endfor %}
