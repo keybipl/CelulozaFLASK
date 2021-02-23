@@ -11,20 +11,26 @@
 </nav>
 <ul id="page" class="list-group">
     {% for article in articles %}
-    <li class="list-group-item">
-        <h2 class="mt-2"><a href="articles/{{article[0]}}" class="d-block mb-0 text-decoration-none">{{article[1]}}</a>
+    <li class="list-group-item pb-3">
+        <h2 class="mt-2 mb-0"><a href="articles/{{article[0]}}"
+                class="news-link d-block mb-0 text-decoration-none">{{article[1]}}</a>
         </h2>
-        <small class="mb-3">Dodane dnia <b>{{article[4][8:10]}}.{{article[4][5:7]}}.{{article[4][0:4]}}</b> o godzinie
+        <small>Dodane dnia <b>{{article[4][8:10]}}.{{article[4][5:7]}}.{{article[4][0:4]}}</b> o godzinie
             {{article[4][11:16]}}</small>
 
 
-        {% set news = article[3]%}
-        <div class="d-inline mt-3">{{ news | safe }}
+        <!-- {% set news = article[3][0:1000] %} -->
+        {% set news = article[3] %}
+        <div class="mt-3 news">{{ news | safe }}
             <!-- {% if article[3]|length > 1000 %}
-            <a href="/articles/{{article[0]}}">...<strong> więcej</strong></a>
+            <a href="/articles/{{article[0]}}"> ...<strong>więcej</strong></a>
             {% endif %} -->
         </div>
     </li>
     {% endfor %}
 </ul>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/news.js') }}"></script>
 {% endblock %}

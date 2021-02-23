@@ -181,3 +181,26 @@ header {
 .u19:hover {
     background-color: #F2452E;
 }
+
+.news p:first-child iframe {
+    max-width: 100%;
+    height: auto
+}
+
+.news p:first-child img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+
+}
+
+.news1 p:first-child iframe {
+    max-width: 100%;
+}
+
+.news1 p:first-child img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+
+}

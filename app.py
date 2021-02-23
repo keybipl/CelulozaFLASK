@@ -150,6 +150,11 @@ def team():
     return render_template('kadra.html')
 
 
+@app.route("/contact")
+def contact():
+    return render_template('kontakt.html')
+
+
 @app.route("/schedule")
 def schedule():
     return render_template('terminarz.html', clubs=clubs, terms=terms, wynik=wynik, kolejka=kolejka, pauza=pauza, last=last)
