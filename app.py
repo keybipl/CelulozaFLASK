@@ -31,6 +31,8 @@ game = game()
 jm = tjm()
 tr = tr()
 
+term()
+
 
 def get_db():
     db = getattr(g, '_database', None)

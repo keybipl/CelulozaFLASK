@@ -1,5 +1,5 @@
-let dateNext = document.querySelector('p.date-next')
-dateNext.innerText = dateNext.innerText.length < 20 ? `0${dateNext.innerText}` : dateNext.innerText;
+let dateNext = document.querySelector('p.date-next strong')
+dateNext.innerText = dateNext.innerText.length < 10 ? `0${dateNext.innerText}` : dateNext.innerText;
 const d = dateNext.innerText.slice(0, 2)
 const m = dateNext.innerText.slice(3, 5)
 const y = dateNext.innerText.slice(6, 10)

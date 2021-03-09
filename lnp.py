@@ -3,7 +3,7 @@ from requests import get
 
 
 def game():
-    URL = 'https://www.laczynaspilka.pl/rozgrywki/clj,40143.html?fbclid=IwAR0oFhnwxKSpmNgwn18WXzWohxRw1gbKdzAc2CoXgiYwZZ6fdqOLI7bInNY'
+    URL = 'https://www.laczynaspilka.pl/rozgrywki/clj,40143.html?round=0'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
@@ -26,6 +26,16 @@ def game():
     for wynik in bs.find_all('span', class_='hour'):
         hour.append(wynik.get_text())
 
+    score = []
+    for wynik in bs.find_all('span', class_='score'):
+        score.append(wynik.get_text().split()[0])
+
+    score_empty = []
+    for wynik in bs.find_all('span', class_='score-empty'):
+        score_empty.append(wynik.get_text().split()[0])
+
+    scores = score + score_empty
+
     teams = []
     for wynik in bs.find_all('a', class_='team'):
         teams.append(wynik.get_text())
@@ -42,6 +52,7 @@ def game():
         c.append(hour[i])
         c.append(teams[count])
         c.append(teams[count+1])
+        c.append(scores[i])
         games.append(c)
         count += 2
 
@@ -80,6 +91,16 @@ def tjm():
     for wynik in bs.find_all('span', class_='hour'):
         hour.append(wynik.get_text())
 
+    score = []
+    for wynik in bs.find_all('span', class_='score'):
+        score.append(wynik.get_text().split()[0])
+
+    score_empty = []
+    for wynik in bs.find_all('span', class_='score-empty'):
+        score_empty.append(wynik.get_text().split()[0])
+
+    scores = score + score_empty
+
     teams = []
     for wynik in bs.find_all('a', class_='team'):
         teams.append(wynik.get_text())
@@ -96,6 +117,7 @@ def tjm():
         c.append(hour[i])
         c.append(teams[count])
         c.append(teams[count+1])
+        c.append(scores[i])
         games.append(c)
         count += 2
 
@@ -134,6 +156,17 @@ def tr():
     for wynik in bs.find_all('span', class_='hour'):
         hour.append(wynik.get_text())
 
+    score = []
+    for wynik in bs.find_all('span', class_='score'):
+        score.append(wynik.get_text().split()[0])
+
+    score_empty = []
+    for wynik in bs.find_all('span', class_='score-empty'):
+        score_empty.append(wynik.get_text().split()[0])
+
+    scores = score + score_empty
+    print(scores)
+
     teams = []
     for wynik in bs.find_all('a', class_='team'):
         teams.append(wynik.get_text())
@@ -150,6 +183,7 @@ def tr():
         c.append(hour[i])
         c.append(teams[count])
         c.append(teams[count+1])
+        c.append(scores[i])
         games.append(c)
         count += 2
 
@@ -162,3 +196,6 @@ def tr():
         b += 4
 
     return tr
+
+
+tr()

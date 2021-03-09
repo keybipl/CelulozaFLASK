@@ -187,18 +187,18 @@ header {
     height: auto
 }
 
-.news p:first-child img {
+.news img:first-child {
     width: auto;
     height: auto;
     max-width: 100%;
-
+    margin-bottom: 10px;
 }
 
 .news1 p:first-child iframe {
     max-width: 100%;
 }
 
-.news1 p:first-child img {
+.news1 img:first-child {
     width: auto;
     height: auto;
     max-width: 100%;
