@@ -165,6 +165,7 @@ def tr():
         score_empty.append(wynik.get_text().split()[0])
 
     scores = score + score_empty
+    print(scores)
 
     teams = []
     for wynik in bs.find_all('a', class_='team'):
@@ -195,29 +196,3 @@ def tr():
         b += 4
 
     return tr
-
-
-def tablejs():
-    URL = 'https://www.laczynaspilka.pl/rozgrywki-tabela/clj,40143.html'
-    page = get(URL)
-    bs = BeautifulSoup(page.content, 'html.parser')
-
-    teams = []
-    for wynik in bs.find_all('a', class_='team'):
-        teams.append(wynik.get_text())
-
-    points = []
-    for wynik in bs.find_all('div', class_='grids-wrapper'):
-        points.append(wynik.get_text().split())
-
-    points.remove(points[0])
-    points.remove(points[0])
-    points.remove(points[0])
-    points.remove(points[0])
-
-    punktyjs = []
-    for i in range(0, 32):
-        if i in (0, 4, 8, 12, 16, 20, 24, 28):
-            punktyjs.append(points[i])
-
-    return punktyjs, teams
