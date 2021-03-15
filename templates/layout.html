@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="refresh" content="5"> -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -312,7 +313,7 @@
 
                         <!-- <p class="date-next"><b>13.03.2021</b>, g. 16:00</p> -->
                         <p class="date-next">
-                            {% set nextGame = next[2] | string() %} <strong>
+                            {% set nextGame = next_game[2] | string() %} <strong>
                                 {{nextGame[8:10]}}.{{nextGame[5:7]}}.{{nextGame[0:4]}}</strong>, g. {{nextGame[11:16]}}
                         </p>
                     </div>
@@ -323,7 +324,7 @@
                         </div>
 
                         <div class="col-2 d-flex align-items-center justify-content-center">
-                            <p>{{next[3]}}</p>
+                            <p>{{next_game[3]}}</p>
                         </div>
 
                         <div class="col-5">
@@ -333,7 +334,7 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-5">
-                            <p class="text-center club">{% set ts = next[0] %}
+                            <p class="text-center club">{% set ts = next_game[0] %}
                                 {% if ts == 'Celuloza Kostrzyn nad Odrą' %}
                                 {% set ts = 'TS Celuloza' %} {{ts}} {% else %} {{ts}} {% endif %}</p>
                         </div>
@@ -342,9 +343,9 @@
                         </div>
 
                         <div class="col-5">
-                            <p class="text-center club">{% set ts = next[1] %}
+                            <p class="text-center club">{% set ts = next_game[1] %}
                                 {% if ts == 'Celuloza Kostrzyn nad Odrą' %}
-                                {% set ts = 'TS Celuloza' %} {{ts}} {% endif %}</p>
+                                {% set ts = 'TS Celuloza' %} {{ts}} {% else %} {{ts}} {% endif %}</p>
                         </div>
 
                         <div class="head text-uppercase text-center">Ostatni mecz</div>
@@ -564,7 +565,7 @@
     </script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script src="{{ url_for('static', filename='js/last.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/time.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='js/time.js') }}"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>

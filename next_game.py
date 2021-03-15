@@ -65,11 +65,12 @@ def last():
                 lista.append(last)
 
     last = lista[-1]
+    print(last)
 
     return last
 
 
-def next():
+def next_game():
     dane = celuloza()
     # print(datetime.datetime.now())
     # print(dane)
@@ -92,15 +93,15 @@ def next():
             date = datetime.datetime(year, month, day, hourh, minutes)
             date_now = datetime.datetime.now()
             if date > date_now:
-                next = [dane[i][0], dane[i][1], date, dane[i][3]]
-                lista.append(next)
+                next_game = [dane[i][0], dane[i][1], date, dane[i][3]]
+                lista.append(next_game)
         else:
-            next = dane[i]
-            lista.append(next)
+            next_game = dane[i]
+            lista.append(next_game)
 
-    next = lista[0]
+    next_game = lista[0]
 
-    return next
+    return next_game
 
 
-next()
+next_game()

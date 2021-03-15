@@ -6,12 +6,14 @@ const y = dateNext.innerText.slice(6, 10)
 const h = dateNext.innerText.slice(-5, -3)
 const mins = dateNext.innerText.substr(-2)
 const nowTime = new Date().getTime();
-const endTime = new Date(y, m - 1, d, h, mins).getTime();
+const endTime = new Date().getTime();
 const spanD = document.querySelector('span.d');
 const spanH = document.querySelector('span.h');
 const spanM = document.querySelector('span.m');
 const spanS = document.querySelector('span.s');
 const timer = document.querySelector('p.timer');
+
+console.log(endTime);
 
 setInterval(() => {
     const nowTime = new Date().getTime();

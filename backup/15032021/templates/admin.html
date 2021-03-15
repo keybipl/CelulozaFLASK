@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+{% if session.logged_in == NULL %}
+<a href="/register" class="btn btn-primary btn-lg">Rejestracja</a>
+<a href="/login" class="btn btn-success btn-lg">Logowanie</a>
+{% else %}
+<a href="/dashboard" class="btn btn-success btn-lg">Panel administrayjny</a>
+{% endif %}
+
+{% endblock %}

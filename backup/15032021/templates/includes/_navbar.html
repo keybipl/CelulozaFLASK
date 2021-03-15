@@ -1,0 +1,75 @@
+<div class="navigation">
+  <nav class="navbar position-fixed w-100 navbar-expand-xxl navbar-dark bg-primary text-uppercase">
+    <div class="container">
+      <a class="navbar-brand" href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="" width="80"
+          height="80">TS Celuloza
+        <span class="d-inline d-none d-md-inline">Kostrzyn</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/articles">Aktualności</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="teams" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Klub
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="teams">
+              <!-- <li><a class="dropdown-item" href="/history">Historia</a></li> -->
+              <li><a class="dropdown-item" href="/board">Zarząd</a></li>
+              <li><a class="dropdown-item" href="/team">Kadra</a></li>
+              <li><a class="dropdown-item" href="/coaches">Sztab trenerski</a></li>
+              <li><a class="dropdown-item" href="/contact">Kontakt</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="club" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Rozgrywki
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="club">
+              <li><a class="dropdown-item" href="/schedule">terminarz seniorzy</a></li>
+              <li><a class="dropdown-item" href="/table">tabela seniorzy</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="/schedulejs">terminarz U-19</a></li>
+              <li><a class="dropdown-item" href="/tablejs">tabela U-19</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="/schedulejm">terminarz junior młodszy</a></li>
+              <!-- <li><a class="dropdown-item" href="/tablejm">tabela junior młodszy</a></li> -->
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="/scheduletr">terminarz trampkarz</a></li>
+              <!-- <li><a class="dropdown-item" href="/tabletr">tabela trampkarz</a></li> -->
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="club" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Akademia
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="club">
+              <li><a class="dropdown-item" href="/juniors">Junior Starszy</a></li>
+              <li><a class="dropdown-item" href="/juniorm">Junior Młodszy</a></li>
+              <li><a class="dropdown-item" href="/tramp">Trampkarz</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="/uks">UKS Celuloza</a></li>
+              <!-- <li><a class="dropdown-item" href="/af">Akademia Futbolu</a></li> -->
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/sponsors">Sponsorzy</a>
+          </li>
+          <li class="nav-item bg-danger">
+            <a class="nav-link text-white u19" href="/schedulejs">
+              Makroregion U-19
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

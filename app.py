@@ -5,7 +5,7 @@ from passlib.hash import sha256_crypt
 from functools import wraps
 import sqlite3
 from minut import zestaw_par, term, wyniki, date, pause, club, games, points, goals
-from next import last, next
+from next_game import last, next_game
 from lnp import game, tjm, tr, tablejs
 
 app = Flask(__name__)
@@ -16,6 +16,8 @@ app.config['SECRET_KEY'] = 'secret123'
 
 DATABASE = 'news2.db'
 
+last = last()
+next_game = next_game()
 clubs = zestaw_par()
 terms = term()
 wynik = wyniki()
@@ -25,8 +27,6 @@ klub = club()
 mecze = games()
 punkty = points()
 bramki = goals()
-last = last()
-next = next()
 game = game()
 jm = tjm()
 tr = tr()
@@ -65,7 +65,7 @@ def make_dicts(cursor, row):
 
 @app.context_processor
 def inject_user():
-    return dict(last=last, next=next)
+    return dict(last=last, next_game=next_game)
 
 
 @app.route("/")  # articles = news()

@@ -25,6 +25,9 @@ for (let i = 0; i < change.length; i++) {
     if (club[i].innerText == 'Budowlani Murzynowo') {
         change[i].src = `/static/images/${clubs.budowlani}`;
     };
+    if (club[i].innerText == 'TS Celuloza') {
+        change[i].src = `/static/images/${clubs.celuloza}`;
+    };
     if (club[i].innerText == 'Warta Słońsk') {
         change[i].src = `/static/images/${clubs.wartas}`;
     };

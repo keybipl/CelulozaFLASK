@@ -8,9 +8,7 @@ def game():
     bs = BeautifulSoup(page.content, 'html.parser')
 
     days = []
-    count = 1
     for wynik in bs.find_all('span', class_='day'):
-        count += 1
         days.append(wynik.get_text())
 
     months = []
@@ -42,33 +40,44 @@ def game():
 
     count = 0
     games = []
-    for i in range(56):
-        # print(
-        #     f'{days[i]}.{months[i]}.{year[i]}, g. {hour[i]} - {teams[count]} vs {teams[count+1]}')
-        c = []
-        c.append(days[i])
-        c.append(months[i])
-        c.append(year[i])
-        c.append(hour[i])
-        c.append(teams[count])
-        c.append(teams[count+1])
-        c.append(scores[i])
-        games.append(c)
-        count += 2
 
-    a = 0
-    b = 4
-    game = []
-    for i in range(14):
-        game.append(games[a:b])
-        a += 4
-        b += 4
+    if len(days) != 56:
+        game = False
 
-    return game
+    else:
+        for i in range(56):
+            # print(
+            #     f'{days[i]}.{months[i]}.{year[i]}, g. {hour[i]} - {teams[count]} vs {teams[count+1]}')
+            c = []
+            c.append(days[i])
+            c.append(months[i])
+            c.append(year[i])
+            c.append(hour[i])
+            c.append(teams[count])
+            c.append(teams[count+1])
+            c.append(scores[i])
+            games.append(c)
+            count += 2
+
+    if len(days) != 56:
+        game = False
+
+        return game
+
+    else:
+        a = 0
+        b = 4
+        game = []
+        for i in range(14):
+            game.append(games[a:b])
+            a += 4
+            b += 4
+
+        return game
 
 
 def tjm():
-    URL = 'https://www.laczynaspilka.pl/rozgrywki/nizsze-ligi-juniorzy,40045.html'
+    URL = 'https://www.laczynaspilka.pl/rozgrywki/nizsze-ligi-juniorzy,40045.html?round=0'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
@@ -133,7 +142,7 @@ def tjm():
 
 
 def tr():
-    URL = 'https://www.laczynaspilka.pl/rozgrywki/nizsze-ligi-juniorzy,40479.html'
+    URL = 'https://www.laczynaspilka.pl/rozgrywki/nizsze-ligi-juniorzy,40479.html?round=0'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
