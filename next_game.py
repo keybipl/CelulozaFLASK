@@ -65,7 +65,6 @@ def last():
                 lista.append(last)
 
     last = lista[-1]
-    print(last)
 
     return last
 
@@ -102,6 +101,3 @@ def next_game():
     next_game = lista[0]
 
     return next_game
-
-
-next_game()

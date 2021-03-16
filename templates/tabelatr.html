@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">Tabela trampkarz</h1>
+</div>
+
+<table class="table w-75 center mt-3 table-responsive">
+    <tr>
+        <th class="text-center">Lp.</th>
+        <th>Drużyna</th>
+        <th class="text-center">Mecze</th>
+        <th class="text-center">Punkty</th>
+        <th class="text-center">Bramki</th>
+    </tr>
+    {% for i in range(8) %}
+    <tr>
+        <td class="col text-center">{{i+1}}</td>
+        <td class="col all">{{teamtr[i]}}</td>
+        <td class="col text-center">{{punktytr[i][0]}}</td>
+        <td class="col text-center">{{punktytr[i][1]}}</td>
+        <td class="col text-center">{{punktytr[i][5]}}</td>
+    </tr>{% endfor %}
+</table>
+
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/celuloza.js') }}"></script>
+{% endblock %}

@@ -87,6 +87,8 @@ def tjm():
         count += 1
         days.append(wynik.get_text())
 
+    print(len(days))
+
     months = []
     year = []
     for wynik in bs.find_all('span', class_='month'):
@@ -95,6 +97,8 @@ def tjm():
         c = b.split()
         months.append(c[0])
         year.append(c[1])
+
+    print(len(year))
 
     hour = []
     for wynik in bs.find_all('span', class_='hour'):
@@ -139,6 +143,9 @@ def tjm():
         b += 4
 
     return tjm
+
+
+tjm()
 
 
 def tr():
@@ -230,55 +237,3 @@ def tablejs():
             punktyjs.append(points[i])
 
     return punktyjs, teams
-
-
-def tablejm():
-    URL = 'https://www.laczynaspilka.pl/rozgrywki-tabela/nizsze-ligi-juniorzy,40045.html'
-    page = get(URL)
-    bs = BeautifulSoup(page.content, 'html.parser')
-
-    teamsjm = []
-    for wynik in bs.find_all('a', class_='team'):
-        teamsjm.append(wynik.get_text())
-
-    points = []
-    for wynik in bs.find_all('div', class_='grids-wrapper'):
-        points.append(wynik.get_text().split())
-
-    points.remove(points[0])
-    points.remove(points[0])
-    points.remove(points[0])
-    points.remove(points[0])
-
-    punktyjm = []
-    for i in range(0, 32):
-        if i in (0, 4, 8, 12, 16, 20, 24, 28):
-            punktyjm.append(points[i])
-
-    return punktyjm, teamsjm
-
-
-def tabletr():
-    URL = 'https://www.laczynaspilka.pl/rozgrywki-tabela/nizsze-ligi-juniorzy,40479.html'
-    page = get(URL)
-    bs = BeautifulSoup(page.content, 'html.parser')
-
-    teamstr = []
-    for wynik in bs.find_all('a', class_='team'):
-        teamstr.append(wynik.get_text())
-
-    points = []
-    for wynik in bs.find_all('div', class_='grids-wrapper'):
-        points.append(wynik.get_text().split())
-
-    points.remove(points[0])
-    points.remove(points[0])
-    points.remove(points[0])
-    points.remove(points[0])
-
-    punktytr = []
-    for i in range(0, 32):
-        if i in (0, 4, 8, 12, 16, 20, 24, 28):
-            punktytr.append(points[i])
-
-    return punktytr, teamstr

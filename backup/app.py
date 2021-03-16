@@ -6,7 +6,7 @@ from functools import wraps
 import sqlite3
 from minut import zestaw_par, term, wyniki, date, pause, club, games, points, goals
 from next_game import last, next_game
-from lnp import game, tjm, tr, tablejs, tablejm, tabletr
+from lnp import game, tjm, tr, tablejs
 
 app = Flask(__name__)
 
@@ -14,10 +14,8 @@ app.config['SECRET_KEY'] = 'secret123'
 
 # Config sqlite
 
-DATABASE = 'news2.db'
+DATABASE = 'news.db'
 
-last = last()
-next_game = next_game()
 clubs = zestaw_par()
 terms = term()
 wynik = wyniki()
@@ -27,18 +25,14 @@ klub = club()
 mecze = games()
 punkty = points()
 bramki = goals()
+last = last()
+next_game = next_game()
 game = game()
 jm = tjm()
 tr = tr()
 teams = tablejs()
 punktyjs = teams[0]
 teamsjs = teams[1]
-teamsjm = tablejm()
-punktyjm = teamsjm[0]
-teamjm = teamsjm[1]
-teamstr = tabletr()
-punktytr = teamstr[0]
-teamtr = teamstr[1]
 
 term()
 
@@ -179,16 +173,6 @@ def table():
 @app.route("/tablejs")
 def tabelajs():
     return render_template('tabelajs.html', punktyjs=punktyjs, teamsjs=teamsjs)
-
-
-@app.route("/tablejm")
-def tabelajm():
-    return render_template('tabelajm.html', punktyjm=punktyjm, teamjm=teamjm)
-
-
-@app.route("/tabletr")
-def tabelatr():
-    return render_template('tabelatr.html', punktytr=punktytr, teamtr=teamtr)
 
 
 @app.route("/juniors")
@@ -478,4 +462,4 @@ def delete_article(id):
 
 
 if __name__ == '__main__':
-    app.run()  # host='0.0.0.0'
+    app.run(host='0.0.0.0')

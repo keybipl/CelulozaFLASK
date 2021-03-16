@@ -2,9 +2,15 @@
 
 {% block body %}
 
+<div class="jumbotron text-center">
+    <h1 class="display-4">Terminarz U-19</h1>
+</div>
+
 {% if game == False %}
 
-<h1>ERROR</h1>
+<div class="alert alert-primary" role="alert">
+    Terminarz chwilowo niedostępny. Przepraszamy.
+</div>
 
 {% else %}
 
