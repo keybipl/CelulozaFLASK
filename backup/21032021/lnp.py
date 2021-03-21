@@ -24,18 +24,15 @@ def game():
     for wynik in bs.find_all('span', class_='hour'):
         hour.append(wynik.get_text())
 
-    # score = []
-    # for wynik in bs.find_all('span', class_='score'):
-    #     score.append(wynik.get_text().split()[0])
-    scores = []
-    for wynik in bs.find_all(True, {'class':['score', 'score-empty']}):
-        scores.append(wynik.get_text().split()[0])
+    score = []
+    for wynik in bs.find_all('span', class_='score'):
+        score.append(wynik.get_text().split()[0])
 
+    score_empty = []
+    for wynik in bs.find_all('span', class_='score-empty'):
+        score_empty.append(wynik.get_text().split()[0])
 
-    # score_empty = []
-    # for wynik in bs.find_all('span', class_='score-empty'):
-    #     score_empty.append(wynik.get_text().split()[0])
-
+    scores = score + score_empty
 
     teams = []
     for wynik in bs.find_all('a', class_='team'):
@@ -103,20 +100,15 @@ def tjm():
     for wynik in bs.find_all('span', class_='hour'):
         hour.append(wynik.get_text())
 
+    score = []
+    for wynik in bs.find_all('span', class_='score'):
+        score.append(wynik.get_text().split()[0])
 
-    scores = []
-    for wynik in bs.find_all(True, {'class':['score', 'score-empty']}):
-        scores.append(wynik.get_text().split()[0])
+    score_empty = []
+    for wynik in bs.find_all('span', class_='score-empty'):
+        score_empty.append(wynik.get_text().split()[0])
 
-    # score = []
-    # for wynik in bs.find_all('span', class_='score'):
-    #     score.append(wynik.get_text().split()[0])
-
-    # score_empty = []
-    # for wynik in bs.find_all('span', class_='score-empty'):
-    #     score_empty.append(wynik.get_text().split()[0])
-
-    # scores = score + score_empty
+    scores = score + score_empty
 
     teams = []
     for wynik in bs.find_all('a', class_='team'):
@@ -173,19 +165,15 @@ def tr():
     for wynik in bs.find_all('span', class_='hour'):
         hour.append(wynik.get_text())
 
-    # score = []
-    # for wynik in bs.find_all('span', class_='score'):
-    #     score.append(wynik.get_text().split()[0])
+    score = []
+    for wynik in bs.find_all('span', class_='score'):
+        score.append(wynik.get_text().split()[0])
 
-    # score_empty = []
-    # for wynik in bs.find_all('span', class_='score-empty'):
-    #     score_empty.append(wynik.get_text().split()[0])
+    score_empty = []
+    for wynik in bs.find_all('span', class_='score-empty'):
+        score_empty.append(wynik.get_text().split()[0])
 
-    # scores = score + score_empty
-
-    scores = []
-    for wynik in bs.find_all(True, {'class':['score', 'score-empty']}):
-        scores.append(wynik.get_text().split()[0])
+    scores = score + score_empty
 
     teams = []
     for wynik in bs.find_all('a', class_='team'):

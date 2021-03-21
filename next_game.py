@@ -100,4 +100,8 @@ def next_game():
 
     next_game = lista[0]
 
+    print(next_game)
+
     return next_game
+
+next_game()

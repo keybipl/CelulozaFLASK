@@ -312,10 +312,13 @@
                         </p>
 
                         <!-- <p class="date-next"><b>13.03.2021</b>, g. 16:00</p> -->
+                        {% if next_game[2] == '' %}
+                        <p></p>
+                        {% else %}
                         <p class="date-next">
                             {% set nextGame = next_game[2] | string() %} <strong>
                                 {{nextGame[8:10]}}.{{nextGame[5:7]}}.{{nextGame[0:4]}}</strong>, g. {{nextGame[11:16]}}
-                        </p>
+                        </p>{% endif %}
                     </div>
                     <div class="row mb-3">
                         <div class="col-5">
