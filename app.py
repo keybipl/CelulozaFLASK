@@ -14,7 +14,7 @@ app.config['SECRET_KEY'] = 'secret123'
 
 # Config sqlite
 
-DATABASE = 'news.db'
+DATABASE = 'news2.db'
 
 last = last()
 next_game = next_game()
@@ -478,4 +478,4 @@ def delete_article(id):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')  # host='0.0.0.0'
+    app.run()  # host='0.0.0.0'
