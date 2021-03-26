@@ -85,7 +85,9 @@ def tjm():
     bs = BeautifulSoup(page.content, 'html.parser')
 
     days = []
+    count = 1
     for wynik in bs.find_all('span', class_='day'):
+        count += 1
         days.append(wynik.get_text())
 
     print(len(days))
@@ -151,7 +153,7 @@ def tjm():
     else:
         a = 0
         b = 4
-        tjm = []
+        game = []
         for i in range(14):
             tjm.append(games[a:b])
             a += 4
@@ -159,6 +161,16 @@ def tjm():
 
         return tjm
 
+
+    a = 0
+    b = 4
+    tjm = []
+    for i in range(14):
+        tjm.append(games[a:b])
+        a += 4
+        b += 4
+
+    return tjm
 
 tjm()
 
@@ -229,19 +241,29 @@ def tr():
     if len(days) != 56:
         tr = False
 
-        return tr
+        return tjm
 
     else:
         a = 0
         b = 4
-        tr = []
+        game = []
         for i in range(14):
-            tr.append(games[a:b])
+            tjm.append(games[a:b])
             a += 4
             b += 4
 
-        return tr
+        return tjm
 
+
+    a = 0
+    b = 4
+    tr = []
+    for i in range(14):
+        tr.append(games[a:b])
+        a += 4
+        b += 4
+
+    return tr
 
 
 def tablejs():

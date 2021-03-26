@@ -312,7 +312,7 @@
                         </p>
 
                         <!-- <p class="date-next"><b>13.03.2021</b>, g. 16:00</p> -->
-                        {% if next_game[2] == '' %}
+                        <!-- {% if next_game[2] == '' %}
                         <p></p>
                         {% else %}
                         <p class="date-next">
@@ -349,6 +349,38 @@
                             <p class="text-center club">{% set ts = next_game[1] %}
                                 {% if ts == 'Celuloza Kostrzyn nad Odrą' %}
                                 {% set ts = 'TS Celuloza' %} {{ts}} {% else %} {{ts}} {% endif %}</p>
+                        </div> -->
+
+
+                        <p class="date-next">
+                            <b>27.03.2021, g. 14:00</b>
+                        </p>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-5">
+                            <img class="img-fluid w-75 change"
+                                src="{{url_for('static', filename='images/lubuszanin.png')}}" alt="Następny mecz">
+                        </div>
+
+                        <div class="col-2 d-flex align-items-center justify-content-center">
+                            <p>{{next_game[3]}}</p>
+                        </div>
+
+                        <div class="col-5">
+                            <img class="img-fluid w-75 change" src="{{url_for('static', filename='images/logo.png')}}"
+                                alt="Następny mecz">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-5">
+                            <p class="text-center club">Piast Karnin (Gorzów Wielkopolski)</p>
+                        </div>
+
+                        <div class="col-2 d-flex align-items-center justify-content-center">
+                        </div>
+
+                        <div class="col-5">
+                            <p class="text-center club">TS Celuloza</p>
                         </div>
 
                         <div class="head text-uppercase text-center">Ostatni mecz</div>

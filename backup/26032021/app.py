@@ -28,7 +28,7 @@ mecze = games()
 punkty = points()
 bramki = goals()
 game = game()
-tjm = tjm()
+jm = tjm()
 tr = tr()
 teams = tablejs()
 punktyjs = teams[0]
@@ -203,7 +203,7 @@ def schedulejs():
 
 @app.route("/schedulejm")
 def schedulejm():
-    return render_template('terminarzjm.html', tjm=tjm)
+    return render_template('terminarzjm.html', jm=jm)
 
 
 @app.route("/scheduletr")

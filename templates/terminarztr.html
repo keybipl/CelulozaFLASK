@@ -2,6 +2,14 @@
 
 {% block body %}
 
+{% if tr == False %}
+
+<div class="alert alert-primary" role="alert">
+    Terminarz chwilowo niedostępny. Przepraszamy.
+</div>
+
+{% else %}
+
 {% for k in range(14) %}
 
 <h4>Kolejka {{k+1}}</h4>
@@ -20,6 +28,7 @@
 </div>
 <p class="mb-5"></p>
 {% endfor %}
+{% endif %}
 {% endblock %}
 
 {% block scripts %}

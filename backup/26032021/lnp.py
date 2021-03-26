@@ -85,10 +85,10 @@ def tjm():
     bs = BeautifulSoup(page.content, 'html.parser')
 
     days = []
+    count = 1
     for wynik in bs.find_all('span', class_='day'):
+        count += 1
         days.append(wynik.get_text())
-
-    print(len(days))
 
     months = []
     year = []
@@ -124,43 +124,30 @@ def tjm():
 
     count = 0
     games = []
+    for i in range(56):
+        # print(
+        #     f'{days[i]}.{months[i]}.{year[i]}, g. {hour[i]} - {teams[count]} vs {teams[count+1]}')
+        c = []
+        c.append(days[i])
+        c.append(months[i])
+        c.append(year[i])
+        c.append(hour[i])
+        c.append(teams[count])
+        c.append(teams[count+1])
+        c.append(scores[i])
+        games.append(c)
+        count += 2
 
-    if len(days) != 56:
-        tjm = False
+    a = 0
+    b = 4
+    tjm = []
+    for i in range(14):
+        tjm.append(games[a:b])
+        a += 4
+        b += 4
 
-    else:
-        for i in range(56):
-            # print(
-            #     f'{days[i]}.{months[i]}.{year[i]}, g. {hour[i]} - {teams[count]} vs {teams[count+1]}')
-            c = []
-            c.append(days[i])
-            c.append(months[i])
-            c.append(year[i])
-            c.append(hour[i])
-            c.append(teams[count])
-            c.append(teams[count+1])
-            c.append(scores[i])
-            games.append(c)
-            count += 2
+    return tjm
 
-    if len(days) != 56:
-        tjm = False
-
-        return tjm
-
-    else:
-        a = 0
-        b = 4
-        tjm = []
-        for i in range(14):
-            tjm.append(games[a:b])
-            a += 4
-            b += 4
-
-        return tjm
-
-
-tjm()
 
 def tr():
     URL = 'https://www.laczynaspilka.pl/rozgrywki/nizsze-ligi-juniorzy,40479.html?round=0'
@@ -206,42 +193,29 @@ def tr():
 
     count = 0
     games = []
+    for i in range(56):
+        # print(
+        #     f'{days[i]}.{months[i]}.{year[i]}, g. {hour[i]} - {teams[count]} vs {teams[count+1]}')
+        c = []
+        c.append(days[i])
+        c.append(months[i])
+        c.append(year[i])
+        c.append(hour[i])
+        c.append(teams[count])
+        c.append(teams[count+1])
+        c.append(scores[i])
+        games.append(c)
+        count += 2
 
-    if len(days) != 56:
-        tr = False
+    a = 0
+    b = 4
+    tr = []
+    for i in range(14):
+        tr.append(games[a:b])
+        a += 4
+        b += 4
 
-    else:
-
-        for i in range(56):
-            # print(
-            #     f'{days[i]}.{months[i]}.{year[i]}, g. {hour[i]} - {teams[count]} vs {teams[count+1]}')
-            c = []
-            c.append(days[i])
-            c.append(months[i])
-            c.append(year[i])
-            c.append(hour[i])
-            c.append(teams[count])
-            c.append(teams[count+1])
-            c.append(scores[i])
-            games.append(c)
-            count += 2
-
-    if len(days) != 56:
-        tr = False
-
-        return tr
-
-    else:
-        a = 0
-        b = 4
-        tr = []
-        for i in range(14):
-            tr.append(games[a:b])
-            a += 4
-            b += 4
-
-        return tr
-
+    return tr
 
 
 def tablejs():

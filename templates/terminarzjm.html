@@ -2,6 +2,14 @@
 
 {% block body %}
 
+{% if tjm == False %}
+
+<div class="alert alert-primary" role="alert">
+    Terminarz chwilowo niedostępny. Przepraszamy.
+</div>
+
+{% else %}
+
 {% for k in range(14) %}
 
 <h4>Kolejka {{k+1}}</h4>
@@ -11,15 +19,16 @@
             <td class="col host all">
                 {{jm[k][i][4]}}
             </td>
-            <td class="col guest all">{{jm[k][i][5]}}</td>
-            <td class="col result all"><strong>{{jm[k][i][6]}}</strong></td>
-            <td class="col term all">{{jm[k][i][0]}}.{{jm[k][i][1]}}.{{jm[k][i][2]}} g. {{jm[k][i][3]}}</td>
+            <td class="col guest all">{{tjm[k][i][5]}}</td>
+            <td class="col result all"><strong>{{tjm[k][i][6]}}</strong></td>
+            <td class="col term all">{{tjm[k][i][0]}}.{{tjm[k][i][1]}}.{{tjm[k][i][2]}} g. {{tjm[k][i][3]}}</td>
         </tr>
         {% endfor %}
     </table>
 </div>
 <p class="mb-5"></p>
 {% endfor %}
+{% endif %}
 {% endblock %}
 
 {% block scripts %}
