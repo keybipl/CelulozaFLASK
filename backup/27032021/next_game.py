@@ -98,12 +98,6 @@ def next_game():
             next_game = dane[i]
             lista.append(next_game)
 
-    next_rival = []
-    for item in lista:
-        if item[2] != '':
-            next_rival = item
-            break
-
-    next_game = next_rival
+    next_game = lista[0]
 
     return next_game
