@@ -297,7 +297,7 @@
                             <span class="s"></span>
                         </p> -->
 
-                        <!-- <p class="date-next"><b>13.03.2021</b>, g. 16:00</p> -->
+                        {# <p class="date-next"><b>24.04.2021</b>, g. 17:00</p> #}
                         {% if next_game[2] == '' %}
                         <p></p>
                         {% else %}
@@ -309,7 +309,7 @@
                     <div class="row mb-3">
                         <div class="col-5">
                             <img class="img-fluid w-75 change"
-                                src="{{url_for('static', filename='images/lubuszanin.png')}}" alt="Następny mecz">
+                                src="{{url_for('static', filename='images/logo.png')}}" alt="Następny mecz">
                         </div>
 
                         <div class="col-2 d-flex align-items-center justify-content-center">
@@ -322,6 +322,9 @@
                         </div>
                     </div>
                     <div class="row mb-3">
+                        {# <div class="col-5">
+                            <p class="text-center club">Zjednoczeni Przytoczna</p>
+                        </div> #}
                         <div class="col-5">
                             <p class="text-center club">{% set ts = next_game[0] %}
                                 {% if ts == 'Celuloza Kostrzyn nad Odrą' %}
@@ -331,36 +334,39 @@
                         <div class="col-2 d-flex align-items-center justify-content-center">
                         </div>
 
+                        {# <div class="col-5">
+                            <p class="text-center club">TS Celuloza</p>
+                        </div> #}
                         <div class="col-5">
                             <p class="text-center club">{% set ts = next_game[1] %}
                                 {% if ts == 'Celuloza Kostrzyn nad Odrą' %}
                                 {% set ts = 'TS Celuloza' %} {{ts}} {% else %} {{ts}} {% endif %}</p>
                         </div>
-
-                        <div class="head text-uppercase text-center">Ostatni mecz</div>
-                        <div class="row">
-                            <p class="">
-                                {% set previous = last[2] | string() %} <strong>
-                                    {{previous[8:10]}}.{{previous[5:7]}}.{{previous[0:4]}}</strong>, g.
-                                {{previous[11:16]}}
-                            </p>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-5">
-                                <img class="img-fluid w-75 change"
-                                    src="{{url_for('static', filename='images/lubuszanin.png')}}" alt="Następny mecz">
-                            </div>
-
-                            <div class="col-2 d-flex align-items-center justify-content-center">
-                                <p>{{last[3]}}</p>
-                            </div>
-
-                            <div class="col-5">
-                                <img class="img-fluid w-75 change"
-                                    src="{{url_for('static', filename='images/logo.png')}}" alt="Następny mecz">
-                            </div>
+                    </div>
+                    <div class="head text-uppercase text-center">Ostatni mecz</div>
+                    <div class="row">
+                        <p class="">
+                            {% set previous = last[2] | string() %} <strong>
+                                {{previous[8:10]}}.{{previous[5:7]}}.{{previous[0:4]}}</strong>, g.
+                            {{previous[11:16]}}
+                        </p>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-5">
+                            <img class="img-fluid w-75 change"
+                                src="{{url_for('static', filename='images/logo.png')}}" alt="Następny mecz">
                         </div>
 
+                        <div class="col-2 d-flex align-items-center justify-content-center">
+                            <p>{{last[3]}}</p>
+                        </div>
+
+                        <div class="col-5">
+                            <img class="img-fluid w-75 change" src="{{url_for('static', filename='images/logo.png')}}"
+                                alt="Następny mecz">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
                         <div class="col-5">
                             <p class="text-center club">{% set ts = last[0] %}
                                 {% if ts == 'Celuloza Kostrzyn nad Odrą' %}
@@ -375,157 +381,156 @@
                                 {% if ts == 'Celuloza Kostrzyn nad Odrą' %}
                                 {% set ts = 'TS Celuloza' %} {{ts}} {% else %} {{ts}} {% endif %}</p>
                         </div>
+                    </div>
+                    <!--  KONIEC OSTATNI NASTĘPNY MECZ -->
 
-                        <!--  KONIEC OSTATNI NASTĘPNY MECZ -->
 
+                    <div class="head text-uppercase text-center">Facebook</div>
+                    <div class="fb-page" data-tabs="timeline,events,messages"
+                        data-href="https://www.facebook.com/tscelulozakostrzyn" data-width="360" data-height="500"
+                        data-hide-cover="false">
+                    </div>
 
-                        <div class="head text-uppercase text-center">Facebook</div>
-                        <div class="fb-page" data-tabs="timeline,events,messages"
-                            data-href="https://www.facebook.com/tscelulozakostrzyn" data-width="360" data-height="500"
-                            data-hide-cover="false">
-                        </div>
+                    <div class="head text-uppercase text-center">Sponsorzy</div>
+                    <div class="sponsorzy text-center">
+                        <a href="http://kssse.pl" target="_blank"><img
+                                src="{{url_for('static', filename='images/psi.png')}}"
+                                alt="Kostrzyńsko-Słubicka Specjalna Strefa Ekonomiczna"></a>
+                    </div>
 
-                        <div class="head text-uppercase text-center">Sponsorzy</div>
-                        <div class="sponsorzy text-center">
-                            <a href="http://kssse.pl" target="_blank"><img
-                                    src="{{url_for('static', filename='images/psi.png')}}"
-                                    alt="Kostrzyńsko-Słubicka Specjalna Strefa Ekonomiczna"></a>
-                        </div>
+                    <div class="sponsorzy text-center">
+                        <a href="http://www.kostrzyn.pl" target=_blank><img
+                                src="{{url_for('static', filename='images/kostrzyn.png')}}"
+                                alt="Urząd Miasta Kostrzyn nad Odrą"></a>
+                    </div>
 
-                        <div class="sponsorzy text-center">
-                            <a href="http://www.kostrzyn.pl" target=_blank><img
-                                    src="{{url_for('static', filename='images/kostrzyn.png')}}"
-                                    alt="Urząd Miasta Kostrzyn nad Odrą"></a>
-                        </div>
-
-                        <div class="sponsorzy text-center">
-                            <a href="https://www.mosir-kostrzyn.pl/" target="_blank"><img
-                                    src="{{url_for('static', filename='images/mosir.png')}}"
-                                    alt="Miejski Ośrodek Sportu i Rekreacji"></a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="http://www.swidertrans.pl/" target="_blank"> <img
-                                    src="{{url_for('static', filename='images/swider.png')}}" alt="Świder Trans">
-                            </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://pl-pl.facebook.com/pages/category/Local-Business/Bluma-Logistik-1668510550033498/"
-                                target=_blank><img src="{{url_for('static', filename='images/bluma.png')}}"
-                                    alt="Bluma Logistik"></a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="http://www.mc-pulver.pl/" target="_blank"> <img
-                                    src="{{url_for('static', filename='images/metallbau.png')}}" alt="Metallbau"></a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://bestbuty.pl/" target="_blank"><img
-                                    src="{{url_for('static', filename='images/best.png')}}" alt="Best buty">
-                            </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://ok-styl.pl/" target="_blank"><img
-                                    src="{{url_for('static', filename='images/ok-styl.png')}}" alt="Ok-styl">
-                            </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://www.arcticpaper.com/pl/Start/" target="_blank"><img
-                                    src="{{url_for('static', filename='images/arctic.jpg')}}" alt="Arctic Paper">
-                            </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://alfabud.pl/" target="_blank"><img
-                                    src="{{url_for('static', filename='images/alfabud.png')}}" alt="Alfabud">
-                            </a>
-                        </div>
-                        <div class="sponsorzy text-center"><a href="https://www.bacpolska.pl/kontakt/kostrzyn-nad-odra/"
-                                target="_blank">
-                                <img src="{{url_for('static', filename='images/bac.png')}}" alt="BAC"></a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://www.bricomarche.pl/sklep/bricomarche-kostrzyn-nad-odra"
-                                target="_blank"><img src="{{url_for('static', filename='images/brico.png')}}"
-                                    alt="Bricomarche" target="_blank"> </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://www.filius.pl/" target="_blank"> <img
-                                    src="{{url_for('static', filename='images/filius.png')}}" alt="Filius"></a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://perfekt-pralnia.pl/kontakt/" target="_blank"><img
-                                    src="{{url_for('static', filename='images/pralnia.png')}}" alt="Pralnia Perfekt">
-                            </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://www.facebook.com/Hurtownia-Elektryczna-Elektron-118268292902230/"
-                                target="_blank"><img src="{{url_for('static', filename='images/elektron.png')}}"
-                                    alt="Hurtownia elektryczna Elektron"> </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://www.facebook.com/PASJA-112261530388209"><img
-                                    src="{{url_for('static', filename='images/pasja.png')}}"
-                                    alt="Salon fryzjerski Pasja">
-                            </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="http://hanketissue.pl/" target=_blank><img
-                                    src="{{url_for('static', filename='images/hanke.png')}}" alt="Hanke Tissue"></a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="http://viscohome.pl/" target="_blank"> <img
-                                    src="{{url_for('static', filename='images/visco.png')}}" alt="Visco"></a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://www.facebook.com/kostrzyn.wf/" target="_blank"><img
-                                    src="{{url_for('static', filename='images/wf.png')}}" alt="WF"> </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://fioletowo.pl/" target="_blank"><img
-                                    src="{{url_for('static', filename='images/fioletowo.png')}}" alt="Fioletowo">
-                            </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://expertit-sc.pl/home/" target="_blank"><img
-                                    src="{{url_for('static', filename='images/expertit.png')}}" alt="Expert IT">
-                            </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://www.ikaa.pl/" target="_blank"> <img
-                                    src="{{url_for('static', filename='images/ikaa.png')}}" alt="Ikaa">
-                            </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://www.janmet-panele.pl/" target="_blank"> <img
-                                    src="{{url_for('static', filename='images/janmet.png')}}" alt="Janmet"></a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="http://multibor.pl" target="_blank"><img
-                                    src="{{url_for('static', filename='images/multibor.png')}}" alt="Multibor">
-                            </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="#"><img src="{{url_for('static', filename='images/gtm.png')}}" alt="GTM">
-                            </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="#"><img src="{{url_for('static', filename='images/pavlus.png')}}" alt="Pavlus">
-                            </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="#"><img src="{{url_for('static', filename='images/mojeraty.png')}}"
-                                    alt="Moje raty"> </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="https://gbsbank.pl/" target="_blank"><img
-                                    src="{{url_for('static', filename='images/gbs.png')}}" alt="GBS">
-                            </a>
-                        </div>
-                        <div class="sponsorzy text-center">
-                            <a href="#"><img src="{{url_for('static', filename='images/biurorachunkowe.png')}}"
-                                    alt="Biuro rachunkowe"> </a>
-                        </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://www.mosir-kostrzyn.pl/" target="_blank"><img
+                                src="{{url_for('static', filename='images/mosir.png')}}"
+                                alt="Miejski Ośrodek Sportu i Rekreacji"></a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="http://www.swidertrans.pl/" target="_blank"> <img
+                                src="{{url_for('static', filename='images/swider.png')}}" alt="Świder Trans">
+                        </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://pl-pl.facebook.com/pages/category/Local-Business/Bluma-Logistik-1668510550033498/"
+                            target=_blank><img src="{{url_for('static', filename='images/bluma.png')}}"
+                                alt="Bluma Logistik"></a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="http://www.mc-pulver.pl/" target="_blank"> <img
+                                src="{{url_for('static', filename='images/metallbau.png')}}" alt="Metallbau"></a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://bestbuty.pl/" target="_blank"><img
+                                src="{{url_for('static', filename='images/best.png')}}" alt="Best buty">
+                        </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://ok-styl.pl/" target="_blank"><img
+                                src="{{url_for('static', filename='images/ok-styl.png')}}" alt="Ok-styl">
+                        </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://www.arcticpaper.com/pl/Start/" target="_blank"><img
+                                src="{{url_for('static', filename='images/arctic.jpg')}}" alt="Arctic Paper">
+                        </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://alfabud.pl/" target="_blank"><img
+                                src="{{url_for('static', filename='images/alfabud.png')}}" alt="Alfabud">
+                        </a>
+                    </div>
+                    <div class="sponsorzy text-center"><a href="https://www.bacpolska.pl/kontakt/kostrzyn-nad-odra/"
+                            target="_blank">
+                            <img src="{{url_for('static', filename='images/bac.png')}}" alt="BAC"></a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://www.bricomarche.pl/sklep/bricomarche-kostrzyn-nad-odra" target="_blank"><img
+                                src="{{url_for('static', filename='images/brico.png')}}" alt="Bricomarche"
+                                target="_blank"> </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://www.filius.pl/" target="_blank"> <img
+                                src="{{url_for('static', filename='images/filius.png')}}" alt="Filius"></a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://perfekt-pralnia.pl/kontakt/" target="_blank"><img
+                                src="{{url_for('static', filename='images/pralnia.png')}}" alt="Pralnia Perfekt">
+                        </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://www.facebook.com/Hurtownia-Elektryczna-Elektron-118268292902230/"
+                            target="_blank"><img src="{{url_for('static', filename='images/elektron.png')}}"
+                                alt="Hurtownia elektryczna Elektron"> </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://www.facebook.com/PASJA-112261530388209"><img
+                                src="{{url_for('static', filename='images/pasja.png')}}" alt="Salon fryzjerski Pasja">
+                        </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="http://hanketissue.pl/" target=_blank><img
+                                src="{{url_for('static', filename='images/hanke.png')}}" alt="Hanke Tissue"></a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="http://viscohome.pl/" target="_blank"> <img
+                                src="{{url_for('static', filename='images/visco.png')}}" alt="Visco"></a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://www.facebook.com/kostrzyn.wf/" target="_blank"><img
+                                src="{{url_for('static', filename='images/wf.png')}}" alt="WF"> </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://fioletowo.pl/" target="_blank"><img
+                                src="{{url_for('static', filename='images/fioletowo.png')}}" alt="Fioletowo">
+                        </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://expertit-sc.pl/home/" target="_blank"><img
+                                src="{{url_for('static', filename='images/expertit.png')}}" alt="Expert IT">
+                        </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://www.ikaa.pl/" target="_blank"> <img
+                                src="{{url_for('static', filename='images/ikaa.png')}}" alt="Ikaa">
+                        </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://www.janmet-panele.pl/" target="_blank"> <img
+                                src="{{url_for('static', filename='images/janmet.png')}}" alt="Janmet"></a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="http://multibor.pl" target="_blank"><img
+                                src="{{url_for('static', filename='images/multibor.png')}}" alt="Multibor">
+                        </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="#"><img src="{{url_for('static', filename='images/gtm.png')}}" alt="GTM">
+                        </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="#"><img src="{{url_for('static', filename='images/pavlus.png')}}" alt="Pavlus">
+                        </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="#"><img src="{{url_for('static', filename='images/mojeraty.png')}}" alt="Moje raty">
+                        </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="https://gbsbank.pl/" target="_blank"><img
+                                src="{{url_for('static', filename='images/gbs.png')}}" alt="GBS">
+                        </a>
+                    </div>
+                    <div class="sponsorzy text-center">
+                        <a href="#"><img src="{{url_for('static', filename='images/biurorachunkowe.png')}}"
+                                alt="Biuro rachunkowe"> </a>
                     </div>
                 </div>
-                {% endif %}
+            </div>
+            {% endif %}
     </main>
     <footer>
         <div class="copyright"><a href="/admin" class="text-decoration-none admin"> &copy; TS Celuloza

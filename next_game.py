@@ -77,7 +77,6 @@ def next_game():
     for i in range(32):
         test = dane[i][2].replace(',', '')
         dane[i][2] = test
-        # print(dane[i][2])
 
     lista = []
     for i in range(32):
@@ -102,7 +101,6 @@ def next_game():
     for item in lista:
         if item[2] != '':
             next_rival = item
-            break
 
     next_game = next_rival
 
