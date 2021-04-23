@@ -79,7 +79,6 @@ def next_game():
         dane[i][2] = test
 
     lista = []
-
     for i in range(32):
         data = dane[i][2].split(' ')
         if len(data) > 1:
@@ -94,18 +93,15 @@ def next_game():
             if date > date_now:
                 next_game = [dane[i][0], dane[i][1], date, dane[i][3]]
                 lista.append(next_game)
+        else:
+            next_game = dane[i]
+            lista.append(next_game)
 
-    next_games = [elem for elem in lista if elem[2]]
+    next_rival = []
+    for item in lista:
+        if item[2] != '':
+            next_rival = item
 
-    next_rival = sorted(next_games, key=lambda x: x[2])
-
-    # print(next_rival)
-
-    next_game = next_rival[0]
-
-    # print(next_game)
+    next_game = next_rival
 
     return next_game
-
-
-# next_game()
