@@ -17,15 +17,17 @@ def next_game():
     lista = []
     for i in range(len(wyniki)):
         string = str([wyniki[i]])
-        a = string.replace(r'\n', '?'). replace('[', '').replace('\'', '').replace(']', '')
+        a = string.replace(r'\n', '?'). replace(
+            '[', '').replace('\'', '').replace(']', '')
         a = a.split('?')
         lista.append(a)
 
     # print(lista)
 
-
     next_game = []
     for elem in lista:
+        if elem[3] == 'TS CELULOZA  KOSTRZYN  n/o':
+            elem[3] = 'TS Celuloza'
         if elem[5] != 'b/d':
             year = int(elem[4][0:4])
             month = int(elem[4][5:7])
@@ -41,10 +43,8 @@ def next_game():
                 next_match.append(date)
                 next_game.append(next_match)
 
-    # print(next_game)
-
     next_rival = sorted(next_game, key=lambda x: x[2])
 
-    next_game = next_rival[0] 
+    next_game = next_rival[0]
 
     return next_game

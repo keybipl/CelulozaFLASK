@@ -3,7 +3,7 @@ const newsLink = [...document.querySelectorAll('.news-link')];
 const pFirst = [...document.querySelectorAll('.news p:first-child')];
 
 for (let i = 0; i < news.length; i++) {
-    if (news[i].innerText.length > 1000) {
+    if (news[i].innerText.length > 800) {
         a = news[i].innerHTML;
         b = pFirst[i].innerHTML;
         news[i].innerHTML = b;

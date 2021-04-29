@@ -22,55 +22,55 @@ const change = [...document.querySelectorAll('.change')];
 const club = [...document.querySelectorAll('.club')]
 
 for (let i = 0; i < change.length; i++) {
-    if (club[i].innerText.toUpperCase() == 'Budowlani Murzynowo'.toUpperCase()) {
+    if (club[i].innerText == 'Budowlani Murzynowo') {
         change[i].src = `/static/images/${clubs.budowlani}`;
     };
-    if (club[i].innerText.toUpperCase() == 'TS Celuloza'.toUpperCase()) {
+    if (club[i].innerText == 'TS Celuloza') {
         change[i].src = `/static/images/${clubs.celuloza}`;
     };
-    if (club[i].innerText.toUpperCase() == 'Warta Słońsk'.toUpperCase()) {
+    if (club[i].innerText == 'Warta Słońsk') {
         change[i].src = `/static/images/${clubs.wartas}`;
     };
-    if (club[i].innerText.toUpperCase() == 'Piast Karnin (Gorzów Wielkopolski)'.toUpperCase()) {
+    if (club[i].innerText == 'Piast Karnin (Gorzów Wielkopolski)') {
         change[i].src = `/static/images/${clubs.piast}`;
     };
-    if (club[i].innerText.toUpperCase() == 'Warta II Gorzów Wielkopolski'.toUpperCase()) {
+    if (club[i].innerText == 'Warta II Gorzów Wielkopolski') {
         change[i].src = `/static/images/${clubs.wartag}`;
     };
-    if (club[i].innerText.toUpperCase() == 'Lubuszanin Drezdenko'.toUpperCase()) {
+    if (club[i].innerText == 'Lubuszanin Drezdenko') {
         change[i].src = `/static/images/${clubs.lubuszanin}`;
     };
-    if (club[i].innerText.toUpperCase() == 'Róża Różanki'.toUpperCase()) {
+    if (club[i].innerText == 'Róża Różanki') {
         change[i].src = `/static/images/${clubs.roza}`;
     };
-    if (club[i].innerText.toUpperCase() == 'Orzeł Międzyrzecz'.toUpperCase()) {
+    if (club[i].innerText == 'Orzeł Międzyrzecz') {
         change[i].src = `/static/images/${clubs.orzel}`;
     };
-    if (club[i].innerText.toUpperCase() == 'Toroma Torzym'.toUpperCase()) {
+    if (club[i].innerText == 'Toroma Torzym') {
         change[i].src = `/static/images/${clubs.toroma}`;
     };
-    if (club[i].innerText.toUpperCase() == 'Zjednoczeni Przytoczna'.toUpperCase()) {
+    if (club[i].innerText == 'Zjednoczeni Przytoczna') {
         change[i].src = `/static/images/${clubs.zjednoczeni}`;
     };
-    if (club[i].innerText.toUpperCase() == 'Spartak Deszczno'.toUpperCase()) {
+    if (club[i].innerText == 'Spartak Deszczno') {
         change[i].src = `/static/images/${clubs.spartak}`;
     };
-    if (club[i].innerText.toUpperCase() == 'GKP Pszczew'.toUpperCase()) {
+    if (club[i].innerText == 'GKP Pszczew') {
         change[i].src = `/static/images/${clubs.gkp}`;
     };
-    if (club[i].innerText.toUpperCase() == 'Polonia Lipki Wielkie'.toUpperCase()) {
+    if (club[i].innerText == 'Polonia Lipki Wielkie') {
         change[i].src = `/static/images/${clubs.polonia}`;
     };
-    if (club[i].innerText.toUpperCase() == 'Łucznik Strzelce Krajeńskie'.toUpperCase()) {
+    if (club[i].innerText == 'Łucznik Strzelce Krajeńskie') {
         change[i].src = `/static/images/${clubs.lucznik}`;
     };
-    if (club[i].innerText.toUpperCase() == 'Kasztelania Santok'.toUpperCase()) {
+    if (club[i].innerText == 'Kasztelania Santok') {
         change[i].src = `/static/images/${clubs.kasztelania}`;
     };
-    if (club[i].innerText.toUpperCase() == 'Radowiak Drezdenko'.toUpperCase()) {
+    if (club[i].innerText == 'Radowiak Drezdenko') {
         change[i].src = `/static/images/${clubs.radowiak}`;
     };
-    if (club[i].innerText.toUpperCase() == 'Błękitni Lubno'.toUpperCase()) {
+    if (club[i].innerText == 'Błękitni Lubno') {
         change[i].src = `/static/images/${clubs.blekitni}`;
     };
 

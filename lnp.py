@@ -28,14 +28,12 @@ def game():
     # for wynik in bs.find_all('span', class_='score'):
     #     score.append(wynik.get_text().split()[0])
     scores = []
-    for wynik in bs.find_all(True, {'class':['score', 'score-empty']}):
+    for wynik in bs.find_all(True, {'class': ['score', 'score-empty']}):
         scores.append(wynik.get_text().split()[0])
-
 
     # score_empty = []
     # for wynik in bs.find_all('span', class_='score-empty'):
     #     score_empty.append(wynik.get_text().split()[0])
-
 
     teams = []
     for wynik in bs.find_all('a', class_='team'):
@@ -103,9 +101,8 @@ def tjm():
     for wynik in bs.find_all('span', class_='hour'):
         hour.append(wynik.get_text())
 
-
     scores = []
-    for wynik in bs.find_all(True, {'class':['score', 'score-empty']}):
+    for wynik in bs.find_all(True, {'class': ['score', 'score-empty']}):
         scores.append(wynik.get_text().split()[0])
 
     # score = []
@@ -162,6 +159,7 @@ def tjm():
 
 tjm()
 
+
 def tr():
     URL = 'https://www.laczynaspilka.pl/rozgrywki/nizsze-ligi-juniorzy,40479.html?round=0'
     page = get(URL)
@@ -197,7 +195,7 @@ def tr():
     # scores = score + score_empty
 
     scores = []
-    for wynik in bs.find_all(True, {'class':['score', 'score-empty']}):
+    for wynik in bs.find_all(True, {'class': ['score', 'score-empty']}):
         scores.append(wynik.get_text().split()[0])
 
     teams = []
@@ -243,7 +241,6 @@ def tr():
         return tr
 
 
-
 def tablejs():
     URL = 'https://www.laczynaspilka.pl/rozgrywki-tabela/clj,40143.html'
     page = get(URL)
@@ -266,6 +263,8 @@ def tablejs():
     for i in range(0, 32):
         if i in (0, 4, 8, 12, 16, 20, 24, 28):
             punktyjs.append(points[i])
+
+    print(teams)
 
     return punktyjs, teams
 

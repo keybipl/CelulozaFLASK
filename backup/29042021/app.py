@@ -7,7 +7,6 @@ import sqlite3
 from minut import zestaw_par, term, wyniki, date, pause, club, games, points, goals
 from next_game import last, next_game
 from lnp import game, tjm, tr, tablejs, tablejm, tabletr
-from next_lzpn import next_game
 
 app = Flask(__name__)
 
@@ -15,7 +14,7 @@ app.config['SECRET_KEY'] = 'secret123'
 
 # Config sqlite
 
-DATABASE = 'news2.db'
+DATABASE = 'news.db'
 
 last = last()
 next_game = next_game()
@@ -479,4 +478,4 @@ def delete_article(id):
 
 
 if __name__ == '__main__':
-    app.run()  # host='0.0.0.0'
+    app.run(host='0.0.0.0')  # host='0.0.0.0'
