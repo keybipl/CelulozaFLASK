@@ -55,7 +55,7 @@ for (let i = 0; i < change.length; i++) {
     if (club[i].innerText == 'Spartak Deszczno') {
         change[i].src = `/static/images/${clubs.spartak}`;
     };
-    if (club[i].innerText == 'GKP Pszczew') {
+    if (club[i].innerText.toUpperCase() == 'GKP Pszczew'.toUpperCase()) {
         change[i].src = `/static/images/${clubs.gkp}`;
     };
     if (club[i].innerText == 'Polonia Lipki Wielkie') {
