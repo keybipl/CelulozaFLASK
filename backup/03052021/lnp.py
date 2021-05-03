@@ -28,14 +28,12 @@ def game():
     # for wynik in bs.find_all('span', class_='score'):
     #     score.append(wynik.get_text().split()[0])
     scores = []
-    for wynik in bs.find_all(True, {'class':['score', 'score-empty']}):
+    for wynik in bs.find_all(True, {'class': ['score', 'score-empty']}):
         scores.append(wynik.get_text().split()[0])
-
 
     # score_empty = []
     # for wynik in bs.find_all('span', class_='score-empty'):
     #     score_empty.append(wynik.get_text().split()[0])
-
 
     teams = []
     for wynik in bs.find_all('a', class_='team'):
@@ -85,9 +83,7 @@ def tjm():
     bs = BeautifulSoup(page.content, 'html.parser')
 
     days = []
-    count = 1
     for wynik in bs.find_all('span', class_='day'):
-        count += 1
         days.append(wynik.get_text())
 
     print(len(days))
@@ -105,10 +101,11 @@ def tjm():
     for wynik in bs.find_all('span', class_='hour'):
         hour.append(wynik.get_text())
 
-
     scores = []
-    for wynik in bs.find_all(True, {'class':['score', 'score-empty']}):
+    for wynik in bs.find_all(True, {'class': ['score', 'score-empty']}):
         scores.append(wynik.get_text().split()[0])
+
+    print(scores)
 
     # score = []
     # for wynik in bs.find_all('span', class_='score'):
@@ -153,26 +150,19 @@ def tjm():
     else:
         a = 0
         b = 4
-        game = []
+        tjm = []
         for i in range(14):
             tjm.append(games[a:b])
             a += 4
             b += 4
 
+        print(tjm)
+
         return tjm
 
 
-    a = 0
-    b = 4
-    tjm = []
-    for i in range(14):
-        tjm.append(games[a:b])
-        a += 4
-        b += 4
-
-    return tjm
-
 tjm()
+
 
 def tr():
     URL = 'https://www.laczynaspilka.pl/rozgrywki/nizsze-ligi-juniorzy,40479.html?round=0'
@@ -209,7 +199,7 @@ def tr():
     # scores = score + score_empty
 
     scores = []
-    for wynik in bs.find_all(True, {'class':['score', 'score-empty']}):
+    for wynik in bs.find_all(True, {'class': ['score', 'score-empty']}):
         scores.append(wynik.get_text().split()[0])
 
     teams = []
@@ -241,29 +231,18 @@ def tr():
     if len(days) != 56:
         tr = False
 
-        return tjm
+        return tr
 
     else:
         a = 0
         b = 4
-        game = []
+        tr = []
         for i in range(14):
-            tjm.append(games[a:b])
+            tr.append(games[a:b])
             a += 4
             b += 4
 
-        return tjm
-
-
-    a = 0
-    b = 4
-    tr = []
-    for i in range(14):
-        tr.append(games[a:b])
-        a += 4
-        b += 4
-
-    return tr
+        return tr
 
 
 def tablejs():

@@ -1,5 +1,82 @@
 from bs4 import BeautifulSoup
 from requests import get
+import datetime
+
+
+def celuloza19():
+    URL = 'https://www.laczynaspilka.pl/rozgrywki/clj,40143.html?round=0'
+    page = get(URL)
+    bs = BeautifulSoup(page.content, 'html.parser')
+
+    days = []
+    for wynik in bs.find_all('span', class_='day'):
+        days.append(wynik.get_text())
+
+    months = []
+    year = []
+    for wynik in bs.find_all('span', class_='month'):
+        a = str(wynik.get_text())
+        b = a.replace('/', ' ')
+        c = b.split()
+        months.append(c[0])
+        year.append(c[1])
+
+    hour = []
+    for wynik in bs.find_all('span', class_='hour'):
+        hour.append(wynik.get_text())
+
+    scores = []
+    for wynik in bs.find_all(True, {'class': ['score', 'score-empty']}):
+        scores.append(wynik.get_text().split()[0])
+
+    teams = []
+    for wynik in bs.find_all('a', class_='team'):
+        teams.append(wynik.get_text())
+
+    event = []
+    for wynik in bs.find_all('div', class_='event'):
+        a = str(wynik.get_text())
+        b = a.replace('/', ' ')
+        c = b.split()
+        event.append(c[0])
+
+    count = 0
+    games = []
+
+    for i in range(len(days)):
+        # print(
+        #     f'{days[i]}.{months[i]}.{year[i]}, g. {hour[i]} - {teams[count]} vs {teams[count+1]}')
+        c = []
+        c.append(days[i])
+        c.append(months[i])
+        c.append(year[i])
+        c.append(hour[i])
+        c.append(teams[count])
+        c.append(teams[count+1])
+        c.append(scores[i])
+        c.append(event[i])
+        games.append(c)
+        count += 2
+
+    celuloza = []
+    for game in games:
+        if game[4] == 'TS CELULOZA  KOSTRZYN  N/O' or game[5] == 'TS CELULOZA  KOSTRZYN  N/O':
+            day = int(game[0])
+            month = int(game[1])
+            year = int(game[2])
+            hour = int(game[3][0:2])
+            minutes = int(game[3][4:6])
+            date = datetime.datetime(year, month, day, hour, minutes)
+            game[0] = date
+            game.remove(game[1])
+            game.remove(game[1])
+            game.remove(game[1])
+            celuloza.append(game)
+
+    return celuloza
+
+
+celuloza19()
 
 
 def game():
@@ -70,7 +147,7 @@ def game():
         b = 4
         game = []
         for i in range(14):
-            game.append(games[a:b])
+            game.append(games[a: b])
             a += 4
             b += 4
 
@@ -85,8 +162,6 @@ def tjm():
     days = []
     for wynik in bs.find_all('span', class_='day'):
         days.append(wynik.get_text())
-
-    print(len(days))
 
     months = []
     year = []
@@ -150,14 +225,11 @@ def tjm():
         b = 4
         tjm = []
         for i in range(14):
-            tjm.append(games[a:b])
+            tjm.append(games[a: b])
             a += 4
             b += 4
 
         return tjm
-
-
-tjm()
 
 
 def tr():
@@ -234,7 +306,7 @@ def tr():
         b = 4
         tr = []
         for i in range(14):
-            tr.append(games[a:b])
+            tr.append(games[a: b])
             a += 4
             b += 4
 

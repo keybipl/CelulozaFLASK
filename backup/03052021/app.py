@@ -6,9 +6,8 @@ from functools import wraps
 import sqlite3
 from minut import zestaw_par, term, wyniki, date, pause, club, games, points, goals
 from next_game import last, next_game
-from lnp import game, tjm, tr, tablejs, tablejm, tabletr, celuloza19
+from lnp import game, tjm, tr, tablejs, tablejm, tabletr
 from next_lzpn import next_game
-from next_gamejs import celuloza19ng
 
 app = Flask(__name__)
 
@@ -16,7 +15,7 @@ app.config['SECRET_KEY'] = 'secret123'
 
 # Config sqlite
 
-DATABASE = 'news2.db'
+DATABASE = 'news.db'
 
 last = last()
 next_game = next_game()
@@ -41,8 +40,6 @@ teamjm = teamsjm[1]
 teamstr = tabletr()
 punktytr = teamstr[0]
 teamtr = teamstr[1]
-celuloza = celuloza19()
-celuloza19ng = celuloza19ng()
 
 term()
 
@@ -197,12 +194,12 @@ def tabelatr():
 
 @app.route("/juniors")
 def juniors():
-    return render_template('juniors.html', game=game, celuloza19ng=celuloza19ng)
+    return render_template('juniors.html', game=game)
 
 
 @app.route("/schedulejs")
 def schedulejs():
-    return render_template('terminarzjs.html', game=game, celuloza=celuloza, celuloza19ng=celuloza19ng)
+    return render_template('terminarzjs.html', game=game)
 
 
 @app.route("/schedulejm")

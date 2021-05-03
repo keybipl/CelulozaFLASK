@@ -16,6 +16,11 @@ const clubs = {
     kasztelania: "kasztelania.png",
     radowiak: "radowiak.jpg",
     blekitni: "blekitni.jpg",
+    pomologia: "pomologia.png",
+    rakow: "rakow.png",
+    miedz: "miedz.jpg",
+    stilon: "stilon.jpg",
+    brzeg: "brzeg.png"
 }
 
 const change = [...document.querySelectorAll('.change')];
@@ -72,6 +77,21 @@ for (let i = 0; i < change.length; i++) {
     };
     if (club[i].innerText.toUpperCase() == 'Błękitni Lubno'.toUpperCase()) {
         change[i].src = `/static/images/${clubs.blekitni}`;
+    };
+    if (club[i].innerText.toUpperCase() == 'PLUKS POMOLOGIA PRÓSZKÓW'.toUpperCase()) {
+        change[i].src = `/static/images/${clubs.pomologia}`;
+    };
+    if (club[i].innerText.toUpperCase() == 'RKS RAKÓW CZĘSTOCHOWA S.A.'.toUpperCase()) {
+        change[i].src = `/static/images/${clubs.rakow}`;
+    };
+    if (club[i].innerText.toUpperCase() == 'MIEDŹ LEGNICA'.toUpperCase()) {
+        change[i].src = `/static/images/${clubs.miedz}`;
+    };
+    if (club[i].innerText.toUpperCase() == 'STILON GORZÓW WLKP.'.toUpperCase()) {
+        change[i].src = `/static/images/${clubs.stilon}`;
+    };
+    if (club[i].innerText.toUpperCase() == 'BTP STAL BRZEG'.toUpperCase()) {
+        change[i].src = `/static/images/${clubs.brzeg}`;
     };
 
 }
