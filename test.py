@@ -24,7 +24,7 @@ class House(db.Entity):
 
 db.bind(provider='sqlite', filename='houses.db', create_db=True)
 db.generate_mapping(create_tables=True)
-# set_sql_debug(True)
+set_sql_debug(True)
 
 
 @db_session

@@ -9,14 +9,10 @@ from next_game import last, next_game
 from lnp import game, tjm, tr, tablejs, tablejm, tabletr, celuloza19
 from next_lzpn import next_game
 from next_gamejs import celuloza19ng
-from pony.orm import *
-from datetime import datetime
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'secret123'
-
-db = Database()
 
 # Config sqlite
 
@@ -51,18 +47,6 @@ celuloza19ng = celuloza19ng()
 term()
 
 
-class NextGame(db.Entity):
-    home = Required(str)
-    guest = Required(str)
-    date = Required(datetime)
-    result = Optional(str)
-
-
-db.bind(provider='sqlite', filename='next.sqlite', create_db=True)
-db.generate_mapping(create_tables=True)
-set_sql_debug(True)
-
-
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
@@ -91,18 +75,7 @@ def make_dicts(cursor, row):
 
 @app.context_processor
 def inject_user():
-    with db_session:
-        home = NextGame[1].home
-        guest = NextGame[1].guest
-        date = NextGame[1].date
-
-    with db_session:
-        home_last = NextGame[2].home
-        guest_last = NextGame[2].guest
-        date_last = NextGame[2].date
-        result = NextGame[2].result
-
-    return dict(last=last, next_game=next_game, home=home, guest=guest, result=result, date=date, home_last=home_last, guest_last=guest_last, date_last=date_last)
+    return dict(last=last, next_game=next_game)
 
 
 @app.route("/")  # articles = news()
@@ -509,4 +482,4 @@ def delete_article(id):
 
 
 if __name__ == '__main__':
-    app.run()  # host='0.0.0.0'
+    app.run(host='0.0.0.0')  # host='0.0.0.0'
