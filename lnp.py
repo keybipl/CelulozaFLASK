@@ -76,9 +76,6 @@ def celuloza19():
     return celuloza
 
 
-celuloza19()
-
-
 def game():
     URL = 'https://www.laczynaspilka.pl/rozgrywki/clj,40143.html?round=0'
     page = get(URL)
@@ -335,8 +332,6 @@ def tablejs():
     for i in range(0, 32):
         if i in (0, 4, 8, 12, 16, 20, 24, 28):
             punktyjs.append(points[i])
-
-    print(teams)
 
     return punktyjs, teams
 

@@ -10,13 +10,21 @@ from lnp import game, tjm, tr, tablejs, tablejm, tabletr, celuloza19
 from next_lzpn import next_game
 from next_gamejs import celuloza19ng
 from datetime import datetime
-# from testcel import api
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'secret123'
 
 # Config sqlite
+
+# connection = sqlite3.connect("next.db")
+# cursor = connection.cursor()
+# test = cursor.execute("SELECT home, guest, date, result FROM NextGame WHERE id = 1" ).fetchone()
+
+# home = test[0]
+# guest = test[1]
+# date = test[2]
+# result = test[3]
 
 DATABASE = 'news.db'
 
@@ -169,7 +177,7 @@ def team():
 
 @app.route("/contact")
 def contact():
-    return render_template('kontakt.html')
+    return render_template('kontakt.html', home=home, guest=guest, date=date, result=result)
 
 
 @app.route("/schedule")

@@ -1,6 +1,7 @@
 from next_game import next_game, last
 from pony.orm import *
 from datetime import datetime
+import time
 
 celuloza = next_game()
 celuloza_last = last()
@@ -24,6 +25,8 @@ set_sql_debug(True)
 # with db_session:
 #     NextGame(home=celuloza_last[0],
 #              guest=celuloza_last[1], date=celuloza_last[2], result=celuloza_last[3])
+
+
 
 with db_session:
     home = NextGame[1].home
@@ -57,3 +60,4 @@ if home_last != homecel_last or guest_last != guestcel_last:
         NextGame[2].guest = guestcel_last
         NextGame[2].date = datecel_last
         NextGame[2].result = resultcel_last
+

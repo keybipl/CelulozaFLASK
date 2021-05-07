@@ -20,4 +20,9 @@ def celuloza19ng():
 
     next_game19 = next_rival[0]
 
+    print(next_game19)
+
     return next_game19
+
+
+celuloza19ng()
