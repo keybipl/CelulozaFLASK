@@ -302,7 +302,7 @@
                         <p></p>
                         {% else %}
                         <p class="date-next">
-                            {% set nextGame = next_game[2] | string() %} <strong>
+                            {% set nextGame = games[1][3] | string() %} <strong>
                                 {{nextGame[8:10]}}.{{nextGame[5:7]}}.{{nextGame[0:4]}}</strong>, g. {{nextGame[11:16]}}
                         </p>{% endif %}
                     </div>
@@ -324,8 +324,8 @@
                     <div class="row mb-3">
 
                         <div class="col-5">
-                            <p class="text-center club">{% set ts = next_game[0] %}
-                                {% if 'CELULOZA' in ts %}
+                            <p class="text-center club">{% set ts = games[1][1] %}
+                                {% if 'Celuloza' in ts %}
                                 {% set ts = 'TS Celuloza' %} {{ts}} {% else %} {{ts}} {% endif %}</p>
                         </div>
 
@@ -334,15 +334,15 @@
 
 
                         <div class="col-5">
-                            <p class="text-center club">{% set ts = next_game[1] %}
-                                {% if 'CELULOZA' in ts %}
+                            <p class="text-center club">{% set ts = games[1][2] %}
+                                {% if 'Celuloza' in ts %}
                                 {% set ts = 'TS Celuloza' %} {{ts}} {% else %} {{ts}} {% endif %}</p>
                         </div>
                     </div>
                     <div class="head text-uppercase text-center">Ostatni mecz</div>
                     <div class="row">
                         <p class="">
-                            {% set previous = last[2] | string() %} <strong>
+                            {% set previous = games[0][3] | string() %} <strong>
                                 {{previous[8:10]}}.{{previous[5:7]}}.{{previous[0:4]}}</strong>, g.
                             {{previous[11:16]}}
                         </p>
@@ -364,7 +364,7 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-5">
-                            <p class="text-center club">{% set ts = last[0] %}
+                            <p class="text-center club">{% set ts = games[0][1] %}
                                 {% if ts == 'Celuloza Kostrzyn nad Odrą' %}
                                 {% set ts = 'TS Celuloza' %} {{ts}} {% else %} {{ts}} {% endif %}</p>
                         </div>
@@ -373,7 +373,7 @@
                         </div>
 
                         <div class="col-5">
-                            <p class="text-center club">{% set ts = last[1]  %}
+                            <p class="text-center club">{% set ts = games[0][2]  %}
                                 {% if ts == 'Celuloza Kostrzyn nad Odrą' %}
                                 {% set ts = 'TS Celuloza' %} {{ts}} {% else %} {{ts}} {% endif %}</p>
                         </div>

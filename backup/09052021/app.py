@@ -1,5 +1,4 @@
 from flask import Flask, render_template, redirect, flash, url_for, session, request, logging, g
-from data import news
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
@@ -8,9 +7,8 @@ from minut import zestaw_par, term, wyniki, date, pause, club, games, points, go
 from next_game import last, next_game
 from lnp import game, tjm, tr, tablejs, tablejm, tabletr, celuloza19, celulozajm, celulozatr
 from next_lzpn import next_game
-# from next_gamejs import celuloza19ng, celulozajmng, celulozatrng, today
-# from datetime import datetime
 import datetime
+from pony.orm import *
 
 app = Flask(__name__)
 
@@ -52,14 +50,9 @@ teamjm = teamsjm[1]
 teamstr = tabletr()
 punktytr = teamstr[0]
 teamtr = teamstr[1]
-celuloza = celuloza19()
-# celuloza19ng = celuloza19ng()
-# next_gamejm = celulozajmng()
-# next_gametr = celulozatrng()
-# jsng = today()
-# jmng = today()
-# trng = today()
-# senng = today()
+celuloza19 = celuloza19()
+celulozajm = celulozajm()
+celulozatr = celulozatr()
 
 term()
 
@@ -126,6 +119,77 @@ def admin():
 # Artykuły
 @app.route("/articles")
 def home():
+    date_now = datetime.datetime.now()
+
+    celulozang19 = []
+    for g in celuloza19:
+        date = g[0]
+        if date > date_now:
+            g = [date, g[1], g[2], g[3], g[4]]
+            celulozang19.append(g)
+
+    next_games = [elem for elem in celulozang19 if elem[0]]
+    next_rival = sorted(next_games, key=lambda x: x[0])
+    celuloza19ng = next_rival[0]
+
+    celulozangjm = []
+    for g in celulozajm:
+        date = g[0]
+        # print(date)
+        if date > date_now:
+            g = [date, g[1], g[2], g[3], g[4]]
+            celulozangjm.append(g)
+
+    next_rival = sorted(celulozangjm, key=lambda x: x[0])
+    next_gamejm = next_rival[0]
+
+    celulozangtr = []
+    for g in celulozatr:
+        date = g[0]
+        # print(date)
+        if date > date_now:
+            g = [date, g[1], g[2], g[3], g[4]]
+            celulozangtr.append(g)
+
+    next_rival = sorted(celulozangtr, key=lambda x: x[0])
+    next_gametr = next_rival[0]
+
+    js = celuloza19ng
+    jm = next_gamejm
+    tr = next_gametr
+    sen = next_game
+    date_now = datetime.datetime.now()
+    datesen = sen[2]
+    datejs = js[0]
+    datejm = jm[0]
+    datetr = tr[0]
+    today = []
+    if datesen.year == date_now.year and datesen.month == date_now.month and datesen.day == date_now.day:
+        senng = True
+        # js.append('js')
+        # today.append(js)
+    else:
+        senng = False
+    if datejs.year == date_now.year and datejs.month == date_now.month and datejs.day == date_now.day:
+        jsng = True
+        # js.append('js')
+        # today.append(js)
+    else:
+        jsng = False
+    if datejm.year == date_now.year and datejm.month == date_now.month and datejm.day == date_now.day:
+        jmng = True
+        # jm.append('jm')
+        # today.append(jm)
+    else:
+        jmng = False
+    if datetr.year == date_now.year and datetr.month == date_now.month and datetr.day == date_now.day:
+        trng = True
+        # tr.append('tr')
+        # today.append(tr)
+    else:
+        trng = False
+
+    next_bool = [senng, jsng, jmng, trng]
 
     # Create cursor
     cur = get_db()
@@ -140,8 +204,7 @@ def home():
         return render_template('news.html', msg=msg)
 
     else:
-        return render_template('news.html', articles=articles)
-        # jsng=jsng, jmng=jmng, trng=trng, next_gamejm=next_gamejm, celuloza19ng=celuloza19ng, senng=senng, next_game=next_game, next_gametr=next_gametr
+        return render_template('news.html', articles=articles, next_bool=next_bool, next_game=next_game, celuloza19ng=celuloza19ng, next_gamejm=next_gamejm, next_gametr=next_gametr, senng=senng, jsng=jsng, jmng=jmng, trng=trng)
 
     # close connection
     cur.close()
@@ -176,7 +239,14 @@ def coaches():
 
 @app.route("/contact")
 def contact():
-    return render_template('kontakt.html')
+    # Create cursor
+    cur = get_db()
+
+    # get articles
+    result = cur.execute("SELECT * FROM NextGame ORDER BY id DESC")
+
+    games = result.fetchall()
+    return render_template('kontakt.html', games=games)
 
 
 @app.route("/history")
@@ -186,11 +256,10 @@ def history():
 
 @app.route("/juniorm")
 def juniorm():
-    celuloza = celulozajm()
     date_now = datetime.datetime.now()
 
     celulozang = []
-    for g in celuloza:
+    for g in celulozajm:
         date = g[0]
 
         if date > date_now:
@@ -206,11 +275,10 @@ def juniorm():
 
 @app.route("/juniors")
 def juniors():
-    celuloza = celuloza19()
     date_now = datetime.datetime.now()
 
     celulozang = []
-    for g in celuloza:
+    for g in celuloza19:
         date = g[0]
         if date > date_now:
             g = [date, g[1], g[2], g[3], g[4]]
@@ -233,11 +301,10 @@ def schedule():
 
 @app.route("/schedulejm")
 def schedulejm():
-    celuloza = celulozajm()
     date_now = datetime.datetime.now()
 
     celulozang = []
-    for g in celuloza:
+    for g in celulozajm:
         date = g[0]
 
         if date > date_now:
@@ -252,11 +319,10 @@ def schedulejm():
 
 @app.route("/schedulejs")
 def schedulejs():
-    celuloza = celuloza19()
     date_now = datetime.datetime.now()
 
     celulozang = []
-    for g in celuloza:
+    for g in celuloza19:
         date = g[0]
         if date > date_now:
             g = [date, g[1], g[2], g[3], g[4]]
@@ -269,16 +335,15 @@ def schedulejs():
 
     celuloza19ng = next_rival[0]
 
-    return render_template('terminarzjs.html', game=game, celuloza=celuloza, celuloza19ng=celuloza19ng)
+    return render_template('terminarzjs.html', game=game, celuloza19ng=celuloza19ng)
 
 
 @app.route("/scheduletr")
 def scheduletr():
-    celuloza = celulozatr()
     date_now = datetime.datetime.now()
 
     celulozang = []
-    for g in celuloza:
+    for g in celulozatr:
         date = g[0]
         if date > date_now:
             g = [date, g[1], g[2], g[3], g[4]]
@@ -324,11 +389,10 @@ def team():
 
 @app.route("/tramp")
 def tramp():
-    celuloza = celulozatr()
     date_now = datetime.datetime.now()
 
     celulozang = []
-    for g in celuloza:
+    for g in celulozatr:
         date = g[0]
         if date > date_now:
             g = [date, g[1], g[2], g[3], g[4]]

@@ -15,7 +15,7 @@ class NextGame(db.Entity):
     result = Optional(str)
 
 
-db.bind(provider='sqlite', filename='next.db', create_db=True)
+db.bind(provider='sqlite', filename='news.db', create_db=True)
 db.generate_mapping(create_tables=True)
 set_sql_debug(True)
 
@@ -24,11 +24,15 @@ set_sql_debug(True)
 #     NextGame(home=celuloza_last[0],
 #              guest=celuloza_last[1], date=celuloza_last[2], result=celuloza_last[3])
 
+# with db_session:
+#     NextGame(home=celuloza[0],
+#              guest=celuloza[1], date=celuloza[2], result=celuloza[3])
 
 with db_session:
     home = NextGame[1].home
     guest = NextGame[1].guest
     date = NextGame[1].date
+    result = NextGame[1].result
 
 
 with db_session:

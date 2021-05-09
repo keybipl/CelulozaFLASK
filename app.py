@@ -1,5 +1,4 @@
 from flask import Flask, render_template, redirect, flash, url_for, session, request, logging, g
-from data import news
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
@@ -86,7 +85,15 @@ def make_dicts(cursor, row):
 
 @app.context_processor
 def inject_user():
-    return dict(last=last, next_game=next_game)
+    # Create cursor
+    cur = get_db()
+
+    # get articles
+    result = cur.execute("SELECT * FROM NextGame ORDER BY id DESC")
+
+    games = result.fetchall()
+
+    return dict(last=last, next_game=next_game, games=games)
 
 
 @app.route("/")  # articles = news()
@@ -240,7 +247,14 @@ def coaches():
 
 @app.route("/contact")
 def contact():
-    return render_template('kontakt.html')
+    # Create cursor
+    cur = get_db()
+
+    # get articles
+    result = cur.execute("SELECT * FROM NextGame ORDER BY id DESC")
+
+    games = result.fetchall()
+    return render_template('kontakt.html', games=games)
 
 
 @app.route("/history")
