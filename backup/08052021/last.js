@@ -20,15 +20,7 @@ const clubs = {
     rakow: "rakow.png",
     miedz: "miedz.jpg",
     stilon: "stilon.jpg",
-    brzeg: "brzeg.png",
-    maksymilian: 'maksymilian.png',
-    zap: 'zap.png',
-    kisielin: 'kisielin.jpg',
-    zagan: 'zagan.jpg',
-    lechia: 'lechia.png',
-    ilanka: 'ilanka.jpg',
-    wschowa: 'wschowa.jpg',
-    przylep: 'przylep.png',
+    brzeg: "brzeg.png"
 }
 
 const change = [...document.querySelectorAll('.change')];
@@ -50,9 +42,6 @@ for (let i = 0; i < change.length; i++) {
     if (club[i].innerText.toUpperCase() == 'Warta II Gorzów Wielkopolski'.toUpperCase()) {
         change[i].src = `/static/images/${clubs.wartag}`;
     };
-    if (club[i].innerText.toUpperCase() == 'WARTA GORZÓW WLKP.'.toUpperCase()) {
-        change[i].src = `/static/images/${clubs.wartag}`;
-    };
     if (club[i].innerText.toUpperCase() == 'Lubuszanin Drezdenko'.toUpperCase()) {
         change[i].src = `/static/images/${clubs.lubuszanin}`;
     };
@@ -69,9 +58,6 @@ for (let i = 0; i < change.length; i++) {
         change[i].src = `/static/images/${clubs.zjednoczeni}`;
     };
     if (club[i].innerText.toUpperCase() == 'Spartak Deszczno'.toUpperCase()) {
-        change[i].src = `/static/images/${clubs.spartak}`;
-    };
-    if (club[i].innerText.toUpperCase() == 'SPARTAK ZWOLBET DESZCZNO'.toUpperCase()) {
         change[i].src = `/static/images/${clubs.spartak}`;
     };
     if (club[i].innerText.toUpperCase() == 'GKP Pszczew'.toUpperCase()) {
@@ -106,30 +92,6 @@ for (let i = 0; i < change.length; i++) {
     };
     if (club[i].innerText.toUpperCase() == 'BTP STAL BRZEG'.toUpperCase()) {
         change[i].src = `/static/images/${clubs.brzeg}`;
-    };
-    if (club[i].innerText.toUpperCase() == 'PUKS MAKSYMILIAN Gorzów Wlkp.'.toUpperCase()) {
-        change[i].src = `/static/images/${clubs.maksymilian}`;
-    };
-    if (club[i].innerText.toUpperCase() == 'ZAP JUNIOR ZBĄSZYNEK'.toUpperCase()) {
-        change[i].src = `/static/images/${clubs.zap}`;
-    };
-    if (club[i].innerText.toUpperCase() == 'SKP KISIELIN'.toUpperCase()) {
-        change[i].src = `/static/images/${clubs.kisielin}`;
-    };
-    if (club[i].innerText.toUpperCase() == 'MKS CZARNI ŻAGAŃ 1957'.toUpperCase()) {
-        change[i].src = `/static/images/${clubs.zagan}`;
-    };
-    if (club[i].innerText.toUpperCase() == 'KS LECHIA II ZIELONA GÓRA'.toUpperCase()) {
-        change[i].src = `/static/images/${clubs.lechia}`;
-    };
-    if (club[i].innerText.toUpperCase() == 'ILANKA RZEPIN'.toUpperCase()) {
-        change[i].src = `/static/images/${clubs.ilanka}`;
-    };
-    if (club[i].innerText.toUpperCase() == 'KORONA WSCHOWA'.toUpperCase()) {
-        change[i].src = `/static/images/${clubs.wschowa}`;
-    };
-    if (club[i].innerText.toUpperCase() == 'TS II PRZYLEP ZIELONA GÓRA'.toUpperCase()) {
-        change[i].src = `/static/images/${clubs.przylep}`;
     };
 
 }

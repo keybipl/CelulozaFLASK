@@ -6,17 +6,26 @@ from functools import wraps
 import sqlite3
 from minut import zestaw_par, term, wyniki, date, pause, club, games, points, goals
 from next_game import last, next_game
-from lnp import game, tjm, tr, tablejs, tablejm, tabletr, celuloza19
+from lnp import game, tjm, tr, tablejs, tablejm, tabletr, celuloza19, celulozajm, celulozatr
 from next_lzpn import next_game
-from next_gamejs import celuloza19ng
-from datetime import datetime
-# from testcel import api
+# from next_gamejs import today
+# from datetime import datetime
+import datetime
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'secret123'
 
 # Config sqlite
+
+# connection = sqlite3.connect("next.db")
+# cursor = connection.cursor()
+# test = cursor.execute("SELECT home, guest, date, result FROM NextGame WHERE id = 1" ).fetchone()
+
+# home = test[0]
+# guest = test[1]
+# date = test[2]
+# result = test[3]
 
 DATABASE = 'news.db'
 
@@ -43,8 +52,9 @@ teamjm = teamsjm[1]
 teamstr = tabletr()
 punktytr = teamstr[0]
 teamtr = teamstr[1]
-celuloza = celuloza19()
-celuloza19ng = celuloza19ng()
+celuloza19 = celuloza19()
+celulozajm = celulozajm()
+celulozatr = celulozatr()
 
 term()
 
@@ -111,6 +121,78 @@ def admin():
 # Artykuły
 @app.route("/articles")
 def home():
+    date_now = datetime.datetime.now()
+
+    celulozang19 = []
+    for g in celuloza19:
+        date = g[0]
+        if date > date_now:
+            g = [date, g[1], g[2], g[3], g[4]]
+            celulozang19.append(g)
+
+    next_games = [elem for elem in celulozang19 if elem[0]]
+    next_rival = sorted(next_games, key=lambda x: x[0])
+    celuloza19ng = next_rival[0]
+
+    celulozangjm = []
+    for g in celulozajm:
+        date = g[0]
+        # print(date)
+        if date > date_now:
+            g = [date, g[1], g[2], g[3], g[4]]
+            celulozangjm.append(g)
+
+    next_rival = sorted(celulozangjm, key=lambda x: x[0])
+    next_gamejm = next_rival[0]
+
+    celulozangtr = []
+    for g in celulozatr:
+        date = g[0]
+        # print(date)
+        if date > date_now:
+            g = [date, g[1], g[2], g[3], g[4]]
+            celulozangtr.append(g)
+
+    next_rival = sorted(celulozangtr, key=lambda x: x[0])
+    next_gametr = next_rival[0]
+
+    js = celuloza19ng
+    jm = next_gamejm
+    tr = next_gametr
+    sen = next_game
+    date_now = datetime.datetime.now()
+    datesen = sen[2]
+    datejs = js[0]
+    datejm = jm[0]
+    datetr = tr[0]
+    today = []
+    if datesen.year == date_now.year and datesen.month == date_now.month and datesen.day == date_now.day:
+        senng = True
+        # js.append('js')
+        # today.append(js)
+    else:
+        senng = False
+    if datejs.year == date_now.year and datejs.month == date_now.month and datejs.day == date_now.day:
+        jsng = True
+        # js.append('js')
+        # today.append(js)
+    else:
+        jsng = False
+    if datejm.year == date_now.year and datejm.month == date_now.month and datejm.day == date_now.day:
+        jmng = True
+        # jm.append('jm')
+        # today.append(jm)
+    else:
+        jmng = False
+    if datetr.year == date_now.year and datetr.month == date_now.month and datetr.day == date_now.day:
+        trng = True
+        # tr.append('tr')
+        # today.append(tr)
+    else:
+        trng = False
+
+    next_bool = [senng, jsng, jmng, trng]
+
     # Create cursor
     cur = get_db()
 
@@ -124,7 +206,7 @@ def home():
         return render_template('news.html', msg=msg)
 
     else:
-        return render_template('news.html', articles=articles)
+        return render_template('news.html', articles=articles, next_bool=next_bool, next_game=next_game, celuloza19ng=celuloza19ng, next_gamejm=next_gamejm, next_gametr=next_gametr, senng=senng, jsng=jsng, jmng=jmng, trng=trng)
 
     # close connection
     cur.close()
@@ -147,11 +229,6 @@ def article(id):
     return render_template('article.html', article=article)
 
 
-@app.route("/history")
-def history():
-    return render_template('historia.html')
-
-
 @app.route("/board")
 def board():
     return render_template('zarzad.html')
@@ -162,14 +239,54 @@ def coaches():
     return render_template('trenerzy.html')
 
 
-@app.route("/team")
-def team():
-    return render_template('kadra.html')
-
-
 @app.route("/contact")
 def contact():
     return render_template('kontakt.html')
+
+
+@app.route("/history")
+def history():
+    return render_template('historia.html')
+
+
+@app.route("/juniorm")
+def juniorm():
+    date_now = datetime.datetime.now()
+
+    celulozang = []
+    for g in celulozajm:
+        date = g[0]
+
+        if date > date_now:
+            g = [date, g[1], g[2], g[3], g[4]]
+            celulozang.append(g)
+
+    next_rival = sorted(celulozang, key=lambda x: x[0])
+
+    next_gamejm = next_rival[0]
+
+    return render_template('juniorm.html', next_gamejm=next_gamejm)
+
+
+@app.route("/juniors")
+def juniors():
+    date_now = datetime.datetime.now()
+
+    celulozang = []
+    for g in celuloza19:
+        date = g[0]
+        if date > date_now:
+            g = [date, g[1], g[2], g[3], g[4]]
+            celulozang.append(g)
+
+    next_games = [elem for elem in celulozang if elem[0]]
+    next_rival = sorted(next_games, key=lambda x: x[0])
+
+    # print(next_rival)
+
+    celuloza19ng = next_rival[0]
+
+    return render_template('juniors.html', celuloza19ng=celuloza19ng)
 
 
 @app.route("/schedule")
@@ -177,14 +294,72 @@ def schedule():
     return render_template('terminarz.html', clubs=clubs, terms=terms, wynik=wynik, kolejka=kolejka, pauza=pauza, last=last)
 
 
+@app.route("/schedulejm")
+def schedulejm():
+    date_now = datetime.datetime.now()
+
+    celulozang = []
+    for g in celulozajm:
+        date = g[0]
+
+        if date > date_now:
+            g = [date, g[1], g[2], g[3], g[4]]
+            celulozang.append(g)
+
+    next_rival = sorted(celulozang, key=lambda x: x[0])
+
+    next_gamejm = next_rival[0]
+    return render_template('terminarzjm.html', tjm=tjm, next_gamejm=next_gamejm)
+
+
+@app.route("/schedulejs")
+def schedulejs():
+    date_now = datetime.datetime.now()
+
+    celulozang = []
+    for g in celuloza19:
+        date = g[0]
+        if date > date_now:
+            g = [date, g[1], g[2], g[3], g[4]]
+            celulozang.append(g)
+
+    next_games = [elem for elem in celulozang if elem[0]]
+    next_rival = sorted(next_games, key=lambda x: x[0])
+
+    # print(next_rival)
+
+    celuloza19ng = next_rival[0]
+
+    return render_template('terminarzjs.html', game=game, celuloza19ng=celuloza19ng)
+
+
+@app.route("/scheduletr")
+def scheduletr():
+    date_now = datetime.datetime.now()
+
+    celulozang = []
+    for g in celulozatr:
+        date = g[0]
+        if date > date_now:
+            g = [date, g[1], g[2], g[3], g[4]]
+            celulozang.append(g)
+
+    next_games = [elem for elem in celulozang if elem[0]]
+    next_rival = sorted(next_games, key=lambda x: x[0])
+
+    next_gametr = next_rival[0]
+    return render_template('terminarztr.html', tr=tr, next_gametr=next_gametr)
+
+
+@app.route("/sponsors")
+def sponsors():
+    sponsors = True
+    return render_template('sponsorzy.html', sponsors=sponsors)
+
+
 @app.route("/table")
 def table():
     return render_template('tabela.html', klub=klub, mecze=mecze, punkty=punkty, bramki=bramki)
-
-
-@app.route("/tablejs")
-def tabelajs():
-    return render_template('tabelajs.html', punktyjs=punktyjs, teamsjs=teamsjs)
 
 
 @app.route("/tablejm")
@@ -192,55 +367,44 @@ def tabelajm():
     return render_template('tabelajm.html', punktyjm=punktyjm, teamjm=teamjm)
 
 
+@app.route("/tablejs")
+def tabelajs():
+    return render_template('tabelajs.html', punktyjs=punktyjs, teamsjs=teamsjs)
+
+
 @app.route("/tabletr")
 def tabelatr():
     return render_template('tabelatr.html', punktytr=punktytr, teamtr=teamtr)
 
 
-@app.route("/juniors")
-def juniors():
-    return render_template('juniors.html', game=game, celuloza19ng=celuloza19ng)
-
-
-@app.route("/schedulejs")
-def schedulejs():
-    return render_template('terminarzjs.html', game=game, celuloza=celuloza, celuloza19ng=celuloza19ng)
-
-
-@app.route("/schedulejm")
-def schedulejm():
-    return render_template('terminarzjm.html', tjm=tjm)
-
-
-@app.route("/scheduletr")
-def scheduletr():
-    return render_template('terminarztr.html', tr=tr)
-
-
-@app.route("/juniorm")
-def juniorm():
-    return render_template('juniorm.html')
+@app.route("/team")
+def team():
+    return render_template('kadra.html')
 
 
 @app.route("/tramp")
 def tramp():
-    return render_template('trampkarz.html')
+    date_now = datetime.datetime.now()
+
+    celulozang = []
+    for g in celulozatr:
+        date = g[0]
+        if date > date_now:
+            g = [date, g[1], g[2], g[3], g[4]]
+            celulozang.append(g)
+
+    next_games = [elem for elem in celulozang if elem[0]]
+    next_rival = sorted(next_games, key=lambda x: x[0])
+
+    next_gametr = next_rival[0]
+
+    return render_template('trampkarz.html', next_gametr=next_gametr)
 
 
 @app.route("/uks")
 def uks():
     return render_template('uks.html')
 
-
-@app.route("/af")
-def af():
-    return render_template('af.html')
-
-
-@app.route("/sponsors")
-def sponsors():
-    sponsors = True
-    return render_template('sponsorzy.html', sponsors=sponsors)
 
 # Formularz rejestracji
 

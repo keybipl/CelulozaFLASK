@@ -99,7 +99,7 @@ def next_game():
 
     next_rival = sorted(next_games, key=lambda x: x[2])
 
-    # print(next_rival)
+    print(next_rival)
 
     next_game = next_rival[0]
 

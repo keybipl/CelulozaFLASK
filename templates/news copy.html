@@ -2,13 +2,13 @@
 
 {% block body %}
 
-{% if next_bool[0] or next_bool[1] or next_bool[2] or next_bool[3] %}
+{% if sen[0] or js[1] or jm[2] or tr[3] %}
 
 <div class="head text-uppercase text-center">Dziś grają</div>
 
 {% endif %}
 
-{% if next_bool[0] == True %}
+{% if sen[0] == True %}
 
 <h4 class="text-center">Senior</h4>
 
@@ -36,7 +36,7 @@
 
 {% endif %}
 
-{% if next_bool[1] == True %}
+{% if js[1] == True %}
 
 <h4 class="text-center">Junior starszy</h4>
 
@@ -65,7 +65,7 @@
 {% endif %}
 
 
-{% if next_bool[2] == True %}
+{% if jm[2] == True %}
 
 <h4 class="text-center">Junior młodszy</h4>
 
@@ -93,7 +93,7 @@
 {% endif %}
 
 
-{% if next_bool[3] == True %}
+{% if trng[3] == True %}
 
 <h4 class="text-center">Trampkarz</h4>
 

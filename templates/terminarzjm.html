@@ -2,6 +2,32 @@
 
 {% block body %}
 
+<div class="jumbotron text-center">
+    <h1 class="display-4">Terminarz junior młodszy</h1>
+</div>
+
+<h4 class="mt-3">Następny mecz:</h4>
+{% set ts = next_gamejm[0] | string %}
+<p class="date">{{ts[8:10]}}.{{ts[5:7]}}.{{ts[0:4]}} g.{{ts[11:16]}}</p>
+<div class="table-responsive mb-5">
+    <table class="table w-100 table-responsive">
+        <tr>
+            <td class="col text-center"><img class="img-fluid w-25 change"
+                    src="{{url_for('static', filename='images/logo.png')}}" alt="
+                    logo"></td>
+            <td class="col text-center"><img class="img-fluid w-25 pb-3 change"
+                    src="{{url_for('static', filename='images/logo.png')}}" alt="
+                    logo"></td>
+        </tr>
+        <tr>
+            <td class="col host all text-center club">
+                {{next_gamejm[1]}}
+            </td>
+            <td class="col guest all text-center club">{{next_gamejm[2]}}</td>
+        </tr>
+    </table>
+</div>
+
 {% if tjm == False %}
 
 <div class="alert alert-primary" role="alert">

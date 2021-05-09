@@ -4,14 +4,14 @@ import datetime
 
 
 def celuloza19ng():
-    celulozajs = celuloza19()
+    celuloza = celuloza19()
     date_now = datetime.datetime.now()
 
     celulozang = []
-    for g in celulozajs:
-        date = g[0]
+    for game in celuloza:
+        date = game[0]
         if date > date_now:
-            g = [date, g[1], g[2], g[3], g[4]]
+            g = [date, game[1], game[2], game[3], game[4]]
             celulozang.append(g)
 
     next_games = [elem for elem in celulozang if elem[0]]
@@ -25,15 +25,15 @@ def celuloza19ng():
 
 
 def celulozajmng():
-    celulozajml = celulozajm()
+    celuloza = celulozajm()
     date_now = datetime.datetime.now()
 
     celulozang = []
-    for g in celulozajml:
-        date = g[0]
+    for game in celuloza:
+        date = game[0]
         # print(date)
         if date > date_now:
-            g = [date, g[1], g[2], g[3], g[4]]
+            g = [date, game[1], game[2], game[3], game[4]]
             celulozang.append(g)
 
     next_rival = sorted(celulozang, key=lambda x: x[0])
@@ -48,15 +48,15 @@ def celulozajmng():
 
 
 def celulozatrng():
-    celulozatra = celulozatr()
+    celuloza = celulozatr()
     date_now = datetime.datetime.now()
 
     celulozang = []
-    for g in celulozatra:
-        date = g[0]
+    for game in celuloza:
+        date = game[0]
         # print(date)
         if date > date_now:
-            g = [date, g[1], g[2], g[3], g[4]]
+            g = [date, game[1], game[2], game[3], game[4]]
             celulozang.append(g)
 
     next_rival = sorted(celulozang, key=lambda x: x[0])
@@ -102,9 +102,9 @@ def today():
     else:
         trng = False
 
-    print(senng, jsng, jmng, trng)
+    # print(senng, jsng, jmng, trng)
 
     return [senng, jsng, jmng, trng]
 
 
-today()
+# today()

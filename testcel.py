@@ -7,8 +7,6 @@ celuloza = next_game()
 celuloza_last = last()
 db = Database()
 
-print(celuloza_last)
-
 
 class NextGame(db.Entity):
     home = Required(str)
@@ -17,7 +15,7 @@ class NextGame(db.Entity):
     result = Optional(str)
 
 
-db.bind(provider='sqlite', filename='next.sqlite', create_db=True)
+db.bind(provider='sqlite', filename='next.db', create_db=True)
 db.generate_mapping(create_tables=True)
 set_sql_debug(True)
 
@@ -27,11 +25,11 @@ set_sql_debug(True)
 #              guest=celuloza_last[1], date=celuloza_last[2], result=celuloza_last[3])
 
 
-
 with db_session:
     home = NextGame[1].home
     guest = NextGame[1].guest
     date = NextGame[1].date
+
 
 with db_session:
     home_last = NextGame[2].home
@@ -60,4 +58,3 @@ if home_last != homecel_last or guest_last != guestcel_last:
         NextGame[2].guest = guestcel_last
         NextGame[2].date = datecel_last
         NextGame[2].result = resultcel_last
-

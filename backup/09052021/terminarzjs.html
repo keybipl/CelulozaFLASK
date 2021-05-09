@@ -3,11 +3,11 @@
 {% block body %}
 
 <div class="jumbotron text-center">
-    <h1 class="display-4">Terminarz trampkarz</h1>
+    <h1 class="display-4">Terminarz U-19</h1>
 </div>
 
 <h4 class="mt-3">Następny mecz:</h4>
-{% set ts = next_gametr[0] | string %}
+{% set ts = celuloza19ng[0] | string %}
 <p class="date">{{ts[8:10]}}.{{ts[5:7]}}.{{ts[0:4]}} g.{{ts[11:16]}}</p>
 <div class="table-responsive mb-5">
     <table class="table w-100 table-responsive">
@@ -21,19 +21,31 @@
         </tr>
         <tr>
             <td class="col host all text-center club">
-                {{next_gametr[1]}}
+                {{celuloza19ng[1]}}
             </td>
-            <td class="col guest all text-center club">{{next_gametr[2]}}</td>
+            <td class="col guest all text-center club">{{celuloza19ng[2]}}</td>
         </tr>
     </table>
 </div>
 
+{% if game == False %}
 
-{% if tr == False %}
-
-<div class="alert alert-primary" role="alert">
-    Terminarz chwilowo niedostępny. Przepraszamy.
+{% for i in range(celuloza|length) %}
+<h5 class="mt-3">Kolejka {{celuloza[i][4]}}</h5>
+{% set ts = celuloza[i][0] | string %}
+<p class="date">{{ts[8:10]}}.{{ts[5:7]}}.{{ts[0:4]}} g.{{ts[11:16]}}</p>
+<div class="table-responsive">
+    <table class="table w-100 table-responsive">
+        <tr>
+            <td class="col host all">
+                {{celuloza[i][1]}}
+            </td>
+            <td class="col guest all">{{celuloza[i][2]}}</td>
+            <td class="col result all"><strong>{{celuloza[i][3]}}</strong></td>
+        </tr>
+    </table>
 </div>
+{% endfor %}
 
 {% else %}
 
@@ -44,11 +56,11 @@
     <table class="table w-100 table-responsive">
         <tr>{% for i in range(4) %}
             <td class="col host all">
-                {{tr[k][i][4]}}
+                {{game[k][i][4]}}
             </td>
-            <td class="col guest all">{{tr[k][i][5]}}</td>
-            <td class="col result all"><strong>{{tr[k][i][6]}}</strong></td>
-            <td class="col term all">{{tr[k][i][0]}}.{{tr[k][i][1]}}.{{tr[k][i][2]}} g. {{tr[k][i][3]}}</td>
+            <td class="col guest all">{{game[k][i][5]}}</td>
+            <td class="col result all"><strong>{{game[k][i][6]}}</strong></td>
+            <td class="col term all">{{game[k][i][0]}}.{{game[k][i][1]}}.{{game[k][i][2]}} g. {{game[k][i][3]}}</td>
         </tr>
         {% endfor %}
     </table>
@@ -60,4 +72,5 @@
 
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/celuloza.js') }}"></script>
+<script src="{{ url_for('static', filename='js/last.js') }}"></script>
 {% endblock %}
