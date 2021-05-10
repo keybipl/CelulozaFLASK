@@ -302,19 +302,6 @@ def juniors():
     return render_template('juniors.html', celuloza19ng=celuloza19ng)
 
 
-@app.route("/loop")
-def loop():
-    # Create cursor
-    cur = get_db()
-
-    # get article
-    result = cur.execute("SELECT number FROM Loop WHERE id = 1")
-
-    number = result.fetchone()
-    return render_template('loop.html', number=number)
-    cur.close()
-
-
 @app.route("/schedule")
 def schedule():
     return render_template('terminarz.html', clubs=clubs, terms=terms, wynik=wynik, kolejka=kolejka, pauza=pauza, last=last)
