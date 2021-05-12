@@ -7,6 +7,9 @@ celuloza = next_game()
 celuloza_last = last()
 db = Database()
 
+print('next', celuloza)
+print('last', celuloza_last)
+
 
 class NextGame(db.Entity):
     home = Required(str)

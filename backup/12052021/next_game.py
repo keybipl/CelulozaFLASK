@@ -64,18 +64,9 @@ def last():
                 last = [dane[i][0], dane[i][1], date, dane[i][3]]
                 lista.append(last)
 
-    last_games = [elem for elem in lista if elem[2]]
-
-    last_rival = sorted(last_games, key=lambda x: x[2])
-
-    last = last_rival[-1]
-
-    print(last)
+    last = lista[-1]
 
     return last
-
-
-last()
 
 
 def next_game():
@@ -108,7 +99,7 @@ def next_game():
 
     next_rival = sorted(next_games, key=lambda x: x[2])
 
-    # print(next_rival)
+    print(next_rival)
 
     next_game = next_rival[0]
 
