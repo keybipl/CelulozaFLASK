@@ -95,6 +95,78 @@ def inject_user():
 
 @app.route("/")  # articles = news()
 def news():
+    date_now = datetime.datetime.now()
+
+    celulozang19 = []
+    for g in celuloza19:
+        date = g[0]
+        if date > date_now:
+            g = [date, g[1], g[2], g[3], g[4]]
+            celulozang19.append(g)
+
+    next_games = [elem for elem in celulozang19 if elem[0]]
+    next_rival = sorted(next_games, key=lambda x: x[0])
+    celuloza19ng = next_rival[0]
+
+    celulozangjm = []
+    for g in celulozajm:
+        date = g[0]
+        # print(date)
+        if date > date_now:
+            g = [date, g[1], g[2], g[3], g[4]]
+            celulozangjm.append(g)
+
+    next_rival = sorted(celulozangjm, key=lambda x: x[0])
+    next_gamejm = next_rival[0]
+
+    celulozangtr = []
+    for g in celulozatr:
+        date = g[0]
+        # print(date)
+        if date > date_now:
+            g = [date, g[1], g[2], g[3], g[4]]
+            celulozangtr.append(g)
+
+    next_rival = sorted(celulozangtr, key=lambda x: x[0])
+    next_gametr = next_rival[0]
+
+    js = celuloza19ng
+    jm = next_gamejm
+    tr = next_gametr
+    sen = next_game
+    date_now = datetime.datetime.now()
+    datesen = sen[2]
+    datejs = js[0]
+    datejm = jm[0]
+    datetr = tr[0]
+    today = []
+    if datesen.year == date_now.year and datesen.month == date_now.month and datesen.day == date_now.day:
+        senng = True
+        # js.append('js')
+        # today.append(js)
+    else:
+        senng = False
+    if datejs.year == date_now.year and datejs.month == date_now.month and datejs.day == date_now.day:
+        jsng = True
+        # js.append('js')
+        # today.append(js)
+    else:
+        jsng = False
+    if datejm.year == date_now.year and datejm.month == date_now.month and datejm.day == date_now.day:
+        jmng = True
+        # jm.append('jm')
+        # today.append(jm)
+    else:
+        jmng = False
+    if datetr.year == date_now.year and datetr.month == date_now.month and datetr.day == date_now.day:
+        trng = True
+        # tr.append('tr')
+        # today.append(tr)
+    else:
+        trng = False
+
+    next_bool = [senng, jsng, jmng, trng]
+
     # Create cursor
     cur = get_db()
 
@@ -104,13 +176,11 @@ def news():
     articles = result.fetchall()
 
     if result is None:
-        slider = True
         msg = "nie znaleziono artykułów"
-        return render_template('home.html', msg=msg, slider=slider)
+        return render_template('news.html', msg=msg)
 
     else:
-        slider = True
-        return render_template('home.html', articles=articles, slider=slider)
+        return render_template('news.html', articles=articles, next_bool=next_bool, next_game=next_game, celuloza19ng=celuloza19ng, next_gamejm=next_gamejm, next_gametr=next_gametr, senng=senng, jsng=jsng, jmng=jmng, trng=trng)
 
     # close connection
     cur.close()
