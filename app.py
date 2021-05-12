@@ -14,17 +14,6 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'secret123'
 
-# Config sqlite
-
-# connection = sqlite3.connect("next.db")
-# cursor = connection.cursor()
-# test = cursor.execute("SELECT home, guest, date, result FROM NextGame WHERE id = 1" ).fetchone()
-
-# home = test[0]
-# guest = test[1]
-# date = test[2]
-# result = test[3]
-
 DATABASE = 'news.db'
 
 last = last()
@@ -139,29 +128,21 @@ def news():
     datejs = js[0]
     datejm = jm[0]
     datetr = tr[0]
-    today = []
     if datesen.year == date_now.year and datesen.month == date_now.month and datesen.day == date_now.day:
         senng = True
-        # js.append('js')
-        # today.append(js)
     else:
         senng = False
     if datejs.year == date_now.year and datejs.month == date_now.month and datejs.day == date_now.day:
         jsng = True
-        # js.append('js')
-        # today.append(js)
     else:
         jsng = False
     if datejm.year == date_now.year and datejm.month == date_now.month and datejm.day == date_now.day:
         jmng = True
-        # jm.append('jm')
-        # today.append(jm)
+
     else:
         jmng = False
     if datetr.year == date_now.year and datetr.month == date_now.month and datetr.day == date_now.day:
         trng = True
-        # tr.append('tr')
-        # today.append(tr)
     else:
         trng = False
 
