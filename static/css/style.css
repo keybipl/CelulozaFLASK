@@ -3,7 +3,7 @@
 }
 
 header {
-    height: 106px;
+    height: 150px;
 }
 
 .container .navbar-brand img {
@@ -36,6 +36,18 @@ header {
 
 .dropdown-item {
     text-transform: uppercase;
+}
+
+nav .stripe {
+    position: fixed;
+    top: 140px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 190px;
+    width: 100%;
+    background-image: url("/static/images/stripe.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .carousel-inner {
