@@ -39,11 +39,12 @@ header {
 }
 
 nav .stripe {
+    z-index: -1000;
     position: fixed;
     top: 140px;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 190px;
+    height: 140px;
     width: 100%;
     background-image: url("/static/images/stripe.jpg");
     background-repeat: no-repeat;

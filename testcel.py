@@ -3,12 +3,8 @@ from pony.orm import *
 from datetime import datetime
 import time
 
-celuloza = next_game()
-celuloza_last = last()
-db = Database()
 
-print('next', celuloza)
-print('last', celuloza_last)
+db = Database()
 
 
 class NextGame(db.Entity):
@@ -32,6 +28,13 @@ set_sql_debug(True)
 #              guest=celuloza[1], date=celuloza[2], result=celuloza[3])
 
 while True:
+
+    celuloza = next_game()
+    celuloza_last = last()
+
+    print('next', celuloza)
+    print('last', celuloza_last)
+
     with db_session:
         home = NextGame[1].home
         guest = NextGame[1].guest

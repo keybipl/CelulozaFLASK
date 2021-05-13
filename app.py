@@ -8,7 +8,6 @@ from next_game import last, next_game
 from lnp import game, tjm, tr, tablejs, tablejm, tabletr, celuloza19, celulozajm, celulozatr
 from next_lzpn import next_game
 import datetime
-from pony.orm import *
 
 app = Flask(__name__)
 
