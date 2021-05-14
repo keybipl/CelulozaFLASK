@@ -3,7 +3,7 @@
 }
 
 header {
-    height: 150px;
+    height: 200px;
 }
 
 .container .navbar-brand img {
@@ -12,6 +12,7 @@ header {
 
 .navbar {
     z-index: 1030;
+    top: 90px;
 }
 
 .container .navbar-brand {
@@ -38,17 +39,19 @@ header {
     text-transform: uppercase;
 }
 
-nav .stripe {
-    z-index: -1000;
+.stripe {
     position: fixed;
-    top: 140px;
+    top: 0;
+    margin: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
-    height: 140px;
+    transform: translate(-50%);
+    height: 90px;
     width: 100%;
     background-image: url("/static/images/stripe.jpg");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
+    padding: 0;
 }
 
 .carousel-inner {
