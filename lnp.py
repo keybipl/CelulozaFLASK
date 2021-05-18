@@ -4,7 +4,7 @@ import datetime
 
 
 def celulozatr():
-    URL = 'https://www.laczynaspilka.pl/rozgrywki/nizsze-ligi-juniorzy,40479.html?round=0'
+    URL = 'https://www2.laczynaspilka.pl/rozgrywki/nizsze-ligi-juniorzy,40479.html?round=0'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
@@ -78,7 +78,7 @@ def celulozatr():
 
 
 def celulozajm():
-    URL = 'https://www.laczynaspilka.pl/rozgrywki/nizsze-ligi-juniorzy,40045.html?round=0'
+    URL = 'https://www2.laczynaspilka.pl/rozgrywki/nizsze-ligi-juniorzy,40045.html?round=0'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
@@ -151,7 +151,7 @@ def celulozajm():
 
 
 def celuloza19():
-    URL = 'https://www.laczynaspilka.pl/rozgrywki/clj,40143.html?round=0'
+    URL = 'https://www2.laczynaspilka.pl/rozgrywki/clj,40143.html?round=0'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
@@ -224,7 +224,7 @@ def celuloza19():
 
 
 def game():
-    URL = 'https://www.laczynaspilka.pl/rozgrywki/clj,40143.html?round=0'
+    URL = 'https://www2.laczynaspilka.pl/rozgrywki/clj,40143.html?round=0'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
@@ -299,7 +299,7 @@ def game():
 
 
 def tjm():
-    URL = 'https://www.laczynaspilka.pl/rozgrywki/nizsze-ligi-juniorzy,40045.html?round=0'
+    URL = 'https://www2.laczynaspilka.pl/rozgrywki/nizsze-ligi-juniorzy,40045.html?round=0'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
@@ -377,7 +377,7 @@ def tjm():
 
 
 def tr():
-    URL = 'https://www.laczynaspilka.pl/rozgrywki/nizsze-ligi-juniorzy,40479.html?round=0'
+    URL = 'https://www2.laczynaspilka.pl/rozgrywki/nizsze-ligi-juniorzy,40479.html?round=0'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
@@ -458,7 +458,7 @@ def tr():
 
 
 def tablejs():
-    URL = 'https://www.laczynaspilka.pl/rozgrywki-tabela/clj,40143.html'
+    URL = 'https://www2.laczynaspilka.pl/rozgrywki-tabela/clj,40143.html'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
@@ -484,7 +484,7 @@ def tablejs():
 
 
 def tablejm():
-    URL = 'https://www.laczynaspilka.pl/rozgrywki-tabela/nizsze-ligi-juniorzy,40045.html'
+    URL = 'https://www2.laczynaspilka.pl/rozgrywki-tabela/nizsze-ligi-juniorzy,40045.html'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 
@@ -510,7 +510,7 @@ def tablejm():
 
 
 def tabletr():
-    URL = 'https://www.laczynaspilka.pl/rozgrywki-tabela/nizsze-ligi-juniorzy,40479.html'
+    URL = 'https://www2.laczynaspilka.pl/rozgrywki-tabela/nizsze-ligi-juniorzy,40479.html'
     page = get(URL)
     bs = BeautifulSoup(page.content, 'html.parser')
 

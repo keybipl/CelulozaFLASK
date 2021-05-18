@@ -45,6 +45,7 @@ while True:
         home_last = NextGame[2].home
         guest_last = NextGame[2].guest
         date_last = NextGame[2].date
+        result_last = NextGame[2].result
 
     homecel = celuloza[0]
     guestcel = celuloza[1]
@@ -61,7 +62,7 @@ while True:
     datecel_last = celuloza_last[2]
     resultcel_last = celuloza_last[3]
 
-    if home_last != homecel_last or guest_last != guestcel_last:
+    if home_last != homecel_last or guest_last != guestcel_last or result_last != resultcel_last:
         with db_session:
             NextGame[2].home = homecel_last
             NextGame[2].guest = guestcel_last
