@@ -28,3 +28,8 @@
     <img src="{{ url_for('static', filename='images/jm.jpg') }}" alt="Makroregion" class="img-fluid">
 </div>
 {% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/celuloza.js') }}"></script>
+<script src="{{ url_for('static', filename='js/last.js') }}"></script>
+{% endblock %}
