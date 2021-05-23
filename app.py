@@ -71,13 +71,16 @@ def make_dicts(cursor, row):
                 for idx, value in enumerate(row))
 
 
-@app.context_processor
-def inject_user():
-
+def gry():
     cur = get_db()
     result = cur.execute("SELECT * FROM NextGame ORDER BY id DESC")
-    games = result.fetchall()
+    gry = result.fetchall()
+    return gry
 
+
+@app.context_processor
+def inject_user():
+    games = gry()
     return dict(last=last, next_game=next_game, games=games)
 
 
@@ -302,7 +305,7 @@ def contact():
     # result = cur.execute("SELECT * FROM NextGame ORDER BY id DESC")
 
     # games = result.fetchall()
-    return render_template('kontakt.html')
+    return render_template('kontakt.html', games=games)
 
     # cur.close()
 

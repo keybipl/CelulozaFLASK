@@ -61,7 +61,7 @@ def celulozatr():
     celulozatr = []
     for game in games:
         substring = 'KOSTRZYN'
-        if substring in game[4]:
+        if substring in game[4] or substring in game[5]:
             day = int(game[0])
             month = int(game[1])
             year = int(game[2])
@@ -75,6 +75,9 @@ def celulozatr():
             celulozatr.append(game)
 
     return celulozatr
+
+celulozatr()
+
 
 
 def celulozajm():
