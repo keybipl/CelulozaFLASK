@@ -19,7 +19,7 @@ const clubs = {
     pomologia: "pomologia.png",
     rakow: "rakow.png",
     miedz: "miedz.jpg",
-    stilon: "stilon.jpg",
+    stilon: "stilon.png",
     brzeg: "brzeg.png",
     maksymilian: 'maksymilian.png',
     zap: 'zap.png',
@@ -83,6 +83,9 @@ for (let i = 0; i < change.length; i++) {
     if (club[i].innerText.toUpperCase() == 'Łucznik Strzelce Krajeńskie'.toUpperCase()) {
         change[i].src = `/static/images/${clubs.lucznik}`;
     };
+    if (club[i].innerText.toUpperCase() == 'ŁUCZNIK STRZELCE KRAJ.'.toUpperCase()) {
+        change[i].src = `/static/images/${clubs.lucznik}`;
+    };
     if (club[i].innerText.toUpperCase() == 'Kasztelania Santok'.toUpperCase()) {
         change[i].src = `/static/images/${clubs.kasztelania}`;
     };
@@ -118,6 +121,9 @@ for (let i = 0; i < change.length; i++) {
     };
     if (club[i].innerText.toUpperCase() == 'MKS CZARNI ŻAGAŃ 1957'.toUpperCase()) {
         change[i].src = `/static/images/${clubs.zagan}`;
+    };
+    if (club[i].innerText.toUpperCase() == 'KS LECHIA I ZIELONA GÓRA'.toUpperCase()) {
+        change[i].src = `/static/images/${clubs.lechia}`;
     };
     if (club[i].innerText.toUpperCase() == 'KS LECHIA II ZIELONA GÓRA'.toUpperCase()) {
         change[i].src = `/static/images/${clubs.lechia}`;
