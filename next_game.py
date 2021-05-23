@@ -70,7 +70,7 @@ def last():
 
     last = last_rival[-1]
 
-    print(last)
+    # print(last)
 
     return last
 
@@ -117,4 +117,4 @@ def next_game():
     return next_game
 
 
-# next_game()
+next_game()

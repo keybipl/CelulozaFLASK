@@ -76,8 +76,6 @@ def celulozatr():
 
     return celulozatr
 
-celulozatr()
-
 
 
 def celulozajm():
