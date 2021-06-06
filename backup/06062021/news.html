@@ -12,7 +12,7 @@
 
 <h4 class="text-center">Senior</h4>
 
-{% set ts = games[1][3] | string %}
+{% set ts = next_game[2] | string %}
 <p class="date text-center">{{ts[8:10]}}.{{ts[5:7]}}.{{ts[0:4]}} g.{{ts[11:16]}}</p>
 <div class="table-responsive mb-5">
     <table class="table w-100 table-responsive">
@@ -26,9 +26,9 @@
         </tr>
         <tr>
             <td class="col host all text-center club">
-                {{games[1][1]}}
+                {{next_game[0]}}
             </td>
-            <td class="col guest all text-center club">{{games[1][2]}}</td>
+            <td class="col guest all text-center club">{{next_game[1]}}</td>
         </tr>
     </table>
 </div>

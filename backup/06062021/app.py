@@ -148,8 +148,6 @@ def news():
     else:
         trng = False
 
-    games = gry()
-
     next_bool = [senng, jsng, jmng, trng]
 
     # Create cursor
@@ -165,9 +163,7 @@ def news():
         return render_template('news.html', msg=msg)
 
     else:
-        return render_template('news.html', articles=articles, next_bool=next_bool, next_game=next_game,
-                               celuloza19ng=celuloza19ng, next_gamejm=next_gamejm, next_gametr=next_gametr,
-                               senng=senng, jsng=jsng, jmng=jmng, trng=trng,games=games)
+        return render_template('news.html', articles=articles, next_bool=next_bool, next_game=next_game, celuloza19ng=celuloza19ng, next_gamejm=next_gamejm, next_gametr=next_gametr, senng=senng, jsng=jsng, jmng=jmng, trng=trng)
 
     # close connection
     cur.close()
