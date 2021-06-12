@@ -3,7 +3,7 @@
 {% block body %}
 
 <div class="head text-uppercase text-center">Terminarz junior młodszy</div>
-    {% if next_gamejm[0] != '-' %}
+
 <h4 class="mt-3">Następny mecz:</h4>
 {% set ts = next_gamejm[0] | string %}
 <p class="date">{{ts[8:10]}}.{{ts[5:7]}}.{{ts[0:4]}} g.{{ts[11:16]}}</p>
@@ -25,7 +25,6 @@
         </tr>
     </table>
 </div>
-    {% endif %}
 
 {% if tjm == False %}
 

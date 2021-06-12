@@ -107,12 +107,8 @@ def news():
             g = [date, g[1], g[2], g[3], g[4]]
             celulozangjm.append(g)
 
-    try:
-        next_rival = sorted(celulozangjm, key=lambda x: x[0])
-        next_gamejm = next_rival[0]
-
-    except:
-        next_rival = ['-', '-', '-', '-', '-']
+    next_rival = sorted(celulozangjm, key=lambda x: x[0])
+    next_gamejm = next_rival[0]
 
     celulozangtr = []
     for g in celulozatr:
@@ -126,13 +122,7 @@ def news():
     next_gametr = next_rival[0]
 
     js = celuloza19ng
-
-    try:
-        jm = next_gamejm
-    except:
-        jm = ['-', '-', '-', '-', '-']
-        next_gamejm = ['-', '-', '-', '-', '-']
-
+    jm = next_gamejm
     tr = next_gametr
     sen = next_game
     date_now = datetime.datetime.now()
@@ -148,8 +138,9 @@ def news():
         jsng = True
     else:
         jsng = False
-    if datejm != '-' and datejm.year == date_now.year and datejm.month == date_now.month and datejm.day == date_now.day:
+    if datejm.year == date_now.year and datejm.month == date_now.month and datejm.day == date_now.day:
         jmng = True
+
     else:
         jmng = False
     if datetr.year == date_now.year and datetr.month == date_now.month and datetr.day == date_now.day:
@@ -176,7 +167,7 @@ def news():
     else:
         return render_template('news.html', articles=articles, next_bool=next_bool, next_game=next_game,
                                celuloza19ng=celuloza19ng, next_gamejm=next_gamejm, next_gametr=next_gametr,
-                               senng=senng, jsng=jsng, jmng=jmng, trng=trng, games=games)
+                               senng=senng, jsng=jsng, jmng=jmng, trng=trng,games=games)
 
     # close connection
     cur.close()
@@ -275,13 +266,10 @@ def home():
         return render_template('news.html', msg=msg)
 
     else:
-        return render_template('news.html', articles=articles, next_bool=next_bool, next_game=next_game,
-                               celuloza19ng=celuloza19ng, next_gamejm=next_gamejm, next_gametr=next_gametr, senng=senng,
-                               jsng=jsng, jmng=jmng, trng=trng)
+        return render_template('news.html', articles=articles, next_bool=next_bool, next_game=next_game, celuloza19ng=celuloza19ng, next_gamejm=next_gamejm, next_gametr=next_gametr, senng=senng, jsng=jsng, jmng=jmng, trng=trng)
 
     # close connection
     cur.close()
-
 
 # Pojedynczy atykuł
 
@@ -345,10 +333,7 @@ def juniorm():
 
     next_rival = sorted(celulozang, key=lambda x: x[0])
 
-    try:
-        next_gamejm = next_rival[0]
-    except:
-        next_gamejm = ['-', '-', '-', '-', '-']
+    next_gamejm = next_rival[0]
 
     return render_template('juniorm.html', next_gamejm=next_gamejm)
 
@@ -389,8 +374,7 @@ def loop():
 
 @app.route("/schedule")
 def schedule():
-    return render_template('terminarz.html', clubs=clubs, terms=terms, wynik=wynik, kolejka=kolejka, pauza=pauza,
-                           last=last)
+    return render_template('terminarz.html', clubs=clubs, terms=terms, wynik=wynik, kolejka=kolejka, pauza=pauza, last=last)
 
 
 @app.route("/schedulejm")
@@ -407,11 +391,7 @@ def schedulejm():
 
     next_rival = sorted(celulozang, key=lambda x: x[0])
 
-    try:
-        next_gamejm = next_rival[0]
-    except:
-        next_gamejm = ['-', '-', '-', '-', '-']
-
+    next_gamejm = next_rival[0]
     return render_template('terminarzjm.html', tjm=tjm, next_gamejm=next_gamejm)
 
 
@@ -428,6 +408,8 @@ def schedulejs():
 
     next_games = [elem for elem in celulozang if elem[0]]
     next_rival = sorted(next_games, key=lambda x: x[0])
+
+    # print(next_rival)
 
     celuloza19ng = next_rival[0]
 
@@ -553,7 +535,6 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
 
-
 # User login
 
 
@@ -600,7 +581,6 @@ def login():
 
     return render_template('login.html')
 
-
 # Check if user logged in
 
 
@@ -612,9 +592,7 @@ def is_logged_in(f):
         else:
             flash('Proszę się zalogować', 'danger')
             return redirect(url_for('login'))
-
     return wrap
-
 
 # Wylogowanie
 
