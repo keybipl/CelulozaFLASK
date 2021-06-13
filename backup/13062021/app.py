@@ -6,7 +6,7 @@ import sqlite3
 from minut import zestaw_par, term, wyniki, date, pause, club, games, points, goals
 from next_game import last, next_game
 from lnp import game, tjm, tr, tablejs, tablejm, tabletr, celuloza19, celulozajm, celulozatr
-# from next_lzpn import next_game
+from next_lzpn import next_game
 import datetime
 
 app = Flask(__name__)
