@@ -104,13 +104,14 @@ def next_game():
                 next_game = [dane[i][0], dane[i][1], date, dane[i][3]]
                 lista.append(next_game)
 
-    next_games = [elem for elem in lista if elem[2]]
+    try:
+        next_games = [elem for elem in lista if elem[2]]
+        next_rival = sorted(next_games, key=lambda x: x[2])
+        next_game = next_rival[0]
+    except:
+        next_game = ['-', '-', datetime.datetime(1111, 6, 19, 17, 0), '-']
 
-    next_rival = sorted(next_games, key=lambda x: x[2])
-
-    # print(next_rival)
-
-    next_game = next_rival[0]
+    # next_game = ['-', '-', datetime.datetime(1111, 6, 19, 17, 0), '-']
 
     # print(next_game)
 

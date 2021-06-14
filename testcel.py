@@ -51,7 +51,9 @@ while True:
     guestcel = celuloza[1]
     datecel = celuloza[2]
 
-    if home != homecel or guest != guestcel:
+    print(datecel)
+
+    if home != homecel or guest != guestcel or date != datecel:
         with db_session:
             NextGame[1].home = homecel
             NextGame[1].guest = guestcel
