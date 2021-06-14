@@ -129,7 +129,6 @@ def news():
     except:
         next_gametr = ['-', '-', '-', '-', '-']
 
-
     js = celuloza19ng
     jm = next_gamejm
     tr = next_gametr
@@ -311,16 +310,7 @@ def coaches():
 
 @app.route("/contact")
 def contact():
-    # Create cursor
-    # cur = get_db()
-
-    # # get articles
-    # result = cur.execute("SELECT * FROM NextGame ORDER BY id DESC")
-
-    # games = result.fetchall()
-    return render_template('kontakt.html', games=games)
-
-    # cur.close()
+    return render_template('kontakt.html')
 
 
 @app.route("/history")
