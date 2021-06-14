@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="head text-uppercase text-center">Terminarz junior młodszy</div>
+    {% if next_gamejm[0] != '-' %}
+<h4 class="mt-3">Następny mecz:</h4>
+{% set ts = next_gamejm[0] | string %}
+<p class="date">{{ts[8:10]}}.{{ts[5:7]}}.{{ts[0:4]}} g.{{ts[11:16]}}</p>
+<div class="table-responsive mb-5">
+    <table class="table w-100 table-responsive">
+        <tr>
+            <td class="col text-center"><img class="img-fluid w-25 change"
+                    src="{{url_for('static', filename='images/logo.png')}}" alt="
+                    logo"></td>
+            <td class="col text-center"><img class="img-fluid w-25 pb-3 change"
+                    src="{{url_for('static', filename='images/logo.png')}}" alt="
+                    logo"></td>
+        </tr>
+        <tr>
+            <td class="col host all text-center club">
+                {{next_gamejm[1]}}
+            </td>
+            <td class="col guest all text-center club">{{next_gamejm[2]}}</td>
+        </tr>
+    </table>
+</div>
+    {% endif %}
+
+{% if tjm == False %}
+
+<div class="alert alert-primary" role="alert">
+    Terminarz chwilowo niedostępny. Przepraszamy.
+</div>
+
+{% else %}
+
+{% for k in range(14) %}
+
+<h4>Kolejka {{k+1}}</h4>
+<div class="table-responsive">
+    <table class="table w-100 table-responsive">
+        <tr>{% for i in range(4) %}
+            <td class="col host all">
+                {{tjm[k][i][4]}}
+            </td>
+            <td class="col guest all">{{tjm[k][i][5]}}</td>
+            <td class="col result all"><strong>{{tjm[k][i][6]}}</strong></td>
+            <td class="col term all">{{tjm[k][i][0]}}.{{tjm[k][i][1]}}.{{tjm[k][i][2]}} g. {{tjm[k][i][3]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<p class="mb-5"></p>
+{% endfor %}
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/celuloza.js') }}"></script>
+{% endblock %}
