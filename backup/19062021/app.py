@@ -150,7 +150,7 @@ def news():
         jmng = True
     else:
         jmng = False
-    if datetr != '-' and datetr.year == date_now.year and datetr.month == date_now.month and datetr.day == date_now.day:
+    if datetr.year == date_now.year and datetr.month == date_now.month and datetr.day == date_now.day:
         trng = True
     else:
         trng = False
@@ -225,12 +225,8 @@ def home():
             g = [date, g[1], g[2], g[3], g[4]]
             celulozangtr.append(g)
 
-    try:
-        next_rival = sorted(celulozangtr, key=lambda x: x[0])
-        next_gametr = next_rival[0]
-    except:
-        next_gametr = ['-', '-', '-', '-', '-']
-
+    next_rival = sorted(celulozangtr, key=lambda x: x[0])
+    next_gametr = next_rival[0]
 
     js = celuloza19ng
     jm = next_gamejm
@@ -253,7 +249,7 @@ def home():
         jmng = True
     else:
         jmng = False
-    if datetr != '-' and datetr.year == date_now.year and datetr.month == date_now.month and datetr.day == date_now.day:
+    if datetr.year == date_now.year and datetr.month == date_now.month and datetr.day == date_now.day:
         trng = True
     else:
         trng = False
@@ -417,12 +413,10 @@ def schedulejs():
             g = [date, g[1], g[2], g[3], g[4]]
             celulozang.append(g)
 
-    next_rival = sorted(celulozang, key=lambda x: x[0])
+    next_games = [elem for elem in celulozang if elem[0]]
+    next_rival = sorted(next_games, key=lambda x: x[0])
 
-    try:
-        celuloza19ng = next_rival[0]
-    except:
-        celuloza19ng = ['-', '-', '-', '-', '-']
+    celuloza19ng = next_rival[0]
 
     return render_template('terminarzjs.html', game=game, celuloza19ng=celuloza19ng)
 
@@ -438,14 +432,10 @@ def scheduletr():
             g = [date, g[1], g[2], g[3], g[4]]
             celulozang.append(g)
 
+    next_games = [elem for elem in celulozang if elem[0]]
+    next_rival = sorted(next_games, key=lambda x: x[0])
 
-    next_rival = sorted(celulozang, key=lambda x: x[0])
-
-    try:
-        next_gametr = next_rival[0]
-    except:
-        next_gametr = ['-', '-', '-', '-', '-']
-
+    next_gametr = next_rival[0]
     return render_template('terminarztr.html', tr=tr, next_gametr=next_gametr)
 
 
@@ -491,12 +481,10 @@ def tramp():
             g = [date, g[1], g[2], g[3], g[4]]
             celulozang.append(g)
 
-    next_rival = sorted(celulozang, key=lambda x: x[0])
+    next_games = [elem for elem in celulozang if elem[0]]
+    next_rival = sorted(next_games, key=lambda x: x[0])
 
-    try:
-        next_gametr = next_rival[0]
-    except:
-        next_gametr = ['-', '-', '-', '-', '-']
+    next_gametr = next_rival[0]
 
     return render_template('trampkarz.html', next_gametr=next_gametr)
 
