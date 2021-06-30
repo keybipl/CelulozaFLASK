@@ -142,7 +142,7 @@ def news():
         senng = True
     else:
         senng = False
-    if datejs.year == date_now.year and datejs.month == date_now.month and datejs.day == date_now.day:
+    if datejs != '-' and datejs.year == date_now.year and datejs.month == date_now.month and datejs.day == date_now.day:
         jsng = True
     else:
         jsng = False
@@ -245,7 +245,7 @@ def home():
         senng = True
     else:
         senng = False
-    if datejs.year == date_now.year and datejs.month == date_now.month and datejs.day == date_now.day:
+    if datejs != '-' and datejs.year == date_now.year and datejs.month == date_now.month and datejs.day == date_now.day:
         jsng = True
     else:
         jsng = False
@@ -355,12 +355,13 @@ def juniors():
             g = [date, g[1], g[2], g[3], g[4]]
             celulozang.append(g)
 
-    next_games = [elem for elem in celulozang if elem[0]]
-    next_rival = sorted(next_games, key=lambda x: x[0])
+    try:
+        next_games = [elem for elem in celulozang if elem[0]]
+        next_rival = sorted(next_games, key=lambda x: x[0])
+        celuloza19ng = next_rival[0]
 
-    # print(next_rival)
-
-    celuloza19ng = next_rival[0]
+    except:
+        celuloza19ng = ['-', '-', '-', '-', '-']
 
     return render_template('juniors.html', celuloza19ng=celuloza19ng)
 
